@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,4 +40,24 @@ public class MainActivity extends AppCompatActivity {
         mDb = DatabaseClient.getInstance(getApplicationContext());
     }
 
+    private void MainActivity_Connexion(View view){
+        // Création d'une intention
+        Intent intent = new Intent(this, ConnectionActivity.class);
+        // Lancement de la demande de changement d'activité
+        startActivityForResult(intent, REQUEST_CODE_ADD);
+    }
+
+    private void MainActivity_Inscription(View view){
+        // Création d'une intention
+        Intent intent = new Intent(this, InscriptionActivity.class);
+        // Lancement de la demande de changement d'activité
+        startActivityForResult(intent, REQUEST_CODE_ADD);
+    }
+
+    private void MainActivity_Anonyme(View view){
+        // Création d'une intention
+        Intent intent = new Intent(this, HomePageActivity.class);
+        // Lancement de la demande de changement d'activité
+        startActivityForResult(intent, REQUEST_CODE_ADD);
+    }
 }

@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ConnectionActivity" />
+        <activity android:name=".InscriptionActivity" />
+        <activity android:name=".QASActivity" />
+        <activity android:name=".QATActivity" />
+        <activity android:name=".QCMActivity" />
+        <activity android:name=".ResultActivity" />
     </application>
 
 </manifest>
