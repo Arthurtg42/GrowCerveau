@@ -1,4 +1,6 @@
 package mi1.todolist;
 
-public class ResultActivty {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ResultActivty extends AppCompatActivity {
 }

@@ -1,4 +1,6 @@
 package mi1.todolist;
 
-public class InscriptionActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class InscriptionActivity extends AppCompatActivity {
 }

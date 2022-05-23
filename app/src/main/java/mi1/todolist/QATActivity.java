@@ -1,4 +1,6 @@
 package mi1.todolist;
 
-public class QATActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class QATActivity extends AppCompatActivity {
 }
