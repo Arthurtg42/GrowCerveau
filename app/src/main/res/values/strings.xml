@@ -15,6 +15,23 @@
 
     <!-- InscriptionActivity -->
 
+    <!-- QATActivity -->
+
+    <string name="QATActivity_valider">Valider</string>
+    <string name="QATActivity_hint_rep">...</string>
+    <string name="QATActivity_bloc1_default">Bloc 1</string>
+    <string name="QATActivity_bloc2_default">Bloc 2</string>
+    <string name="QATActivity_consigne_default">Consignes</string>
+
+    <!-- QASActivity -->
+
+    <string name="QASActivity_valider">Valider</string>
+    <string name="QASActivity_consigne_default">Consigne</string>
+
+    <!-- QASActivity Template -->
+
+    <string name="QASTemplate_enonce_default">Enoncé</string>
+    <string name="QASTemplate_hint">\?</string>
 
 
 </resources>
