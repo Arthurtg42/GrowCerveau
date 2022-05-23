@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(primaryKeys = {"idE", "idQ"})
 public class AssociationQ_E implements Serializable {
 
-    @PrimaryKey
+    @ColumnInfo(name = "idQ")
     private int idQ;
 
-    @PrimaryKey
+    @ColumnInfo(name = "idE")
     private int idE;
 
     /*
