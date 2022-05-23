@@ -24,7 +24,7 @@ public class DatabaseClient {
         // Créer l'objet représentant la base de données de votre application
         // à l'aide du "Room database builder"
         // MyToDos est le nom de la base de données
-        appDatabase = Room.databaseBuilder(context, AppDatabase.class, "MyToDos").build();
+        appDatabase = Room.databaseBuilder(context, AppDatabase.class, "GrowCerveau").build();
 
         ////////// REMPLIR LA BD à la première création à l'aide de l'objet roomDatabaseCallback
         // Ajout de la méthode addCallback permettant de populate (remplir) la base de données à sa création

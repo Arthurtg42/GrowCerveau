@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/ConnectionActivity_pseudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ConnectionActivity_hint_pseudo"/>
+
+    <EditText
+        android:id="@+id/ConnectionActivity_mdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ConnectionActivity_hint_mdp"/>
+
+    <Button
+        android:id="@+id/ConnectionActivity_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ConnectionActivity_btn_connex"/>
+
+</LinearLayout>

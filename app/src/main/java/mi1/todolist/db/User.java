@@ -8,17 +8,22 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity
-public class Task implements Serializable {
+public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "task")
-    private String task;
+    @ColumnInfo(name = "pseudo")
+    private String pseudo;
 
-    @ColumnInfo(name = "description")
-    private String description;
+    @ColumnInfo(name = "nom")
+    private String nom;
 
+    @ColumnInfo(name = "prenom")
+    private String prenom;
+
+    @ColumnInfo(name = "mdp")
+    private String mdp;
 
     /*
      * Getters and Setters
@@ -31,20 +36,36 @@ public class Task implements Serializable {
         this.id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public String getNom() {
+        return nom;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPreom() {
+        return prenom;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
 }

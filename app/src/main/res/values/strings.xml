@@ -1,7 +1,20 @@
 <resources>
     <string name="app_name">TodoList</string>
 
+    <!-- MainActivity -->
+
     <string name="MainActivity_btn_connex">Se connecter</string>
-    <string name="MainActivity_btn_inscript">S'inscrire</string>
+    <string name="MainActivity_btn_inscript">S\'inscrire</string>
     <string name="MainActivity_btn_anonyme">Continuer en anonyme</string>
+
+    <!-- ConnectionActivity -->
+
+    <string name="ConnectionActivity_btn_connex">Se connecter</string>
+    <string name="ConnectionActivity_hint_pseudo">pseudo</string>
+    <string name="ConnectionActivity_hint_mdp">mot de passe</string>
+
+    <!-- InscriptionActivity -->
+
+
+
 </resources>
