@@ -11,21 +11,21 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface UserDAO {
+public interface ExerciceDAO {
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM exercice")
     List<Task> getAll();
 
     @Insert
-    void insert(User user);
+    void insert(Exercice exercice);
 
     @Insert
-    long[] insertAll(User... users);
+    long[] insertAll(Exercice... exercices);
 
     @Delete
-    void delete(User user);
+    void delete(Exercice exercice);
 
     @Update
-    void update(User user);
+    void update(Exercice exercice);
 
 }
