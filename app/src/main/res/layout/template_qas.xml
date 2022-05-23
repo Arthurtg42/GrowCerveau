@@ -10,14 +10,15 @@
         android:id="@+id/template_qas_enonce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/QASTemplate_enonce_default"/>
 
     <EditText
         android:id="@+id/template_qas_reponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="\?"
+        android:hint="@string/QASTemplate_hint"
         />
 
 

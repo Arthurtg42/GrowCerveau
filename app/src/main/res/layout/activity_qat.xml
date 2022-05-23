@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bloc1"
+            android:text="@string/QATActivity_bloc1_default"
             android:gravity="center"
             />
 
@@ -25,13 +25,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="..."
+            android:hint="@string/QATActivity_hint_rep"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bloc2"
+            android:text="@string/QATActivity_bloc2_default"
             android:gravity="center"
             />
 
@@ -41,7 +41,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consigne"
+        android:text="@string/QATActivity_consigne_default"
         android:gravity="center"
         />
 
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/QATActivity_Valider"
+        android:text="@string/QATActivity_valider"
         android:onClick="QATActivity_Valider"/>
 
 </LinearLayout>

@@ -12,25 +12,25 @@
         android:id="@+id/InscriptionActivity_Nom"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Nom"
+        android:hint="@string/InscriptionActivity_hint_nom"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Prenom"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Prénom"
+        android:hint="@string/InscriptionActivity_hint_prenom"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Pseudo"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Pseudo"
+        android:hint="@string/InscriptionActivity_hint_pseudo"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Mot_de_passe"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Mot de passe"
+        android:hint="@string/InscriptionActivity_hint_mdp"
         />
 
     <Button
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/MainActivity_btn_inscript"
+        android:text="@string/InscriptionActivity_btn_inscript"
         android:onClick="InscriptionActivity_Inscription"/>
 
 
