@@ -14,7 +14,7 @@ import java.util.List;
 public interface UserDAO {
 
     @Query("SELECT * FROM user")
-    List<Task> getAll();
+    List<User> getAll();
 
     @Insert
     void insert(User user);
