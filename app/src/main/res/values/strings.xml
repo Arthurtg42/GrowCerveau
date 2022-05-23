@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TodoList</string>
+
+    <string name="MainActivity_btn_connex">Se connecter</string>
+    <string name="MainActivity_btn_inscript">S'inscrire</string>
+    <string name="MainActivity_btn_anonyme">Continuer en anonyme</string>
 </resources>

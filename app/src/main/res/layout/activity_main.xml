@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hello_title"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <ListView
-        android:id="@+id/listTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/button_add"/>
 
 
     <Button
-        android:id="@+id/button_add"
+        android:id="@+id/MainActivity_Connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Ajouter une tâche"/>
+        android:layout_gravity="center"
+        android:text="@string/MainActivity_btn_connex"
+        android:onClick="MainActivity_Connexion"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/MainActivity_Inscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/MainActivity_btn_inscript"
+        android:onClick="MainActivity_Inscription"/>
+
+    <Button
+        android:id="@+id/LP_Anonyme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/MainActivity_btn_anonyme"
+        android:onClick="MainActivity_Anonyme"/>
+
+</LinearLayout>
