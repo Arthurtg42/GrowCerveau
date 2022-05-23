@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hello_title"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ResultatsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/ResultatsActivity_Acceuil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_acceuil"
+            android:onClick="ResultatsActivity_Acceuil"/>
+
+        <Button
+            android:id="@+id/ResultatsActivity_Matière"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_matiere_default"
+            android:onClick="ResultatsActivity_Matière"/>
+
+        <Button
+            android:id="@+id/ResultatsActivity_NouvelleSerie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_nouvelle_serie"
+            android:onClick="ResultatsActivity_NouvelleSerie"/>
+
+    </LinearLayout>
+
+</LinearLayout>
