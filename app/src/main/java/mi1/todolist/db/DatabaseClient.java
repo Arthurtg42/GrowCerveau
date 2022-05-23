@@ -54,8 +54,15 @@ public class DatabaseClient {
             super.onCreate(db);
 
             //
-            db.execSQL("INSERT INTO task (task, description) VALUES(\"tâche 1\", \"installer la librairie Room\");");
-            db.execSQL("INSERT INTO task (task, description) VALUES(\"tâche 2\", \" Créer DatabaseClient\");");
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES(\"totoQuiTue\", \"totoQuiTue\", \"totoQuiTue\", \"123456\");");
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES(\"tataQuiTue\", \"tataQuiTue\", \"tataQuiTue\", \"123456\");");
+            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES(\"consigne trop dur\", \"qcm\", \"francais\");");
+            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES(\"consigne trop simple\", \"qat\", \"histoire\");");
+            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES(\"a\", \"b\", \"c\", \"d\");");
+            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES(\"a\", \"b\", \"\", \"\");");
+            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Quel est le\", \"manquant?\", \"mot\");");
+            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Une hirondelle est un\", \"volant.\", \"animal\");");
+
 
         }
     };
