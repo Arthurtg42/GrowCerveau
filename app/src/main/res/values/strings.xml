@@ -15,6 +15,20 @@
 
     <!-- InscriptionActivity -->
 
+    <string name="InscriptionActivity_btn_inscript">S\'inscrire</string>
+    <string name="InscriptionActivity_hint_nom">Nom</string>
+    <string name="InscriptionActivity_hint_prenom">Prénom</string>
+    <string name="InscriptionActivity_hint_pseudo">Pseudo</string>
+    <string name="InscriptionActivity_hint_mdp">Mot de passe</string>
+
+    <!-- QCMActivity -->
+
+    <string name="QCMActivity_consigne_default">Consignes</string>
+    <string name="QCMActivity_btn_rep1_default">Reponse 1</string>
+    <string name="QCMActivity_btn_rep2_default">Reponse 2</string>
+    <string name="QCMActivity_btn_rep3_default">Reponse 3</string>
+    <string name="QCMActivity_btn_rep4_default">Reponse 4</string>
+
     <!-- QATActivity -->
 
     <string name="QATActivity_valider">Valider</string>
