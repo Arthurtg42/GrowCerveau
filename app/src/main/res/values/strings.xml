@@ -47,5 +47,11 @@
     <string name="QASTemplate_enonce_default">Enoncé</string>
     <string name="QASTemplate_hint">\?</string>
 
+    <!-- ResultatsActivity -->
+
+    <string name="ResultatsActivity_acceuil">Accueil</string>
+    <string name="ResultatsActivity_matiere_default">Matière</string>
+    <string name="ResultatsActivity_nouvelle_serie">Rejouer</string>
+
 
 </resources>
