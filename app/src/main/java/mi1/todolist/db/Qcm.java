@@ -1,17 +1,24 @@
 package mi1.todolist.db;
 
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(foreignKeys = {@ForeignKey(entity = Exercice.class, parentColumns = "id", childColumns = "idE",
+        onUpdate = CASCADE, onDelete = CASCADE)})
 public class Qcm implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "idE")
+    private int idE;
 
     @ColumnInfo(name = "BonneReponse")
     private String bonneReponse;
@@ -36,6 +43,16 @@ public class Qcm implements Serializable {
         this.id = id;
     }
 
+    public int getIdE() { return idE; }
+
+    public void setIdE(int id) {
+        idE = id;
+    }
+
+    public String getBonneReponse() {
+        return bonneReponse;
+    }
+
     public String getMauvaiseReponse1() {
         return mauvaisReponse1;
     }
@@ -46,6 +63,10 @@ public class Qcm implements Serializable {
 
     public String getMauvaiseReponse3() {
         return mauvaisReponse3;
+    }
+
+    public void setBonneReponse1(String bonneReponse) {
+        this.bonneReponse = bonneReponse;
     }
 
     public void setMauvaiseReponse1(String mauvaisReponse1) {

@@ -1,13 +1,20 @@
 package mi1.todolist.db;
 
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(primaryKeys = {"idE", "idQ"})
+@Entity(primaryKeys = {"idE", "idQ"},
+        foreignKeys = {@ForeignKey(entity = Qas.class, parentColumns = "id", childColumns = "idQ",
+                        onUpdate = CASCADE, onDelete = CASCADE),
+                        @ForeignKey(entity = Exercice.class, parentColumns = "id", childColumns = "idE",
+                        onUpdate = CASCADE, onDelete = CASCADE)})
 public class AssociationQ_E implements Serializable {
 
     @ColumnInfo(name = "idQ")

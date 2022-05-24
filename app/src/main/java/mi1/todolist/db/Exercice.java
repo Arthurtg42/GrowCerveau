@@ -1,17 +1,24 @@
 package mi1.todolist.db;
 
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(foreignKeys = {@ForeignKey(entity = SousMatiere.class, parentColumns = "id", childColumns = "idSM",
+        onUpdate = CASCADE, onDelete = CASCADE)})
 public class Exercice implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "idSM")
+    private int idSM;
 
     @ColumnInfo(name = "consigne")
     private String consigne;
@@ -31,6 +38,12 @@ public class Exercice implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdSM() { return idSM; }
+
+    public void setIdSM(int id) {
+        idSM = id;
     }
 
     public String getConsigne() {

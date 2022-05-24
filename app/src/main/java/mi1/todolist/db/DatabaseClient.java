@@ -63,7 +63,6 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Quel est le\", \"manquant?\", \"mot\");");
             db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Une hirondelle est un\", \"volant.\", \"animal\");");
 
-
         }
     };
 }
