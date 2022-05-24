@@ -53,5 +53,8 @@
     <string name="ResultatsActivity_matiere_default">Matière</string>
     <string name="ResultatsActivity_nouvelle_serie">Rejouer</string>
 
+    <!-- NavigationActivity Template -->
+
+    <string name="TemplateNavigation_btn_hint">Matière</string>
 
 </resources>
