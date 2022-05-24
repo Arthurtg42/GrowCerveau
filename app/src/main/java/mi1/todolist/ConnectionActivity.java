@@ -25,9 +25,9 @@ public class ConnectionActivity extends AppCompatActivity {
         mDb = DatabaseClient.getInstance(getApplicationContext());
     }
 
-    private void InscriptionActivity_Connexion(View view){
+    private void ConnectionActivity_Connexion(View view){
         // Création d'une intention
-        Intent intent = new Intent(this, ConnectionActivity.class);
+        Intent intent = new Intent(this, NavigationActivity.class);
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }
