@@ -12,7 +12,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     // DATA
     private DatabaseClient mDb;
-    private MatiereAdapter adapter;
+    private MatieresAdapter adapter;
 
     // VIEW
     private ListView listMatiere;
@@ -24,6 +24,9 @@ public class HomePageActivity extends AppCompatActivity {
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
+        // Récupérer les vues
+        listMatiere = findViewById(R.id.listMatiere);
 
     }
 

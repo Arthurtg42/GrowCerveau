@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -38,12 +38,10 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
         final View rowView = inflater.inflate(R.layout.template_matiere, parent, false);
 
         // Récupération des objets graphiques dans le template
-        TextView textViewTask = (TextView) rowView.findViewById(R.id.textViewTask);
-        TextView textViewDesc = (TextView) rowView.findViewById(R.id.textViewDesc);
+        Button buttonMatiere = (Button) rowView.findViewById(R.id.TemplateMatiere_btn);
 
         //
-        textViewTask.setText(task.getTask());
-        textViewDesc.setText(task.getDescription());
+        buttonMatiere.setText(matiere.getNom());
 
         //
         return rowView;
