@@ -27,7 +27,7 @@ public class ConnectionActivity extends AppCompatActivity {
 
     public void ConnectionActivityConnexion(View view){
 
-        if(true){
+        if(){
             //La connection est réussie
 
             ////////////
