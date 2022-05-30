@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
-        // Récupérer les vues
-        listMatiere = findViewById(R.id.listMatiere);
     }
 
     private void MainActivity_Connexion(View view){
