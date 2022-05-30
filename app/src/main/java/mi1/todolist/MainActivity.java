@@ -42,21 +42,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void MainActivity_Connexion(View view){
+    private void MainActivityConnexion(View view){
         // Création d'une intention
         Intent intent = new Intent(this, ConnectionActivity.class);
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }
 
-    private void MainActivity_Inscription(View view){
+    private void MainActivityInscription(View view){
         // Création d'une intention
         Intent intent = new Intent(this, InscriptionActivity.class);
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }
 
-    private void MainActivity_Anonyme(View view){
+    private void MainActivityAnonyme(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
 
