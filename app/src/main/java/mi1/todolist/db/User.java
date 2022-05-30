@@ -44,7 +44,7 @@ public class User implements Serializable {
         return nom;
     }
 
-    public String getPreom() {
+    public String getPrenom() {
         return prenom;
     }
 
