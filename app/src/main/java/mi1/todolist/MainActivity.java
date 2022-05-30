@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     public void MainActivityAnonyme(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
-
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }
