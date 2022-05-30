@@ -54,7 +54,7 @@ public class Exercice implements Serializable {
         return type;
     }
 
-    public String getPreom() {
+    public String getPrenom() {
         return matiere;
     }
 
