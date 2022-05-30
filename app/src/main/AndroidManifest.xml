@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HomePageActivity" />
         <activity android:name=".ConnectionActivity" />
         <activity android:name=".InscriptionActivity" />
         <activity android:name=".QASActivity" />
