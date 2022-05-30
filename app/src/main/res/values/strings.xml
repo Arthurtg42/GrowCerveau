@@ -57,4 +57,9 @@
 
     <string name="TemplateNavigation_btn_hint">Matière</string>
 
+    <!-- ResultatTemplate Activity -->
+
+    <string name="ResultatTemplate_reponse">Reponse</string>
+    <string name="ResultatTemplate_correction"></string>
+
 </resources>
