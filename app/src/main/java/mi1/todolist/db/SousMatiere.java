@@ -34,7 +34,7 @@ public class SousMatiere implements Serializable {
         this.id = id;
     }
 
-    public int getIdSM() { return idM; }
+    public int getIdM() { return idM; }
 
     public void setIdM(int id) {
         idM = id;

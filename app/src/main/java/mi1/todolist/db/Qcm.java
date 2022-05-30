@@ -24,13 +24,13 @@ public class Qcm implements Serializable {
     private String bonneReponse;
 
     @ColumnInfo(name = "MauvaiseReponse1")
-    private String mauvaisReponse1;
+    private String mauvaiseReponse1;
 
     @ColumnInfo(name = "MauvaiseReponse2")
-    private String mauvaisReponse2;
+    private String mauvaiseReponse2;
 
     @ColumnInfo(name = "MauvaiseReponse3")
-    private String mauvaisReponse3;
+    private String mauvaiseReponse3;
 
     /*
      * Getters and Setters
@@ -54,31 +54,31 @@ public class Qcm implements Serializable {
     }
 
     public String getMauvaiseReponse1() {
-        return mauvaisReponse1;
+        return mauvaiseReponse1;
     }
 
     public String getMauvaiseReponse2() {
-        return mauvaisReponse2;
+        return mauvaiseReponse2;
     }
 
     public String getMauvaiseReponse3() {
-        return mauvaisReponse3;
+        return mauvaiseReponse3;
     }
 
-    public void setBonneReponse1(String bonneReponse) {
+    public void setBonneReponse(String bonneReponse) {
         this.bonneReponse = bonneReponse;
     }
 
     public void setMauvaiseReponse1(String mauvaisReponse1) {
-        this.mauvaisReponse1 = mauvaisReponse1;
+        this.mauvaiseReponse1 = mauvaisReponse1;
     }
 
     public void setMauvaiseReponse2(String mauvaisReponse2) {
-        this.mauvaisReponse2 = mauvaisReponse2;
+        this.mauvaiseReponse2 = mauvaisReponse2;
     }
 
     public void setMauvaiseReponse3(String mauvaisReponse3) {
-        this.mauvaisReponse3 = mauvaisReponse3;
+        this.mauvaiseReponse3 = mauvaisReponse3;
     }
 
 }

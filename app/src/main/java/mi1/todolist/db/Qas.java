@@ -30,11 +30,11 @@ public class Qas implements Serializable {
         this.id = id;
     }
 
-    public String getConsigne() {
+    public String getEnonce() {
         return enonce;
     }
 
-    public String getType() {
+    public String getReponse() {
         return reponse;
     }
 
