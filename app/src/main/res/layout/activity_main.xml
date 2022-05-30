@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/MainActivity_btn_connex"
-        android:onClick="MainActivity_Connexion"/>
+        android:onClick="MainActivityConnexion"/>
 
     <Button
         android:id="@+id/MainActivity_Inscription"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/MainActivity_btn_inscript"
-        android:onClick="MainActivity_Inscription"/>
+        android:onClick="MainActivityInscription"/>
 
     <Button
         android:id="@+id/LP_Anonyme"
@@ -31,6 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/MainActivity_btn_anonyme"
-        android:onClick="MainActivity_Anonyme"/>
+        android:onClick="MainActivityAnonyme"/>
 
 </LinearLayout>
