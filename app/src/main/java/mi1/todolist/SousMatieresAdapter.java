@@ -10,12 +10,13 @@ import android.widget.Button;
 import java.util.List;
 
 import mi1.todolist.db.Matiere;
+import mi1.todolist.db.SousMatiere;
 
 
-public class MatieresAdapter extends ArrayAdapter<Matiere> {
+public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
 
-    public MatieresAdapter(Context mCtx, List<Matiere> matiereList) {
-        super(mCtx, R.layout.template_matiere, matiereList);
+    public SousMatieresAdapter(Context mCtx, List<SousMatiere> sousMatiereList) {
+        super(mCtx, R.layout.template_sous_matiere, sousMatiereList);
     }
 
     /**
@@ -30,19 +31,19 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // Récupération de la multiplication
-        final Matiere matiere = getItem(position);
+        final SousMatiere sousMatiere = getItem(position);
 
         // Charge le template XML
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View rowView = inflater.inflate(R.layout.template_matiere, parent, false);
+        final View rowView = inflater.inflate(R.layout.template_sous_matiere, parent, false);
 
         // Récupération des objets graphiques dans le template
-        Button buttonMatiere = (Button) rowView.findViewById(R.id.TemplateMatiere_btn);
+        Button buttonSousMatiere = (Button) rowView.findViewById(R.id.TemplateSousMatiere_btn);
 
         //
-        buttonMatiere.setText(matiere.getNom());
-        buttonMatiere.setOnClickListener(new View.OnClickListener() {
+        buttonSousMatiere.setText(sousMatiere.getNom());
+        buttonSousMatiere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //this.
