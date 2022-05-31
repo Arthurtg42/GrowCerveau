@@ -53,8 +53,6 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        // Mise à jour des taches
-        getMatieres();
     }
 
 
