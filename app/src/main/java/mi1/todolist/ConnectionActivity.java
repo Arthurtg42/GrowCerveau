@@ -18,11 +18,12 @@ public class ConnectionActivity extends AppCompatActivity {
     //
     private static final int REQUEST_CODE_ADD = 0;
 
+
     // DATA
     private DatabaseClient mDb;
 
-    private EditText Pseudo;
-    private EditText Mdp;
+    public EditText Pseudo;
+    public EditText Mdp;
 
 
     @Override
@@ -46,7 +47,6 @@ public class ConnectionActivity extends AppCompatActivity {
 
                 // adding to database
 
-                Log.d("QUERY", "GOOOOOOOOOOOOOOOOOOOOOD4");
                 if(Pseudo.getText().toString().trim()+"" == ""){
                     Toast.makeText(getApplicationContext(), "Veuillez remplir le Pseudo", Toast.LENGTH_LONG).show();
                 }
@@ -56,7 +56,6 @@ public class ConnectionActivity extends AppCompatActivity {
                 else {
                     return mDb.getAppDatabase().userDao().getLog(Pseudo.getText().toString(), Mdp.getText().toString());
                 }
-                Log.d("QUERY", "GOOOOOOOOOOOOOOOOOOOOOD3");
                 return 0;
 
             }
@@ -65,37 +64,34 @@ public class ConnectionActivity extends AppCompatActivity {
             protected void onPostExecute(Integer idUser) {
                 super.onPostExecute(idUser);
 
-                // Quand la tache est créée, on arrête l'activité AddTaskActivity (on l'enleve de la pile d'activités)
                 setResult(idUser);
-                finish();
 
-                Log.d("QUERY", "GOOOOOOOOOOOOOOOOOOOOOD2");
+                if(idUser != 0){
+                    //La connection est réussie
+
+                    ////////////
+                    // On charge la home page
+                    // Création d'une intention
+                    Intent intent = new Intent(ConnectionActivity.this, HomePageActivity.class);
+                    // Lancement de la demande de changement d'activité
+                    startActivityForResult(intent, REQUEST_CODE_ADD);
+                    finish();
+                }
+                else{
+                    //La connection a échoué, on affiche l'erreur
+                    Toast.makeText(getApplicationContext(), "Mot de passe ou pseudo incorrect", Toast.LENGTH_LONG).show();
+                    //et on reset le champs mdp
+                    Mdp.setText("");
+                }
+
             }
         }
 
-        //On execute
-        CheckConnection st = new CheckConnection();
-        st.execute();
-        /*
-        st.get
+        //On execute en async
+        CheckConnection ChechC = new CheckConnection();
+        ChechC.execute();
 
-        if(idUser != 0){
-            //La connection est réussie
 
-            ////////////
-            // On charge la home page
-            // Création d'une intention
-            Intent intent = new Intent(this, HomePageActivity.class);
-            // Lancement de la demande de changement d'activité
-            startActivityForResult(intent, REQUEST_CODE_ADD);
-            Log.d("QUERY", "GOOOOOOOOOOOOOOOOOOOOOD");
-        }
-        else{
-            //La connection a échoué
-            Toast.makeText(getApplicationContext(), "Mot de passe ou pseudo incorrect", Toast.LENGTH_LONG).show();
-        }
-
-         */
 
     }
 
