@@ -19,17 +19,28 @@ public class ConnectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_connection);
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
     }
 
-    private void ConnectionActivity_Connexion(View view){
-        // Création d'une intention
-        Intent intent = new Intent(this, NavigationActivity.class);
-        // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+    public void ConnectionActivityConnexion(View view){
+
+        if(){
+            //La connection est réussie
+
+            ////////////
+            // On charge la home page
+            // Création d'une intention
+            Intent intent = new Intent(this, MainActivity.class);
+            // Lancement de la demande de changement d'activité
+            startActivityForResult(intent, REQUEST_CODE_ADD);
+        }
+        else{
+            //La connection a échoué
+        }
+
     }
 
 }

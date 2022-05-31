@@ -28,4 +28,7 @@ public interface UserDAO {
     @Update
     void update(User user);
 
+    //@Query("SELECT ID FROM user WHERE mdp = motDePasseLog AND pseudo = pseudoLog")
+    //public User getLog(String pseudoLog, String motDePasseLog);
+
 }
