@@ -73,6 +73,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO matiere (nom) VALUES('Français');");
 
 
+            //Sous Matières
             class AddMat extends AsyncTask<Void, Void, Integer> {
 
                 @Override
@@ -102,41 +103,60 @@ public class DatabaseClient {
             AddMat AddMathSM = new AddMat();
             AddMathSM.execute();
 
+            class AddGeo extends AsyncTask<Void, Void, Integer> {
 
-/*
-            Matiere mat = new Matiere();
-            Integer idMat = new Integer(0);
-            idMat = appDatabase.matiereDao().getIdMat("Mathématiques");
-            if (idMat != 0){
-                //idMat = mat.getId();
-                // Sous Matières Mathématiques
-                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Addition');");
-                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Soustraction');");
-                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Multiplication');");
-                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Division');");
-                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
-            }*/
+                @Override
+                protected Integer doInBackground(Void... voids) {
 
-            /*
-            mat = appDatabase.matiereDao().getMatiere("Histoire et Géographie");
-            if (mat != null){
-                idMat = mat.getId();
-                // Sous Matières Histoire et Géographie
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Capitales');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Pays');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Histoire');");
+                    // adding to database
+                    return appDatabase.matiereDao().getIdMat("Histoire et Géographie");
+
+                }
+
+                @Override
+                protected void onPostExecute(Integer idMat) {
+                    super.onPostExecute(idMat);
+
+                    if (idMat != null){
+                        // Sous Matières Histoire et Géographie
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Capitales');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Pays');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Histoire');");
+                    }
+
+                }
             }
+            //On execute en async
+            AddGeo AddGeoSM = new AddGeo();
+            AddGeoSM.execute();
 
-            mat = appDatabase.matiereDao().getMatiere("Français");
-            if (mat != null){
-                idMat = mat.getId();
-                // Sous Matières Français
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Orthographe');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Grammaire');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Conjuguaison');");
+            class AddFr extends AsyncTask<Void, Void, Integer> {
+
+                @Override
+                protected Integer doInBackground(Void... voids) {
+
+                    // adding to database
+                    return appDatabase.matiereDao().getIdMat("Français");
+
+                }
+
+                @Override
+                protected void onPostExecute(Integer idMat) {
+                    super.onPostExecute(idMat);
+
+                    if (idMat != null){
+                        // Sous Matières Histoire et Géographie
+                        // Sous Matières Français
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Orthographe');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Grammaire');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Conjuguaison');");
+                    }
+
+                }
             }
-
-             */
+            //On execute en async
+            AddFr AddFrSM = new AddFr();
+            AddFrSM.execute();
 
             //Comptes
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tiny', 'robert', 'benjamin', 'tiny');");
