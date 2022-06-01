@@ -22,6 +22,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String MATIERE_KEY = "matiere_key";
 
     // DATA
     private DatabaseClient mDb;
@@ -53,7 +54,9 @@ public class HomePageActivity extends AppCompatActivity {
                 // Récupération de la matière cliquée à l'aide de l'adapter
                 Matiere matiere = adapter.getItem(position);
                 // Création d'une intention
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                Intent intent = new Intent(view.getContext(), NavigationActivity.class);
+                // ajoute la matière à l'intent
+                intent.putExtra(MATIERE_KEY, matiere);
                 // Lancement de la demande de changement d'activité
                 startActivityForResult(intent, REQUEST_CODE_ADD);
                 // Message
@@ -109,10 +112,5 @@ public class HomePageActivity extends AppCompatActivity {
         getMatieres();
 
     }
-
-    /*public void onNav(View view){
-        //Button btnPressed = findViewById(view);
-        Log.d("testi",""+this);
-    }*/
 
 }

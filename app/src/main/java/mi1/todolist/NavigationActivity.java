@@ -24,6 +24,7 @@ public class NavigationActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_ADD = 0;
 
     // DATA
+    private Matiere matiere;
     private DatabaseClient mDb;
     private SousMatieresAdapter adapter;
 
@@ -34,6 +35,9 @@ public class NavigationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+        // Récupération de la matière
+        matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -57,57 +61,10 @@ public class NavigationActivity extends AppCompatActivity {
                 Toast.makeText(NavigationActivity.this, "Click : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
             }
         });
-
-    }
-
-    /**
-     *
-     *
-     */
-    private void getSousMatieres() {
-        ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
-        class GetSousMatieres extends AsyncTask<Void, Void, List<SousMatiere>> {
-
-            @Override
-            protected List<SousMatiere> doInBackground(Void... voids) {
-                List<SousMatiere> sousMatiereList = mDb.getAppDatabase()
-                        .sousMatiereDao()
-                        .getAll();
-                return sousMatiereList;
-            }
-
-            @Override
-            protected void onPostExecute(List<SousMatiere> sousMatieres) {
-                super.onPostExecute(sousMatieres);
-
-                // Mettre à jour l'adapter avec la liste de taches
-                adapter.clear();
-                adapter.addAll(sousMatieres);
-
-                // Now, notify the adapter of the change in source
-                adapter.notifyDataSetChanged();
-            }
-        }
-
-        //////////////////////////
-        // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
-        GetSousMatieres gt = new GetSousMatieres();
-        gt.execute();
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        // Mise à jour des taches
-        getSousMatieres();
-
-    }
-
-    public void GoBackToHomePage(){
+    public void GoBackToHomePage(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
         // Lancement de la demande de changement d'activité
