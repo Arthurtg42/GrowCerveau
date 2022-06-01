@@ -1,7 +1,9 @@
 package mi1.todolist;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -101,5 +103,10 @@ public class HomePageActivity extends AppCompatActivity {
         getMatieres();
 
     }
+
+    /*public void onNav(View view){
+        //Button btnPressed = findViewById(view);
+        Log.d("testi",""+this);
+    }*/
 
 }

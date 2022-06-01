@@ -2,6 +2,9 @@ package mi1.todolist.db;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.room.Room;
@@ -13,6 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
+import mi1.todolist.ConnectionActivity;
+import mi1.todolist.HomePageActivity;
+import mi1.todolist.MainActivity;
+
 public class DatabaseClient {
 
     // Instance unique permettant de faire le lien avec la base de données
@@ -20,6 +27,8 @@ public class DatabaseClient {
 
     // Objet représentant la base de données de votre application
     private AppDatabase appDatabase;
+
+    public static SupportSQLiteDatabase dataBase;
 
     // Constructeur
     private DatabaseClient(final Context context) {
@@ -56,15 +65,49 @@ public class DatabaseClient {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-            Matiere mat = new Matiere();
-            Integer idMat = new Integer(0);
+            dataBase = db;
 
             // Matières
             db.execSQL("INSERT INTO matiere (nom) VALUES('Mathématiques');");
             db.execSQL("INSERT INTO matiere (nom) VALUES('Histoire et Géographie');");
             db.execSQL("INSERT INTO matiere (nom) VALUES('Français');");
 
-            idMat = 1;//appDatabase.matiereDao().getIdMat("Mathématiques");
+
+            class AddMat extends AsyncTask<Void, Void, Integer> {
+
+                @Override
+                protected Integer doInBackground(Void... voids) {
+
+                    // adding to database
+                    return appDatabase.matiereDao().getIdMat("Mathématiques");
+
+                }
+
+                @Override
+                protected void onPostExecute(Integer idMat) {
+                    super.onPostExecute(idMat);
+
+                    if (idMat != 0){
+                        // Sous Matières Mathématiques
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Addition');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Soustraction');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Multiplication');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Division');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
+                    }
+
+                }
+            }
+
+            //On execute en async
+            AddMat AddMathSM = new AddMat();
+            AddMathSM.execute();
+
+
+/*
+            Matiere mat = new Matiere();
+            Integer idMat = new Integer(0);
+            idMat = appDatabase.matiereDao().getIdMat("Mathématiques");
             if (idMat != 0){
                 //idMat = mat.getId();
                 // Sous Matières Mathématiques
@@ -73,7 +116,7 @@ public class DatabaseClient {
                 db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Multiplication');");
                 db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Division');");
                 db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
-            }
+            }*/
 
             /*
             mat = appDatabase.matiereDao().getMatiere("Histoire et Géographie");
@@ -96,17 +139,20 @@ public class DatabaseClient {
 
              */
 
+            //Comptes
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tiny', 'robert', 'benjamin', 'tiny');");
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('totoQuiTue', 'totoQuiTue', 'totoQuiTue', '123456');");
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tataQuiTue', 'tataQuiTue', 'tataQuiTue', '123456');");
 
+            //Questions
             /*
-            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES(\"totoQuiTue\", \"totoQuiTue\", \"totoQuiTue\", \"123456\");");
-            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES(\"tataQuiTue\", \"tataQuiTue\", \"tataQuiTue\", \"123456\");");
-            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES(\"consigne trop dur\", \"qcm\", \"francais\");");
-            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES(\"consigne trop simple\", \"qat\", \"histoire\");");
-            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES(\"a\", \"b\", \"c\", \"d\");");
-            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES(\"a\", \"b\", \"\", \"\");");
-            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Quel est le\", \"manquant?\", \"mot\");");
-            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES(\"Une hirondelle est un\", \"volant.\", \"animal\");");
-            */
+            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop dur', 'qcm', 'francais');");
+            db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop simple', 'qat', 'histoire');");
+            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES('a', 'b', 'c', 'd');");
+            db.execSQL("INSERT INTO qcm (bonnereponse, mauvaisereponse1, mauvaisereponse2, mauvaisereponse3) VALUES('a', 'b', '', '');");
+            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES('Quel est le', 'manquant?', 'mot');");
+            db.execSQL("INSERT INTO qat (bloc1, bloc2, reponse) VALUES('Une hirondelle est un', 'volant.', 'animal');");
+             */
 
         }
     };
