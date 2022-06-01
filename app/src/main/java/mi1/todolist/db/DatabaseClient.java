@@ -98,7 +98,6 @@ public class DatabaseClient {
 
                 }
             }
-
             //On execute en async
             AddMat AddMathSM = new AddMat();
             AddMathSM.execute();
