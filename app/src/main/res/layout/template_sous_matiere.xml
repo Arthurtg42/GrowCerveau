@@ -19,7 +19,7 @@
         android:layout_marginRight="5dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:background="@color/darkgray"
+        android:background="@drawable/drawable_backgroundrounded"
         android:textColor="@color/white"
         android:shadowColor="@color/darkgray"
         android:shadowDx="50"
