@@ -110,9 +110,5 @@ public class HomePageActivity extends AppCompatActivity {
 
     }
 
-    /*public void onNav(View view){
-        //Button btnPressed = findViewById(view);
-        Log.d("testi",""+this);
-    }*/
 
 }
