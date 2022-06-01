@@ -19,6 +19,7 @@
         <activity android:name=".HomePageActivity" />
         <activity android:name=".ConnectionActivity" />
         <activity android:name=".InscriptionActivity" />
+        <activity android:name=".NavigationActivity" />
         <activity android:name=".QASActivity" />
         <activity android:name=".QATActivity" />
         <activity android:name=".QCMActivity" />
