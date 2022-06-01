@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -41,16 +42,10 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
         final View rowView = inflater.inflate(R.layout.template_matiere, parent, false);
 
         // Récupération des objets graphiques dans le template
-        Button buttonMatiere = (Button) rowView.findViewById(R.id.TemplateMatiere_btn);
+        TextView buttonMatiere = (TextView) rowView.findViewById(R.id.TemplateMatiere_btn);
 
         //
         buttonMatiere.setText(matiere.getNom());
-        buttonMatiere.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //HomePageActivity.onNav(position);
-            }
-        });
         //
         return rowView;
     }

@@ -16,6 +16,9 @@ public interface SousMatiereDAO {
     @Query("SELECT * FROM SousMatiere")
     List<SousMatiere> getAll();
 
+    @Query("SELECT * FROM SousMatiere WHERE idM = :id_mat")
+    List<SousMatiere> getSousMat(Integer id_mat);
+
     @Insert
     void insert(SousMatiere sousmatiere);
 

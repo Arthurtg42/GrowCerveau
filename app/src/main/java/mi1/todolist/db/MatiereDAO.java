@@ -16,7 +16,7 @@ public interface MatiereDAO {
     @Query("SELECT * FROM Matiere")
     List<Matiere> getAll();
 
-    @Query("SELECT * FROM Matiere WHERE nom=:nom_mat LIMIT 1")
+    @Query("SELECT * FROM Matiere WHERE nom = :nom_mat LIMIT 1")
     Matiere getMatiere(String nom_mat);
 
     @Query("SELECT ID FROM Matiere WHERE nom=:nom_mat LIMIT 1")

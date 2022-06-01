@@ -20,6 +20,9 @@ import mi1.todolist.db.Matiere;
 
 public class HomePageActivity extends AppCompatActivity {
 
+    //
+    private static final int REQUEST_CODE_ADD = 0;
+
     // DATA
     private DatabaseClient mDb;
     private MatieresAdapter adapter;
@@ -49,7 +52,10 @@ public class HomePageActivity extends AppCompatActivity {
 
                 // Récupération de la matière cliquée à l'aide de l'adapter
                 Matiere matiere = adapter.getItem(position);
-
+                // Création d'une intention
+                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                // Lancement de la demande de changement d'activité
+                startActivityForResult(intent, REQUEST_CODE_ADD);
                 // Message
                 Toast.makeText(HomePageActivity.this, "Click : " + matiere.getNom(), Toast.LENGTH_SHORT).show();
             }

@@ -43,6 +43,7 @@ public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
 
         //
         buttonSousMatiere.setText(sousMatiere.getNom());
+        buttonSousMatiere.setId(sousMatiere.getId());
         buttonSousMatiere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
