@@ -60,17 +60,16 @@ public class HomePageActivity extends AppCompatActivity {
      *
      *
      */
-    private void getMatieres() {
+    public void getMatieres() {
         ///////////////////////
         // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
         class GetMatieres extends AsyncTask<Void, Void, List<Matiere>> {
 
             @Override
             protected List<Matiere> doInBackground(Void... voids) {
-                List<Matiere> matiereList = mDb.getAppDatabase()
-                        .matiereDao()
-                        .getAll();
-                return matiereList;
+                return mDb.getAppDatabase()
+                .matiereDao()
+                .getAll();
             }
 
             @Override

@@ -64,17 +64,18 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO matiere (nom) VALUES('Histoire et Géographie');");
             db.execSQL("INSERT INTO matiere (nom) VALUES('Français');");
 
-            mat = appDatabase.matiereDao().getMatiere("Mathématiques");
-            if (mat != null){
-                idMat = mat.getId();
+            idMat = 1;//appDatabase.matiereDao().getIdMat("Mathématiques");
+            if (idMat != 0){
+                //idMat = mat.getId();
                 // Sous Matières Mathématiques
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Addition');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Soustraction');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Multiplication');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Division');");
-                db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
+                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Addition');");
+                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Soustraction');");
+                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Multiplication');");
+                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Division');");
+                db.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
             }
 
+            /*
             mat = appDatabase.matiereDao().getMatiere("Histoire et Géographie");
             if (mat != null){
                 idMat = mat.getId();
@@ -92,6 +93,9 @@ public class DatabaseClient {
                 db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Grammaire');");
                 db.execSQL("INSERT INTO matiere (idM, nom) VALUES("+idMat+",'Conjuguaison');");
             }
+
+             */
+
 
             /*
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES(\"totoQuiTue\", \"totoQuiTue\", \"totoQuiTue\", \"123456\");");
