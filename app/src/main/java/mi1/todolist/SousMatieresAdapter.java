@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
         final View rowView = inflater.inflate(R.layout.template_sous_matiere, parent, false);
 
         // Récupération des objets graphiques dans le template
-        Button buttonSousMatiere = (Button) rowView.findViewById(R.id.TemplateSousMatiere_btn);
+        TextView buttonSousMatiere = (TextView) rowView.findViewById(R.id.TemplateSousMatiere_btn);
 
         //
         buttonSousMatiere.setText(sousMatiere.getNom());

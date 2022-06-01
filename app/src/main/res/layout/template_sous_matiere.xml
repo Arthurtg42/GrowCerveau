@@ -6,10 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <Button
+    <TextView
         android:id="@+id/TemplateSousMatiere_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/TemplateNavigation_btn_hint_sousMatiere"/>
+        android:text="@string/TemplateNavigation_btn_hint_sousMatiere"
+        android:gravity="center"
+        android:textSize="17dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@color/darkgray"
+        android:textColor="@color/white"
+        android:shadowColor="@color/darkgray"
+        android:shadowDx="50"
+        android:shadowDy="20"
+        android:elevation="4dp"
+        />
 
 </LinearLayout>
