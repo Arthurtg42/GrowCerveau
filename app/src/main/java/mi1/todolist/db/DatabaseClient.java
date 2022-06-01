@@ -87,7 +87,7 @@ public class DatabaseClient {
                 protected void onPostExecute(Integer idMat) {
                     super.onPostExecute(idMat);
 
-                    if (idMat != 0){
+                    if (idMat != null){
                         // Sous Matières Mathématiques
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Addition');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Soustraction');");
