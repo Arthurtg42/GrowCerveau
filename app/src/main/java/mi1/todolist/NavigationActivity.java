@@ -22,6 +22,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
 
     // DATA
     private Matiere matiere;
@@ -56,6 +57,13 @@ public class NavigationActivity extends AppCompatActivity {
 
                 // Récupération de la matière cliquée à l'aide de l'adapter
                 SousMatiere sousMatiere = adapter.getItem(position);
+
+                // Création d'une intention
+                Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
+                // ajoute la matière à l'intent
+                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                // Lancement de la demande de changement d'activité
+                startActivityForResult(intent, REQUEST_CODE_ADD);
 
                 // Message
                 Toast.makeText(NavigationActivity.this, "Click : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
@@ -113,6 +121,8 @@ public class NavigationActivity extends AppCompatActivity {
     public void GoBackToHomePage(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
+        // flag
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }

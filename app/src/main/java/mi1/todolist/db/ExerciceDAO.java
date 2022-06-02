@@ -16,6 +16,9 @@ public interface ExerciceDAO {
     @Query("SELECT * FROM exercice")
     List<Exercice> getAll();
 
+    @Query("SELECT * FROM exercice WHERE idSM = :id_sous_mat")
+    List<Exercice> getExercices(Integer id_sous_mat);
+
     @Insert
     void insert(Exercice exercice);
 
