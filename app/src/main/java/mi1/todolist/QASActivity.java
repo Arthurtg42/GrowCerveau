@@ -16,6 +16,7 @@ import java.util.List;
 
 import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
+import mi1.todolist.db.Matiere;
 import mi1.todolist.db.Qas;
 import mi1.todolist.db.SousMatiere;
 
@@ -23,8 +24,10 @@ public class QASActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String ID_SESSION = "id_session";
     private static final String REPONSE_UTI = "reponse_uti";
     private static final String REPONSE = "reponse";
+    private static final String MATIERE_KEY = "matiere_key";
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
     private static final String NB_QUEST_KEY = "nb_quest_key";
 
@@ -109,16 +112,23 @@ public class QASActivity extends AppCompatActivity {
             // ajoute la réponse à l'intent
             intent.putExtra(REPONSE, qas.getReponse());
             // ajoute la réponse à l'intent
+            intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
             intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
             intent.putExtra(NB_QUEST_KEY, (Integer) getIntent().getIntExtra(NB_QUEST_KEY, 5));
+            intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             // Lancement de la demande de changement d'activité
             startActivityForResult(intent, REQUEST_CODE_ADD);
             super.finish();
         }
         else{
             Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+            intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
+            intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
             startActivityForResult(intent, REQUEST_CODE_ADD);
             super.finish();
         }
     }
+
+
 }

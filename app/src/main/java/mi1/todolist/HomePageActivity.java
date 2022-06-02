@@ -85,7 +85,7 @@ public class HomePageActivity extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), NavigationActivity.class);
                 // ajoute la matière à l'intent
                 intent.putExtra(MATIERE_KEY, matiere);
-                intent.putExtra(ID_SESSION, (int) getIntent().getSerializableExtra(ID_SESSION));
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 // Lancement de la demande de changement d'activité
                 startActivityForResult(intent, REQUEST_CODE_ADD);
                 // Message

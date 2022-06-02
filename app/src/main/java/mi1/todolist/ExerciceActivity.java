@@ -26,7 +26,9 @@ public class ExerciceActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String ID_SESSION = "id_session";
     private static final String EXERCICE_KEY = "exercice_key";
+    private static final String MATIERE_KEY = "matiere_key";
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
     private static final String NB_QUEST_KEY = "nb_quest_key";
 
@@ -93,21 +95,27 @@ public class ExerciceActivity extends AppCompatActivity {
                 intent.setClass(this, QASActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else if(nextExercice.getType().compareTo("QAT") == 0){
                 // Création d'une intention
                 intent.setClass(this, QATActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else if(nextExercice.getType().compareTo("QCM") == 0){
                 // Création d'une intention
                 intent.setClass(this, QCMActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else{
                 // Création d'une intention
@@ -153,24 +161,30 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.setClass(ExerciceActivity.this, QASActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else if(nextExercice.getType().compareTo("QAT")==0){
                     // Création d'une intention
                     intent.setClass(ExerciceActivity.this, QATActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else if(nextExercice.getType().compareTo("QCM")==0){
                     // Création d'une intention
                     intent.setClass(ExerciceActivity.this, QCMActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else{
                     // Création d'une intention

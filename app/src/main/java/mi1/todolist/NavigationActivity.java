@@ -3,6 +3,7 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String MATIERE_KEY = "matiere_key";
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
     private static final String ID_SESSION = "id_session";
 
@@ -62,6 +64,8 @@ public class NavigationActivity extends AppCompatActivity {
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
                 // ajoute la matière à l'intent
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                 // Lancement de la demande de changement d'activité
                 startActivityForResult(intent, REQUEST_CODE_ADD);
