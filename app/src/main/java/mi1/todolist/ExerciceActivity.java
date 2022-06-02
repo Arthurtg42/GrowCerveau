@@ -27,6 +27,8 @@ public class ExerciceActivity extends AppCompatActivity {
     //
     private static final int REQUEST_CODE_ADD = 0;
     private static final String EXERCICE_KEY = "exercice_key";
+    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
+    private static final String NB_QUEST_KEY = "nb_quest_key";
 
     // DATA
     private DatabaseClient mDb;
@@ -50,8 +52,8 @@ public class ExerciceActivity extends AppCompatActivity {
         repsExercice = new ArrayList<>();
 
         // Récupération de la sous-matière
-        sousMatiere = (SousMatiere) getIntent().getSerializableExtra("sous_matiere_key");
-        nbQuestRestante = (Integer) getIntent().getIntExtra("nb_quest_key", 5);
+        sousMatiere = (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY);
+        nbQuestRestante = (Integer) getIntent().getIntExtra(NB_QUEST_KEY, 5);
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -80,29 +82,32 @@ public class ExerciceActivity extends AppCompatActivity {
         indexsExerciceFait.add(indexNextExercice);
         if(nbQuestRestante > 0){
             // choix aléatoire de l'index du prochain exercice
-            indexNextExercice = (int) (Math.random()*(exerciceList.size()-1)) + 1;
+            indexNextExercice = (int) (Math.floor(Math.random()*(exerciceList.size())));
 
             // récupération du prochain exercice
             Exercice nextExercice = new Exercice();
             nextExercice = exerciceList.get(indexNextExercice);
             // création de l'intent en fontion du type de question
-            if(nextExercice.getType() == "QAS"){
+            if(nextExercice.getType().compareTo("QAS") == 0){
                 // Création d'une intention
                 intent.setClass(this, QASActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
             }
-            else if(nextExercice.getType() == "QAT"){
+            else if(nextExercice.getType().compareTo("QAT") == 0){
                 // Création d'une intention
                 intent.setClass(this, QATActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
             }
-            else if(nextExercice.getType() == "QCM"){
+            else if(nextExercice.getType().compareTo("QCM") == 0){
                 // Création d'une intention
                 intent.setClass(this, QCMActivity.class);
                 // ajoute l'exercice à l'intent
                 intent.putExtra(EXERCICE_KEY, nextExercice);
+                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
             }
             else{
                 // Création d'une intention
@@ -135,7 +140,7 @@ public class ExerciceActivity extends AppCompatActivity {
                 // Mettre à jour l'adapter avec la liste de taches
                 exerciceList = exerciceList_DB;
                 // choix aléatoire de l'index du prochain exercice
-                indexNextExercice = (int) (Math.random()*(exerciceList.size()-1));
+                indexNextExercice = (int) (Math.floor(Math.random()*(exerciceList.size())));
 
                 // récupération du prochain exercice
                 Exercice nextExercice = new Exercice();
@@ -143,24 +148,29 @@ public class ExerciceActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 // création de l'intent en fontion du type de question
-                Log.d("TYPE", nextExercice.getType()+nextExercice.getType());
                 if(nextExercice.getType().compareTo("QAS")==0){
                     // Création d'une intention
                     intent.setClass(ExerciceActivity.this, QASActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                    intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
                 }
-                else if(nextExercice.getType() == "QAT"){
+                else if(nextExercice.getType().compareTo("QAT")==0){
                     // Création d'une intention
                     intent.setClass(ExerciceActivity.this, QATActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                    intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
                 }
-                else if(nextExercice.getType() == "QCM"){
+                else if(nextExercice.getType().compareTo("QCM")==0){
                     // Création d'une intention
                     intent.setClass(ExerciceActivity.this, QCMActivity.class);
                     // ajoute l'exercice à l'intent
                     intent.putExtra(EXERCICE_KEY, nextExercice);
+                    intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                    intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
                 }
                 else{
                     // Création d'une intention

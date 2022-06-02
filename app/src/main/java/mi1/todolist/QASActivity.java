@@ -25,6 +25,8 @@ public class QASActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_ADD = 0;
     private static final String REPONSE_UTI = "reponse_uti";
     private static final String REPONSE = "reponse";
+    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
+    private static final String NB_QUEST_KEY = "nb_quest_key";
 
     // DATA
     private DatabaseClient mDb;
@@ -96,17 +98,27 @@ public class QASActivity extends AppCompatActivity {
     }
 
     public void QASActivity_Valider(View view){
-        EditText reponseUti = (EditText) findViewById(R.id.qas_reponse);
-        // Création d'une intention
-        Intent intent = new Intent(this, ExerciceActivity.class);
-        // flag
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        // ajoute la réponse uti à l'intent
-        intent.putExtra(REPONSE_UTI, reponseUti.getText());
-        // ajoute la réponse à l'intent
-        intent.putExtra(REPONSE, qas.getReponse());
-        // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
-        super.finish();
+        if((Integer) getIntent().getIntExtra(NB_QUEST_KEY, 5) > 0) {
+            EditText reponseUti = (EditText) findViewById(R.id.qas_reponse);
+            // Création d'une intention
+            Intent intent = new Intent(this, ExerciceActivity.class);
+            // flag
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            // ajoute la réponse uti à l'intent
+            intent.putExtra(REPONSE_UTI, reponseUti.getText());
+            // ajoute la réponse à l'intent
+            intent.putExtra(REPONSE, qas.getReponse());
+            // ajoute la réponse à l'intent
+            intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
+            intent.putExtra(NB_QUEST_KEY, (Integer) getIntent().getIntExtra(NB_QUEST_KEY, 5));
+            // Lancement de la demande de changement d'activité
+            startActivityForResult(intent, REQUEST_CODE_ADD);
+            super.finish();
+        }
+        else{
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_ADD);
+            super.finish();
+        }
     }
 }

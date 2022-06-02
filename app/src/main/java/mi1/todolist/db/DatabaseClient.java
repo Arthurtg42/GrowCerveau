@@ -167,12 +167,16 @@ public class DatabaseClient {
 
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(1, 1, 'consigne trop dur', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(1, '17 + 29 =', '46');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(2, 1, 'consigne trop trop dur', 'QAS');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(2, 1, 'Additionez ces deux nombres', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(2, '31 + 29 =', '60');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(3, 11, 'conjuguer le verbe aller', 'QAT');");
-            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(3, 'Nous ', 'au marché.', 'allons');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(4, 11, 'conjuguer le verbe aller', 'QAT');");
-            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(4, 'Je ', ' à la piscine', 'vais');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(3, 1, 'Additionez ces deux nombres', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(3, '10 + 29 =', '39');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(4, 1, 'Additionez ces deux nombres', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(4, '10 + 5 =', '15');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(5, 11, 'conjuguer le verbe aller', 'QAT');");
+            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(5, 'Nous ', 'au marché.', 'allons');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(6, 11, 'conjuguer le verbe aller', 'QAT');");
+            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(6, 'Je ', ' à la piscine', 'vais');");
             /*
             db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop dur', 'qcm', 'francais');");
             db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop simple', 'qat', 'histoire');");
