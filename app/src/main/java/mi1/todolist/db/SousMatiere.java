@@ -14,7 +14,7 @@ import java.io.Serializable;
         onUpdate = CASCADE, onDelete = CASCADE)})
 public class SousMatiere implements Serializable {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     private int id;
 
     @ColumnInfo(name = "idM")

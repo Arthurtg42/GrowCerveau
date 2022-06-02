@@ -94,4 +94,49 @@ public class ExerciceActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        nbQuestRestante--;
+        String repUti = getIntent().getStringExtra("reponse_uti");
+        String rep = getIntent().getStringExtra("reponse");
+        repsUti.add(repUti);
+        repsExercice.add(rep);
+        Intent intent = new Intent();
+        indexsExerciceFait.add(indexNextExercice);
+        if(nbQuestRestante > 0){
+            // choix aléatoire de l'index du prochain exercice
+            indexNextExercice = (int) (Math.random()*(exerciceList.size()-1)) + 1;
+
+            // récupération du prochain exercice
+            Exercice nextExercice = new Exercice();
+            nextExercice = exerciceList.get(indexNextExercice);
+            // création de l'intent en fontion du type de question
+            if(nextExercice.getType() == "QAS"){
+                // Création d'une intention
+                intent.setClass(this, QASActivity.class);
+                // ajoute l'exercice à l'intent
+                intent.putExtra(EXERCICE_KEY, nextExercice);
+            }
+            else if(nextExercice.getType() == "QAT"){
+                // Création d'une intention
+                intent.setClass(this, QATActivity.class);
+                // ajoute l'exercice à l'intent
+                intent.putExtra(EXERCICE_KEY, nextExercice);
+            }
+            else if(nextExercice.getType() == "QCM"){
+                // Création d'une intention
+                intent.setClass(this, QCMActivity.class);
+                // ajoute l'exercice à l'intent
+                intent.putExtra(EXERCICE_KEY, nextExercice);
+            }
+            else{
+                // Création d'une intention
+                intent.setClass(this, MainActivity.class);
+                // Message
+                Toast.makeText(this, "Problème, retour à l'acceuil : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }
