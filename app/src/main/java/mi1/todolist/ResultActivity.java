@@ -29,7 +29,6 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultats);
 
-        Log.d("testttttttttttttt",""+getIntent().getSerializableExtra(ID_SESSION));
     }
 
     public void ResultatsActivity_Acceuil(View view){
