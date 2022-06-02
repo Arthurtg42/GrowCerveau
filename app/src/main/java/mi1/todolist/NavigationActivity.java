@@ -23,6 +23,7 @@ public class NavigationActivity extends AppCompatActivity {
     //
     private static final int REQUEST_CODE_ADD = 0;
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
+    private static final String ID_SESSION = "id_session";
 
     // DATA
     private Matiere matiere;
@@ -123,6 +124,13 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomePageActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        // ajoute la matière à l'intent
+        if(getIntent().getSerializableExtra(ID_SESSION) != null) {
+            intent.putExtra(ID_SESSION, (int) getIntent().getSerializableExtra(ID_SESSION));
+        }
+        else{
+            intent.putExtra(ID_SESSION, 0);
+        }
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }

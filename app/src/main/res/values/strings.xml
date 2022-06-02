@@ -57,7 +57,7 @@
 
     <string name="TemplateNavigation_btn_hint_matiere">Matière</string>
     <string name="TemplateNavigation_btn_hint_sousMatiere">Sous matière</string>
-    <string name="GoBackToHomePage">Retour au choix des matières</string>
+    <string name="GoBackToHomePage">Matières</string>
 
     <!-- ResultatTemplate Activity -->
 

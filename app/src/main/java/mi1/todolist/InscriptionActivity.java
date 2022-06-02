@@ -57,6 +57,18 @@ public class InscriptionActivity extends AppCompatActivity {
         else if(Mdp.getText().toString().trim()+"" == ""){
             Toast.makeText(getApplicationContext(), "Veuillez remplir le Mot de passe", Toast.LENGTH_LONG).show();
         }
+        else if(Prenom.getText().toString().trim().length() < 3 || Prenom.getText().toString().trim().length() >20){
+            Toast.makeText(getApplicationContext(), "Le prenom doit faire entre 3 et 20 caractères", Toast.LENGTH_LONG).show();
+        }
+        else if(Nom.getText().toString().trim().length() < 3 || Nom.getText().toString().trim().length() >20){
+            Toast.makeText(getApplicationContext(), "Le mot de passe doit faire entre 3 et 20 caractères", Toast.LENGTH_LONG).show();
+        }
+        else if(Pseudo.getText().toString().trim().length() < 3 || Pseudo.getText().toString().trim().length() >10){
+            Toast.makeText(getApplicationContext(), "Le pseudo doit faire entre 3 et 10 caractères", Toast.LENGTH_LONG).show();
+        }
+        else if(Mdp.getText().toString().trim().length() < 3 || Mdp.getText().toString().trim().length() >10){
+            Toast.makeText(getApplicationContext(), "Le mot de passe doit faire entre 3 et 10 caractères", Toast.LENGTH_LONG).show();
+        }
         else{
 
             /**
@@ -92,6 +104,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
                 }
             }
+
             //////////////////////////
             // IMPORTANT bien penser à executer la demande asynchrone
             SaveTask st = new SaveTask();

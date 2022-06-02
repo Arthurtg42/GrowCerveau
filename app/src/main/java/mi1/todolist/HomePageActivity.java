@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String ID_SESSION = "id_session";
     private static final String MATIERE_KEY = "matiere_key";
 
     // DATA
@@ -31,6 +33,8 @@ public class HomePageActivity extends AppCompatActivity {
     // VIEW
     private ListView listMatiere;
 
+    public int idUser = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,30 @@ public class HomePageActivity extends AppCompatActivity {
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
+        //On rajoute le nom d'utilisateur
+        class AddNomUtil extends AsyncTask<Void, Void, String> {
+
+            @Override
+            protected String doInBackground(Void... voids) {
+
+                // adding to database
+                return mDb.getAppDatabase().userDao().getPseudoFromId((Integer) getIntent().getSerializableExtra(ID_SESSION));
+
+            }
+
+            @Override
+            protected void onPostExecute(String pseudo) {
+                super.onPostExecute(pseudo);
+                if((Integer) getIntent().getSerializableExtra(ID_SESSION) != 0){
+                    TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
+                    txtIntro.setText("Bonjour "+pseudo+" ! Choisissez une activité pour commencer l'entrainement !");
+                }
+            }
+        }
+        //On execute en async
+        AddNomUtil AddUt= new AddNomUtil();
+        AddUt.execute();
 
         // Récupérer les vues
         listMatiere = findViewById(R.id.listMatiere);
@@ -111,6 +139,16 @@ public class HomePageActivity extends AppCompatActivity {
         // Mise à jour des taches
         getMatieres();
 
+    }
+
+    public void HomePageActivityCompte(View view){
+        ////////////
+        // On charge la home page
+        // Création d'une intention
+        Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
+        // Lancement de la demande de changement d'activité
+        startActivityForResult(intent, REQUEST_CODE_ADD);
+        finish();
     }
 
 }
