@@ -17,6 +17,7 @@ public class ConnectionActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String ID_SESSION = "id_session";
 
 
     // DATA
@@ -46,17 +47,7 @@ public class ConnectionActivity extends AppCompatActivity {
             protected Integer doInBackground(Void... voids) {
 
                 // adding to database
-
-                if(Pseudo.getText().toString().trim()+"" == ""){
-                    Toast.makeText(getApplicationContext(), "Veuillez remplir le Pseudo", Toast.LENGTH_LONG).show();
-                }
-                else if(Mdp.getText().toString().trim()+"" == ""){
-                    Toast.makeText(getApplicationContext(), "Veuillez remplir le Mot de passe", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    return mDb.getAppDatabase().userDao().getLog(Pseudo.getText().toString(), Mdp.getText().toString());
-                }
-                return 0;
+                return mDb.getAppDatabase().userDao().getLog(Pseudo.getText().toString(), Mdp.getText().toString());
 
             }
 
@@ -73,6 +64,8 @@ public class ConnectionActivity extends AppCompatActivity {
                     // On charge la home page
                     // Création d'une intention
                     Intent intent = new Intent(ConnectionActivity.this, HomePageActivity.class);
+                    // ajoute la matière à l'intent
+                    intent.putExtra(ID_SESSION, idUser);
                     // Lancement de la demande de changement d'activité
                     startActivityForResult(intent, REQUEST_CODE_ADD);
                     finish();
@@ -87,9 +80,18 @@ public class ConnectionActivity extends AppCompatActivity {
             }
         }
 
-        //On execute en async
-        CheckConnection ChechC = new CheckConnection();
-        ChechC.execute();
+
+        if(Pseudo.getText().toString().trim()+"" == ""){
+            Toast.makeText(getApplicationContext(), "Veuillez remplir le Pseudo", Toast.LENGTH_LONG).show();
+        }
+        else if(Mdp.getText().toString().trim()+"" == ""){
+            Toast.makeText(getApplicationContext(), "Veuillez remplir le Mot de passe", Toast.LENGTH_LONG).show();
+        }
+        else {
+            //On execute en async
+            CheckConnection ChechC = new CheckConnection();
+            ChechC.execute();
+        }
 
 
 

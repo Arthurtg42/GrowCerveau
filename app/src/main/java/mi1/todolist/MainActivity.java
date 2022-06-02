@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE_ADD = 0;
+    private static final String ID_SESSION = "id_session";
 
     // DATA
     private DatabaseClient mDb;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     public void MainActivityAnonyme(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
+        // ajoute la matière à l'intent
+        intent.putExtra(ID_SESSION, 0);
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
     }

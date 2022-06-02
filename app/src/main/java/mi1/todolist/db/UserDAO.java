@@ -31,4 +31,7 @@ public interface UserDAO {
     @Query("SELECT ID FROM user WHERE mdp = :motDePasseLog AND pseudo = :pseudoLog")
     int getLog(String pseudoLog, String motDePasseLog);
 
+    @Query("SELECT PSEUDO FROM user WHERE ID = :id")
+    String getPseudoFromId(Integer id);
+
 }
