@@ -69,6 +69,8 @@ public class QASActivity extends AppCompatActivity {
 
                 // Mettre à jour la qas
                 qas = qas_DB;
+                TextView enonce = (TextView) findViewById(R.id.qas_enonce);
+                enonce.setText(qas.getEnonce());
             }
         }
 
@@ -90,8 +92,7 @@ public class QASActivity extends AppCompatActivity {
         TextView consigne = (TextView) findViewById(R.id.consigne);
         consigne.setText(exercice.getConsigne());
 
-        TextView enonce = (TextView) findViewById(R.id.qas_enonce);
-        enonce.setText(qas.getEnonce());
+
     }
 
     public void QASActivity_Valider(View view){
@@ -99,12 +100,13 @@ public class QASActivity extends AppCompatActivity {
         // Création d'une intention
         Intent intent = new Intent(this, ExerciceActivity.class);
         // flag
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         // ajoute la réponse uti à l'intent
         intent.putExtra(REPONSE_UTI, reponseUti.getText());
         // ajoute la réponse à l'intent
         intent.putExtra(REPONSE, qas.getReponse());
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, REQUEST_CODE_ADD);
+        super.finish();
     }
 }

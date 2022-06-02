@@ -24,6 +24,7 @@
         <activity android:name=".QATActivity" />
         <activity android:name=".QCMActivity" />
         <activity android:name=".ResultActivity" />
+        <activity android:name=".ExerciceActivity" />
     </application>
 
 </manifest>
