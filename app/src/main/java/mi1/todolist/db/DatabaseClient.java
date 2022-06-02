@@ -90,11 +90,11 @@ public class DatabaseClient {
 
                     if (idMat != null){
                         // Sous Matières Mathématiques
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Addition');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Soustraction');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Multiplication');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Division');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Les quatres opérations');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(1,"+idMat+",'Addition');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(2,"+idMat+",'Soustraction');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(3,"+idMat+",'Multiplication');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(4,"+idMat+",'Division');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(5,"+idMat+",'Les quatres opérations');");
                     }
 
                 }
@@ -119,9 +119,9 @@ public class DatabaseClient {
 
                     if (idMat != null){
                         // Sous Matières Histoire et Géographie
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Capitales');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Pays');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Histoire');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(6,"+idMat+",'Capitales');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(7,"+idMat+",'Pays');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(8,"+idMat+",'Histoire');");
                     }
 
                 }
@@ -147,9 +147,9 @@ public class DatabaseClient {
                     if (idMat != null){
                         // Sous Matières Histoire et Géographie
                         // Sous Matières Français
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Orthographe');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Grammaire');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (idM, nom) VALUES("+idMat+",'Conjuguaison');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(9,"+idMat+",'Orthographe');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(10,"+idMat+",'Grammaire');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(11,"+idMat+",'Conjuguaison');");
                     }
 
                 }
@@ -163,7 +163,16 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('totoQuiTue', 'totoQuiTue', 'totoQuiTue', '123456');");
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tataQuiTue', 'tataQuiTue', 'tataQuiTue', '123456');");
 
-            //Questions
+            // Exercice et Question associé
+
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(1, 1, 'consigne trop dur', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(1, '17 + 29 =', '46');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(2, 1, 'consigne trop trop dur', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(2, '31 + 29 =', '60');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(3, 11, 'conjuguer le verbe aller', 'QAT');");
+            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(3, 'Nous ', 'au marché.', 'allons');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(4, 11, 'conjuguer le verbe aller', 'QAT');");
+            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(4, 'Je ', ' à la piscine', 'vais');");
             /*
             db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop dur', 'qcm', 'francais');");
             db.execSQL("INSERT INTO exercice (consigne, type, matiere) VALUES('consigne trop simple', 'qat', 'histoire');");
