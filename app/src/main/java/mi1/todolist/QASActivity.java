@@ -25,6 +25,7 @@ public class QASActivity extends AppCompatActivity {
     //
     private static final int REQUEST_CODE_ADD = 0;
     private static final String ID_SESSION = "id_session";
+    private static final String ENONCE = "enonce_uti";
     private static final String REPONSE_UTI = "reponse_uti";
     private static final String REPONSE = "reponse";
     private static final String MATIERE_KEY = "matiere_key";
@@ -35,6 +36,9 @@ public class QASActivity extends AppCompatActivity {
     private DatabaseClient mDb;
     private Exercice exercice;
     private Qas qas;
+    private ArrayList<String> repsUti;
+    private ArrayList<String> repsExercice;
+    private ArrayList<String> enonceExercice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,20 @@ public class QASActivity extends AppCompatActivity {
         // Instanciation des attributs
         exercice = new Exercice();
         qas = new Qas();
+
+        repsUti = new ArrayList<>();
+        repsExercice = new ArrayList<>();
+        enonceExercice = new ArrayList<>();
+        //On remplis nos listes de reponses toutes les reponses précédentes
+        if(getIntent().getSerializableExtra(REPONSE_UTI) != null){
+            repsUti = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE_UTI);
+        }
+        if(getIntent().getSerializableExtra(REPONSE) != null){
+            repsExercice = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE);
+        }
+        if(getIntent().getSerializableExtra(ENONCE) != null){
+            enonceExercice = (ArrayList<String>) getIntent().getSerializableExtra(ENONCE);
+        }
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -107,10 +125,13 @@ public class QASActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ExerciceActivity.class);
             // flag
             intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            // ajoute la réponse uti à l'intent
-            intent.putExtra(REPONSE_UTI, reponseUti.getText());
-            // ajoute la réponse à l'intent
-            intent.putExtra(REPONSE, qas.getReponse());
+            // reponses
+            repsUti.add(reponseUti.getText().toString().trim());
+            repsExercice.add(qas.getReponse());
+            enonceExercice.add(qas.getEnonce());
+            intent.putExtra(REPONSE_UTI, repsUti);
+            intent.putExtra(REPONSE, repsExercice);
+            intent.putExtra(ENONCE, enonceExercice);
             // ajoute la réponse à l'intent
             intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
             intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
@@ -121,8 +142,17 @@ public class QASActivity extends AppCompatActivity {
             super.finish();
         }
         else{
+            EditText reponseUti = (EditText) findViewById(R.id.qas_reponse);
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+            // reponses
+            repsUti.add(reponseUti.getText().toString().trim());
+            repsExercice.add(qas.getReponse());
+            enonceExercice.add(qas.getEnonce());
+            intent.putExtra(REPONSE_UTI, repsUti);
+            intent.putExtra(REPONSE, repsExercice);
+            intent.putExtra(ENONCE, enonceExercice);
+            //
             intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
             intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
             startActivityForResult(intent, REQUEST_CODE_ADD);

@@ -27,6 +27,9 @@ public class ExerciceActivity extends AppCompatActivity {
     //
     private static final int REQUEST_CODE_ADD = 0;
     private static final String ID_SESSION = "id_session";
+    private static final String ENONCE = "enonce_uti";
+    private static final String REPONSE_UTI = "reponse_uti";
+    private static final String REPONSE = "reponse";
     private static final String EXERCICE_KEY = "exercice_key";
     private static final String MATIERE_KEY = "matiere_key";
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
@@ -39,8 +42,9 @@ public class ExerciceActivity extends AppCompatActivity {
     private HashSet<Integer> indexsExerciceFait;
     private Integer nbQuestRestante;
     private Integer indexNextExercice;
-    private List<String> repsUti;
-    private List<String> repsExercice;
+    private ArrayList<String> repsUti;
+    private ArrayList<String> repsExercice;
+    private ArrayList<String> enonceExercice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +54,24 @@ public class ExerciceActivity extends AppCompatActivity {
         // Instanciation des attributs
         exerciceList = new ArrayList<>();
         indexsExerciceFait = new HashSet<>();
-        repsUti = new ArrayList<>();
-        repsExercice = new ArrayList<>();
 
         // Récupération de la sous-matière
         sousMatiere = (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY);
         nbQuestRestante = (Integer) getIntent().getIntExtra(NB_QUEST_KEY, 5);
+
+        repsUti = new ArrayList<>();
+        repsExercice = new ArrayList<>();
+        enonceExercice = new ArrayList<>();
+        //On remplis nos listes de reponses toutes les reponses précédentes
+        if(getIntent().getSerializableExtra(REPONSE_UTI) != null){
+            repsUti = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE_UTI);
+        }
+        if(getIntent().getSerializableExtra(REPONSE) != null){
+            repsExercice = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE);
+        }
+        if(getIntent().getSerializableExtra(ENONCE) != null){
+            enonceExercice = (ArrayList<String>) getIntent().getSerializableExtra(ENONCE);
+        }
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -80,6 +96,7 @@ public class ExerciceActivity extends AppCompatActivity {
         String rep = getIntent().getStringExtra("reponse");
         repsUti.add(repUti);
         repsExercice.add(rep);
+        enonceExercice.add((String) getIntent().getStringExtra(ENONCE));
         Intent intent = new Intent();
         indexsExerciceFait.add(indexNextExercice);
         if(nbQuestRestante > 0){
@@ -97,6 +114,8 @@ public class ExerciceActivity extends AppCompatActivity {
                 intent.putExtra(EXERCICE_KEY, nextExercice);
                 intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(REPONSE_UTI, repsUti);
+                intent.putExtra(REPONSE, repsExercice);
                 intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else if(nextExercice.getType().compareTo("QAT") == 0){
@@ -106,6 +125,8 @@ public class ExerciceActivity extends AppCompatActivity {
                 intent.putExtra(EXERCICE_KEY, nextExercice);
                 intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(REPONSE_UTI, repsUti);
+                intent.putExtra(REPONSE, repsExercice);
                 intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else if(nextExercice.getType().compareTo("QCM") == 0){
@@ -115,6 +136,8 @@ public class ExerciceActivity extends AppCompatActivity {
                 intent.putExtra(EXERCICE_KEY, nextExercice);
                 intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(REPONSE_UTI, repsUti);
+                intent.putExtra(REPONSE, repsExercice);
                 intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
             }
             else{
@@ -164,6 +187,9 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(REPONSE_UTI, repsUti);
+                    intent.putExtra(REPONSE, repsExercice);
+                    intent.putExtra(REPONSE, enonceExercice);
                     intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else if(nextExercice.getType().compareTo("QAT")==0){
@@ -174,6 +200,9 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(REPONSE_UTI, repsUti);
+                    intent.putExtra(REPONSE, repsExercice);
+                    intent.putExtra(REPONSE, enonceExercice);
                     intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else if(nextExercice.getType().compareTo("QCM")==0){
@@ -184,6 +213,9 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                     intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(NB_QUEST_KEY, nbQuestRestante-1);
+                    intent.putExtra(REPONSE_UTI, repsUti);
+                    intent.putExtra(REPONSE, repsExercice);
+                    intent.putExtra(REPONSE, enonceExercice);
                     intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 }
                 else{
