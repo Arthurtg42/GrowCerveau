@@ -20,6 +20,9 @@ public class Qcm implements Serializable {
     @ColumnInfo(name = "idE")
     private int idE;
 
+    @ColumnInfo(name = "enonce")
+    private String enonce;
+
     @ColumnInfo(name = "BonneReponse")
     private String bonneReponse;
 
@@ -65,8 +68,16 @@ public class Qcm implements Serializable {
         return mauvaiseReponse3;
     }
 
+    public String getEnonce() {
+        return enonce;
+    }
+
     public void setBonneReponse(String bonneReponse) {
         this.bonneReponse = bonneReponse;
+    }
+
+    public void setEnonce(String enonce) {
+        this.enonce = enonce;
     }
 
     public void setMauvaiseReponse1(String mauvaisReponse1) {

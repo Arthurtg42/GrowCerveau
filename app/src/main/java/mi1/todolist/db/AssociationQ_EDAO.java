@@ -16,6 +16,12 @@ public interface AssociationQ_EDAO {
     @Query("SELECT * FROM AssociationQ_E")
     List<AssociationQ_E> getAll();
 
+    @Query("SELECT idQ FROM AssociationQ_E WHERE idE= :id_ex")
+    Integer getIdQas(Integer id_ex);
+
+    @Query("SELECT idE FROM AssociationQ_E WHERE idQ= :id_qas")
+    Integer getIdEx(Integer id_qas);
+
     @Insert
     void insert(AssociationQ_E assoQE);
 

@@ -16,8 +16,8 @@ public interface QasDAO {
     @Query("SELECT * FROM Qas")
     List<Qas> getAll();
 
-    @Query("SELECT * FROM Qas WHERE id= :id_qas")
-    Qas getQas(Integer id_qas);
+    @Query("SELECT * FROM Qas WHERE id= :id_ex")
+    Qas getQas(Integer id_ex);
 
     @Insert
     void insert(Qas qas);

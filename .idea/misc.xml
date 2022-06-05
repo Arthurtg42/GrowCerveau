@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/activity_navigation.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/activity_qas.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/activity_qat.xml" value="0.5" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/activity_qcm.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/activity_resultats.xml" value="0.33" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_matiere.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_proposition_qcm.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_qas.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_qat.xml" value="0.18297101449275363" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_resultats.xml" value="0.33" />
+        <entry key="..\:/project/GrowCerveau/app/src/main/res/layout/template_task.xml" value="0.18297101449275363" />
         <entry key="app/src/main/res/drawable/drawable_backEnonce.xml" value="0.24479166666666666" />
         <entry key="app/src/main/res/drawable/drawable_backgroundrounded.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/layout/activity_connection.xml" value="0.17074275362318841" />

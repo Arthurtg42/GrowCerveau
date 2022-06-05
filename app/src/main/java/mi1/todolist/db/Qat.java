@@ -56,6 +56,8 @@ public class Qat implements Serializable {
         return reponse;
     }
 
+    public String getEnonce(){ return bloc1+" ... "+bloc2;}
+
     public void setBloc1(String bloc1) {
         this.bloc1 = bloc1;
     }

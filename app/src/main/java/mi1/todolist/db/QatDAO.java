@@ -16,6 +16,9 @@ public interface QatDAO {
     @Query("SELECT * FROM Qat")
     List<Qat> getAll();
 
+    @Query("SELECT * FROM Qat WHERE idE= :id_ex")
+    Qat getQat(Integer id_ex);
+
     @Insert
     void insert(Qat qat);
 

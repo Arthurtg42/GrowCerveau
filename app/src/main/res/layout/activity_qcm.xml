@@ -9,40 +9,32 @@
     tools:context=".QCMActivity">
 
     <TextView
+        android:id="@+id/consigne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:gravity="center"
         />
 
-    <Button
-        android:id="@+id/QCMActivity_Reponse1"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/qcm_enonce"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text=""
-        android:onClick="QCMActivity_Reponse1"/>
-    <Button
-        android:id="@+id/QCMActivity_Reponse2"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        />
+
+
+    <ListView
+        android:id="@+id/listPropositionQcm"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=""
-        android:onClick="QCMActivity_Reponse2"/>
-    <Button
-        android:id="@+id/QCMActivity_Reponse3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=""
-        android:onClick="QCMActivity_Reponse3"/>
-    <Button
-        android:id="@+id/QCMActivity_Reponse4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=""
-        android:onClick="QCMActivity_Reponse4"/>
+        android:orientation="vertical"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
 
 
 </LinearLayout>

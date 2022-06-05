@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,46 +16,50 @@ import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
 import mi1.todolist.db.Matiere;
 import mi1.todolist.db.Qas;
+import mi1.todolist.db.Result;
 import mi1.todolist.db.SousMatiere;
 
 public class ResultActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_ADD = 0;
     private static final String ID_SESSION = "id_session";
-    private static final String ENONCE = "enonce_uti";
+    private static final String ENONCES_QUESTION = "enonces_question_uti";
+    private static final String RESULTS_UTI = "results_uti";
     private static final String REPONSE_UTI = "reponse_uti";
     private static final String REPONSE = "reponse";
     private static final String MATIERE_KEY = "matiere_key";
     private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
     private static final String NB_QUEST_KEY = "nb_quest_key";
 
-    private ArrayList<String> repsUti;
-    private ArrayList<String> repsExercice;
-    private ArrayList<String> enonceExercice;
+    // DATA
+    private ArrayList<Result> results;
+    private ResultsAdapter adapter;
+
+    // VIEW
+    private ListView listResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultats);
 
-        repsUti = new ArrayList<>();
-        repsExercice = new ArrayList<>();
-        enonceExercice = new ArrayList<>();
-        //On remplis nos listes de reponses toutes les reponses précédentes
-        if(getIntent().getSerializableExtra(REPONSE_UTI) != null){
-            repsUti = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE_UTI);
-        }
-        if(getIntent().getSerializableExtra(REPONSE) != null){
-            repsExercice = (ArrayList<String>) getIntent().getSerializableExtra(REPONSE);
-        }
-        if(getIntent().getSerializableExtra(ENONCE) != null){
-            enonceExercice = (ArrayList<String>) getIntent().getSerializableExtra(ENONCE);
-        }
 
-        //On recupere les reponses
-        Log.d("testiclule",enonceExercice.get(0) + " : " + repsExercice.get(0)+" / "+repsUti.get(0));
-        //Problème dans la liste
-        // Log.d("testiclule",enonceExercice.get(1) + " : " + repsExercice.get(1)+" / "+repsUti.get(1));
+        // Instanciation des attributs
+        results = new ArrayList<>();
+
+        // Récupération des infos de l'intent
+        results = (ArrayList) getIntent().getSerializableExtra(RESULTS_UTI);
+
+        // Recupérer les vues
+        listResult = findViewById(R.id.listResultats);
+
+        // Lier l'adapter au listView
+        adapter = new ResultsAdapter(this, new ArrayList<Result>());
+        adapter.addAll(results);
+        listResult.setAdapter(adapter);
+
+        // Now, notify the adapter of the change in source
+        adapter.notifyDataSetChanged();
 
     }
 

@@ -8,42 +8,41 @@
     android:orientation="vertical"
     tools:context=".QATActivity">
 
+    <TextView
+        android:id="@+id/consigne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/QATActivity_consigne_default"
+        android:gravity="center"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/qat_bloc1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/QATActivity_bloc1_default"
             android:gravity="center"
-            />
+            android:text="@string/QATActivity_bloc1_default"/>
 
         <EditText
-            android:id="@+id/QATActivity_reponse"
+            android:id="@+id/qat_reponse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:hint="@string/QATActivity_hint_rep"
             />
 
         <TextView
+            android:id="@+id/qat_bloc2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/QATActivity_bloc2_default"
             android:gravity="center"
-            />
-
+            android:text="@string/QATActivity_bloc2_default"/>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/QATActivity_consigne_default"
-        android:gravity="center"
-        />
 
     <Button
         android:id="@+id/QATActivity_Valider"

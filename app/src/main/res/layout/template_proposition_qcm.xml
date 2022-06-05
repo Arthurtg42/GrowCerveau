@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/TemplatePropositionQcm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TemplateNavigation_btn_hint_matiere"
+        android:gravity="center"
+        android:textSize="17dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/drawable_backgroundrounded"
+        android:textColor="@color/white"
+        android:shadowColor="@color/darkgray"
+        android:shadowDx="50"
+        android:shadowDy="20"
+        android:elevation="4dp"
+        />
+
+</LinearLayout>
