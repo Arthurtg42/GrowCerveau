@@ -120,16 +120,16 @@ public class QCMActivity extends AppCompatActivity {
 
             @Override
             protected Qcm doInBackground(Void... voids) {
+                // NE RECUPERE PAS DE QCM
                 Qcm qcm_DB = mDb.getAppDatabase().qcmDao().getQcm(exercice.getId());
 
-                Log.d("NB EXO", qcm_DB.getEnonce()+"");
                 return qcm_DB;
             }
 
             @Override
             protected void onPostExecute(Qcm qcm_DB) {
                 super.onPostExecute(qcm_DB);
-
+                /* TO FIX
                 // Mettre à jour le qcm et l'enonce
                 qcm = qcm_DB;
                 Log.d("NB EXO", qcm.getEnonce()+"");
@@ -158,6 +158,7 @@ public class QCMActivity extends AppCompatActivity {
 
                 // Now, notify the adapter of the change in source
                 adapter.notifyDataSetChanged();
+                */
             }
         }
 
