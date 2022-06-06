@@ -165,24 +165,7 @@ public class DatabaseClient {
 
             // Exercices et questions
 
-            // Mathématiques NE PAS REMPLIR PLUS DE QUESTIONS MATHS
-            //              Addition
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(1, 1, 'Additionez ces deux nombres', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(1, '17 + 29 =', '46');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(2, 1, 'Additionez ces deux nombres', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(2, '31 + 29 =', '60');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(3, 1, 'Additionez ces deux nombres', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(3, '10 + 29 =', '39');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(4, 1, 'Additionez ces deux nombres', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(4, '10 + 5 =', '15');");
-            //              Soustraction
-
-            //              Multiplication
-
-            //              Division
-
-            //              4 opérations
-
+            // Mathématiques ne sont pas stockés en base, ils sont générés aléatoirement et présentés sous forme de qas
 
             // Histoire et Géographie
             //              Capitales
