@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,16 @@ public class ResultActivity extends AppCompatActivity {
 
         // Now, notify the adapter of the change in source
         adapter.notifyDataSetChanged();
+
+        // mise à jour du score
+        int nbBonneRep = 0;
+        for (Result r : results){
+            if (r.isCorrect()){
+                nbBonneRep++;
+            }
+        }
+        TextView score = findViewById(R.id.score);
+        score.setText(nbBonneRep+"/"+results.size()+" bonnes réponses");
 
     }
 

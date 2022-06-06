@@ -51,10 +51,19 @@ public class QASActivity extends AppCompatActivity {
         matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
         sousMatiere = (SousMatiere) getIntent().getSerializableExtra("sous_matiere_key");
         exercice = (Exercice) getIntent().getSerializableExtra("exercice_key");
+        qas = (Qas) getIntent().getSerializableExtra("qas_key");
 
         // Mise à jour de la consigne
         TextView consigne = (TextView) findViewById(R.id.consigne);
-        consigne.setText(exercice.getConsigne());
+        if(qas == null){
+            consigne.setText(exercice.getConsigne());
+        }
+        else {
+            consigne.setText("Resolver le calcul.");
+            TextView enonce = (TextView) findViewById(R.id.qas_enonce);
+            enonce.setText(qas.getEnonce());
+        }
+
     }
 
     /**
@@ -95,8 +104,10 @@ public class QASActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Mise à jour la qas
-        getQas();
+        // Mise à jour la qas si elle n'était pas déjà dans l'intent
+        if (qas == null){
+            getQas();
+        }
 
     }
 

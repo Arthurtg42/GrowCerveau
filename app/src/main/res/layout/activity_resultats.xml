@@ -15,6 +15,15 @@
         android:layout_margin="20dp"
         android:textSize="25dp"/>
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="20dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
