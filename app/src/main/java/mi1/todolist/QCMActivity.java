@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
@@ -68,7 +70,6 @@ public class QCMActivity extends AppCompatActivity {
         // Lier l'adapter au listView
         adapter = new PropositionsAdapter(this, new ArrayList<String>());
         listProposition.setAdapter(adapter);
-
         // Ajouter un événement click à la listView
         listProposition.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -94,7 +95,6 @@ public class QCMActivity extends AppCompatActivity {
                 QCMActivity.super.finish();
             }
         });
-
     }
 
     /**
@@ -140,11 +140,12 @@ public class QCMActivity extends AppCompatActivity {
                     proposition.add(qcm.getMauvaiseReponse3());
                 }
 
+                // mélange l'ordre des porpositions
+                Collections.shuffle(proposition);
 
                 // Mettre à jour l'adapter avec la liste de taches
                 adapter.clear();
                 adapter.addAll(proposition);
-
                 // Now, notify the adapter of the change in source
                 adapter.notifyDataSetChanged();
             }
