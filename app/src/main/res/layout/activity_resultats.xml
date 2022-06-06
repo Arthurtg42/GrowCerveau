@@ -7,12 +7,13 @@
     android:orientation="vertical"
     tools:context=".ResultActivity">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    </LinearLayout>
+        android:text="Resultats"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="25dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,16 +47,17 @@
 
     </LinearLayout>
 
-
     <ListView
         android:id="@+id/listResultats"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:divider="@null"
         android:dividerHeight="0dp"/>
+
+
 
 </LinearLayout>
