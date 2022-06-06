@@ -16,7 +16,7 @@ public interface QcmDAO {
     @Query("SELECT * FROM Qcm")
     List<Qcm> getAll();
 
-    @Query("SELECT * FROM Qcm WHERE id= :id_ex")
+    @Query("SELECT * FROM Qcm WHERE idE= :id_ex")
     Qcm getQcm(Integer id_ex);
 
     @Insert

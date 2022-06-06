@@ -62,7 +62,6 @@ public class QCMActivity extends AppCompatActivity {
         TextView consigne = (TextView) findViewById(R.id.consigne);
         consigne.setText(exercice.getConsigne());
 
-
         // Recupérer les vues
         listProposition = findViewById(R.id.listPropositionQcm);
 
@@ -90,7 +89,7 @@ public class QCMActivity extends AppCompatActivity {
                 // ajoute l'id à l'intent
                 intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 // envoi de la réponse avec l'intent
-                setResult(CodeAndKey.REQUEST_CODE_ADD, intent);
+                setResult(RESULT_OK, intent);
                 // fin de la QAS
                 QCMActivity.super.finish();
             }
@@ -111,14 +110,15 @@ public class QCMActivity extends AppCompatActivity {
             protected Qcm doInBackground(Void... voids) {
                 // NE RECUPERE PAS DE QCM
                 Qcm qcm_DB = mDb.getAppDatabase().qcmDao().getQcm(exercice.getId());
-
+                Log.d("EX ID RECUP", ""+exercice.getId());
+                Log.d("QCM RECUP", ""+qcm_DB);
                 return qcm_DB;
             }
 
             @Override
             protected void onPostExecute(Qcm qcm_DB) {
                 super.onPostExecute(qcm_DB);
-                /* TO FIX
+
                 // Mettre à jour le qcm et l'enonce
                 qcm = qcm_DB;
                 Log.d("NB EXO", qcm.getEnonce()+"");
@@ -131,7 +131,7 @@ public class QCMActivity extends AppCompatActivity {
                     proposition.add(qcm.getBonneReponse());
                 }
                 if(!qcm.getMauvaiseReponse1().isEmpty()){
-                    proposition.add(qcm.getBonneReponse());
+                    proposition.add(qcm.getMauvaiseReponse1());
                 }
                 if(!qcm.getMauvaiseReponse2().isEmpty()){
                     proposition.add(qcm.getMauvaiseReponse2());
@@ -147,7 +147,6 @@ public class QCMActivity extends AppCompatActivity {
 
                 // Now, notify the adapter of the change in source
                 adapter.notifyDataSetChanged();
-                */
             }
         }
 
