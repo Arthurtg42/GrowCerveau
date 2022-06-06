@@ -61,6 +61,15 @@ public class NavigationActivity extends AppCompatActivity {
                 intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
                 intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
+
+                if(matiere.getNom().compareTo("Culture Générale") == 0){
+                    Log.d("CULTURE G", ""+matiere.getNom()+"  "+sousMatiere.getNom().split(" ")[0]);
+                    // on récupère le nombre de question dans le nom de la sousMatière (format "[nb] questions"
+                    Integer nbQuest = Integer.parseInt(sousMatiere.getNom().split(" ")[0]);
+                    // ajout du nombre de question à l'intent
+                    intent.putExtra(CodeAndKey.NB_QUEST_KEY, nbQuest);
+                }
+
                 // Lancement de la demande de changement d'activité
                 startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
 

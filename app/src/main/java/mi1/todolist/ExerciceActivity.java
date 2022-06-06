@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -60,7 +61,14 @@ public class ExerciceActivity extends AppCompatActivity {
         super.onStart();
         // Si la matière n'est pas mathématiques et que exerciceList n'a pas déjà été récupéré on le récupère
         if(exerciceList.isEmpty() && matiere.getNom().compareTo("Mathématiques")!=0){
-            getExercices();
+            if(matiere.getNom().compareTo("Culture Générale")!=0){
+                // si ce n'est pas culture générale, on récupère les exercices associé à la matière
+                getExercices();
+            }
+            else{
+                // sinon on recupère tous les exercices de la base
+                getAllExercices();
+            }
         }
         // si la matière est mathématiques et la calculList n'est pas déjà récupérée
         else if(calculList.isEmpty() && matiere.getNom().compareTo("Mathématiques")==0){
@@ -192,6 +200,47 @@ public class ExerciceActivity extends AppCompatActivity {
         // Création d'un objet de type GetExercices et execution de la demande asynchrone
         GetExercices gt = new GetExercices();
         gt.execute();
+    }
+
+
+    /**
+     *
+     *
+     */
+    private void getAllExercices() {
+        ///////////////////////
+        // Classe asynchrone permettant de récupérer des exercices et de mettre à jour le listView de l'activité
+        class GetAllExercices extends AsyncTask<Void, Void, List<Exercice>> {
+
+            @Override
+            protected List<Exercice> doInBackground(Void... voids) {
+                // récupération de la liste de tous les exercices associés à la sousMatiere
+                List<Exercice> exerciceList_DB = mDb.getAppDatabase().exerciceDao().getAll();
+                return exerciceList_DB;
+            }
+
+            @Override
+            protected void onPostExecute(List<Exercice> exerciceList_DB) {
+                super.onPostExecute(exerciceList_DB);
+
+                // Mettre à jour l'exerciceList avec la liste des exercices de la base
+                exerciceList = (ArrayList) exerciceList_DB;
+                Log.d("NB EXO", exerciceList.size()+"");
+                for(Exercice e : exerciceList){
+                    Log.d("EXERCICE ID", ""+e.getId()+" Consigne : "+e.getConsigne());
+                }
+                // mélange des exercices
+                Collections.shuffle(exerciceList);
+                // Lancement du premier exercice
+                LancerExercice(exerciceList.get(0));
+            }
+        }
+
+        //////////////////////////
+        // IMPORTANT bien penser à executer la demande asynchrone
+        // Création d'un objet de type GetExercices et execution de la demande asynchrone
+        GetAllExercices gae = new GetAllExercices();
+        gae.execute();
     }
 
     // Lance un exercice de calcul sous forme de qas

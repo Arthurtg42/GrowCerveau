@@ -71,7 +71,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO matiere (nom) VALUES('Mathématiques');");
             db.execSQL("INSERT INTO matiere (nom) VALUES('Histoire et Géographie');");
             db.execSQL("INSERT INTO matiere (nom) VALUES('Français');");
-
+            db.execSQL("INSERT INTO matiere (nom) VALUES('Culture Générale');");
 
             //Sous Matières
             class AddMat extends AsyncTask<Void, Void, Integer> {
@@ -157,6 +157,37 @@ public class DatabaseClient {
             //On execute en async
             AddFr AddFrSM = new AddFr();
             AddFrSM.execute();
+
+
+            class AddCultG extends AsyncTask<Void, Void, Integer> {
+
+                @Override
+                protected Integer doInBackground(Void... voids) {
+
+                    // adding to database
+                    return appDatabase.matiereDao().getIdMat("Culture Générale");
+
+                }
+
+                @Override
+                protected void onPostExecute(Integer idMat) {
+                    super.onPostExecute(idMat);
+
+                    if (idMat != null){
+                        // Sous Matières Histoire et Géographie
+                        // Sous Matières Français
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(12,"+idMat+",'5 questions');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(13,"+idMat+",'10 questions');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(14,"+idMat+",'25 questions');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(15,"+idMat+",'50 questions');");
+                    }
+
+                }
+            }
+            //On execute en async
+            AddCultG AddCultGSM = new AddCultG();
+            AddCultGSM.execute();
+
 
             //Comptes
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tiny', 'robert', 'benjamin', 'tiny');");
