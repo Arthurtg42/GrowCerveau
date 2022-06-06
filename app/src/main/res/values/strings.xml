@@ -45,7 +45,7 @@
     <!-- QASActivity Template -->
 
     <string name="QASTemplate_enonce_default">Enoncé</string>
-    <string name="QASTemplate_hint">\?</string>
+    <string name="QASTemplate_hint">...</string>
 
     <!-- ResultatsActivity -->
 
