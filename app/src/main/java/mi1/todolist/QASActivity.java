@@ -24,17 +24,6 @@ import mi1.todolist.db.SousMatiere;
 
 public class QASActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String ID_SESSION = "id_session";
-    private static final String ENONCE = "enonce_uti";
-    private static final String REPONSE_UTI = "reponse_uti";
-    private static final String REPONSE = "reponse";
-    private static final String MATIERE_KEY = "matiere_key";
-    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
-    private static final String NB_QUEST_KEY = "nb_quest_key";
-    private static final String RESULTS_UTI = "results_uti";
-
     // DATA
     private DatabaseClient mDb;
     private Matiere matiere;
@@ -121,11 +110,11 @@ public class QASActivity extends AppCompatActivity {
         result.setReponse(qas.getReponse());
         result.setReponse_uti(reponseUti.getText().toString());
         result.setEnonce(qas.getEnonce());
-        intent.putExtra(RESULTS_UTI, result);
+        intent.putExtra(CodeAndKey.RESULTS_UTI, result);
         // ajoute l'id à l'intent
-        intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // envoi de la réponse avec l'intent
-        setResult(REQUEST_CODE_ADD, intent);
+        setResult(RESULT_OK, intent);
         // fin de la QAS
         super.finish();
     }

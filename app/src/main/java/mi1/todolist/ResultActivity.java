@@ -21,16 +21,6 @@ import mi1.todolist.db.SousMatiere;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String ID_SESSION = "id_session";
-    private static final String ENONCES_QUESTION = "enonces_question_uti";
-    private static final String RESULTS_UTI = "results_uti";
-    private static final String REPONSE_UTI = "reponse_uti";
-    private static final String REPONSE = "reponse";
-    private static final String MATIERE_KEY = "matiere_key";
-    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
-    private static final String NB_QUEST_KEY = "nb_quest_key";
-
     // DATA
     private ArrayList<Result> results;
     private ResultsAdapter adapter;
@@ -48,7 +38,7 @@ public class ResultActivity extends AppCompatActivity {
         results = new ArrayList<>();
 
         // Récupération des infos de l'intent
-        results = (ArrayList) getIntent().getSerializableExtra(RESULTS_UTI);
+        results = (ArrayList) getIntent().getSerializableExtra(CodeAndKey.RESULTS_UTI);
 
         // Recupérer les vues
         listResult = findViewById(R.id.listResultats);
@@ -67,9 +57,9 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomePageActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(ID_SESSION, getIntent().getIntExtra(ID_SESSION, 0));
+        intent.putExtra(CodeAndKey.ID_SESSION, getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_RESULT);
         super.finish();
     }
 
@@ -77,11 +67,11 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NavigationActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
-        intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
-        intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+        intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
+        intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(CodeAndKey.SOUS_MATIERE_KEY));
+        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
         super.finish();
     }
 
@@ -89,11 +79,11 @@ public class ResultActivity extends AppCompatActivity {
         // Création d'une intention
         Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
         // ajoute la matière à l'intent
-        intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
-        intent.putExtra(SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(SOUS_MATIERE_KEY));
-        intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+        intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
+        intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(CodeAndKey.SOUS_MATIERE_KEY));
+        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
 
         // Message
         Toast.makeText(ResultActivity.this, "Nouvelle série", Toast.LENGTH_SHORT).show();

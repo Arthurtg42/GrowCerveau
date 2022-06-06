@@ -75,28 +75,34 @@ public class ExerciceActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ADD && resultCode == RESULT_OK) {
 
-        nbQuestRestante--;
+            nbQuestRestante--;
 
-        // Récupération et stockage du result à la question
-        results.add((Result) data.getSerializableExtra(RESULTS_UTI));
+            // Récupération et stockage du result à la question
+            results.add((Result) data.getSerializableExtra(RESULTS_UTI));
 
-        // Retrait de l'exercice qui vient d'être passé
-        exerciceList.remove(0);
+            // Retrait de l'exercice qui vient d'être passé
+            exerciceList.remove(0);
 
-        if(nbQuestRestante > 0 && exerciceList.size() > 0){
-            // lancement du prochain exercice (en index 0)
-            LancerExercice(exerciceList.get(0));
+            if(nbQuestRestante > 0 && exerciceList.size() > 0){
+                // lancement du prochain exercice (en index 0)
+                LancerExercice(exerciceList.get(0));
+            }
+            else{
+                // Intent vers les résultats avec ajout du tableau results dans l'intent
+                Intent intent = new Intent(this, ResultActivity.class);
+                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
+                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+                intent.putExtra(RESULTS_UTI, results);
+                startActivity(intent);
+
+                // fin de l'ExerciceActivity
+                super.finish();
+            }
         }
-        else{
-            // Intent vers les résultats avec ajout du tableau results dans l'intent
-            Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
-            intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
-            intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
-            intent.putExtra(RESULTS_UTI, results);
-            startActivity(intent);
-
+        else {
             // fin de l'ExerciceActivity
             super.finish();
         }

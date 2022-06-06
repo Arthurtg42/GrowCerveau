@@ -21,12 +21,6 @@ import mi1.todolist.db.SousMatiere;
 
 public class NavigationActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String MATIERE_KEY = "matiere_key";
-    private static final String SOUS_MATIERE_KEY = "sous_matiere_key";
-    private static final String ID_SESSION = "id_session";
-
     // DATA
     private Matiere matiere;
     private DatabaseClient mDb;
@@ -64,11 +58,11 @@ public class NavigationActivity extends AppCompatActivity {
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
                 // ajoute la matière et sous matière à l'intent
-                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
-                intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
-                intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
+                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
+                intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
+                intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
                 // Lancement de la demande de changement d'activité
-                startActivityForResult(intent, REQUEST_CODE_ADD);
+                startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
 
                 // Message
                 Toast.makeText(NavigationActivity.this, "Click : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
@@ -129,13 +123,13 @@ public class NavigationActivity extends AppCompatActivity {
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // ajoute l'id à l'intent
-        if(getIntent().getSerializableExtra(ID_SESSION) != null) {
-            intent.putExtra(ID_SESSION, (int) getIntent().getSerializableExtra(ID_SESSION));
+        if(getIntent().getSerializableExtra(CodeAndKey.ID_SESSION) != null) {
+            intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION));
         }
         else{
-            intent.putExtra(ID_SESSION, 0);
+            intent.putExtra(CodeAndKey.ID_SESSION, 0);
         }
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
 }

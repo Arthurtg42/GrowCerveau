@@ -22,10 +22,6 @@ import mi1.todolist.db.Exercice;
 
 public class MainActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String ID_SESSION = "id_session";
-
     // DATA
     private DatabaseClient mDb;
 
@@ -47,22 +43,22 @@ public class MainActivity extends AppCompatActivity {
         // Création d'une intention
         Intent intent = new Intent(this, ConnectionActivity.class);
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
 
     public void MainActivityInscription(View view){
         // Création d'une intention
         Intent intent = new Intent(this, InscriptionActivity.class);
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
 
     public void MainActivityAnonyme(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
         // ajoute la matière à l'intent
-        intent.putExtra(ID_SESSION, 0);
+        intent.putExtra(CodeAndKey.ID_SESSION, 0);
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
 }
