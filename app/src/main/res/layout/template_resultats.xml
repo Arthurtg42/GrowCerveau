@@ -8,25 +8,33 @@
 
     <TextView
         android:id="@+id/template_resultats_enonce"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/QASTemplate_enonce_default"/>
+        android:text="@string/QASTemplate_enonce_default"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        />
 
     <TextView
         android:id="@+id/template_resultats_reponse"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="@string/ResultatTemplate_reponse"
+        android:background="@drawable/drawable_back_reponse_correct"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
         />
 
     <TextView
         android:id="@+id/template_resultats_correction"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="@string/ResultatTemplate_correction"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
         />
 
 
