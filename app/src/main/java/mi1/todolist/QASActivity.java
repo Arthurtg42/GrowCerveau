@@ -74,7 +74,7 @@ public class QASActivity extends AppCompatActivity {
      */
     private void getQas() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer des qas et de mettre à jour le listView de l'activité
         class GetQas extends AsyncTask<Void, Void, Qas> {
 
             @Override
@@ -96,7 +96,7 @@ public class QASActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetQas et execution de la demande asynchrone
         GetQas gt = new GetQas();
         gt.execute();
     }

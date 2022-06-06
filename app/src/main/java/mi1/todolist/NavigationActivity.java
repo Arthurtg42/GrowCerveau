@@ -58,12 +58,12 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // Récupération de la matière cliquée à l'aide de l'adapter
+                // Récupération de la sous-matière cliquée à l'aide de l'adapter
                 SousMatiere sousMatiere = adapter.getItem(position);
 
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
-                // ajoute la matière à l'intent
+                // ajoute la matière et sous matière à l'intent
                 intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
                 intent.putExtra(MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(MATIERE_KEY));
                 intent.putExtra(SOUS_MATIERE_KEY, sousMatiere);
@@ -82,7 +82,7 @@ public class NavigationActivity extends AppCompatActivity {
      */
     private void getSousMatieres() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer des sous-matières et de mettre à jour le listView de l'activité
         class GetSousMatieres extends AsyncTask<Void, Void, List<SousMatiere>> {
 
             @Override
@@ -97,7 +97,7 @@ public class NavigationActivity extends AppCompatActivity {
             protected void onPostExecute(List<SousMatiere> sousMatieres) {
                 super.onPostExecute(sousMatieres);
 
-                // Mettre à jour l'adapter avec la liste de taches
+                // Mettre à jour l'adapter avec la liste de sous-matières
                 adapter.clear();
                 adapter.addAll(sousMatieres);
 
@@ -108,7 +108,7 @@ public class NavigationActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetSousMatieres et execution de la demande asynchrone
         GetSousMatieres gt = new GetSousMatieres();
         gt.execute();
     }
@@ -118,7 +118,7 @@ public class NavigationActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Mise à jour des taches
+        // Mise à jour des sous-matières
         getSousMatieres();
 
     }
@@ -128,7 +128,7 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomePageActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        // ajoute la matière à l'intent
+        // ajoute l'id à l'intent
         if(getIntent().getSerializableExtra(ID_SESSION) != null) {
             intent.putExtra(ID_SESSION, (int) getIntent().getSerializableExtra(ID_SESSION));
         }

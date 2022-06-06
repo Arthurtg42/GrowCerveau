@@ -77,8 +77,8 @@ public class ExerciceActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         nbQuestRestante--;
-        // Récupération et stockage de la réponse, de la réponse utilisateur et de l'enonce
 
+        // Récupération et stockage du result à la question
         results.add((Result) data.getSerializableExtra(RESULTS_UTI));
 
         // Retrait de l'exercice qui vient d'être passé
@@ -113,7 +113,7 @@ public class ExerciceActivity extends AppCompatActivity {
      */
     private void getExercices() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer des exercices et de mettre à jour le listView de l'activité
         class GetExercices extends AsyncTask<Void, Void, List<Exercice>> {
 
             @Override
@@ -140,12 +140,12 @@ public class ExerciceActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetExercices et execution de la demande asynchrone
         GetExercices gt = new GetExercices();
         gt.execute();
     }
 
-    // Lance un exercice en fonction du type (crée l'intent)
+    // Lance un exercice en fonction de son type (crée l'intent)
     public void LancerExercice(Exercice ex){
         Intent intent = new Intent();
         // création de l'intent en fontion du type de question

@@ -3,10 +3,8 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +41,7 @@ public class HomePageActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
-        //On rajoute le nom d'utilisateur
+        // On rajoute le nom d'utilisateur
         class AddNomUtil extends AsyncTask<Void, Void, String> {
 
             @Override
@@ -102,7 +100,7 @@ public class HomePageActivity extends AppCompatActivity {
      */
     public void getMatieres() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer des matieres et de mettre à jour le listView de l'activité
         class GetMatieres extends AsyncTask<Void, Void, List<Matiere>> {
 
             @Override
@@ -116,7 +114,7 @@ public class HomePageActivity extends AppCompatActivity {
             protected void onPostExecute(List<Matiere> matieres) {
                 super.onPostExecute(matieres);
 
-                // Mettre à jour l'adapter avec la liste de taches
+                // Mettre à jour l'adapter avec la liste de matieres
                 adapter.clear();
                 adapter.addAll(matieres);
 
@@ -127,7 +125,7 @@ public class HomePageActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetMatieres et execution de la demande asynchrone
         GetMatieres gt = new GetMatieres();
         gt.execute();
     }
@@ -137,14 +135,14 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Mise à jour des taches
+        // Mise à jour des matières
         getMatieres();
 
     }
 
     public void HomePageActivityCompte(View view){
         ////////////
-        // On charge la home page
+        // On charge la main page
         // Création d'une intention
         Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
         // Lancement de la demande de changement d'activité

@@ -70,7 +70,7 @@ public class QATActivity extends AppCompatActivity {
      */
     private void getQat() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer des qat et de mettre à jour le listView de l'activité
         class GetQat extends AsyncTask<Void, Void, Qat> {
 
             @Override
@@ -83,7 +83,7 @@ public class QATActivity extends AppCompatActivity {
             protected void onPostExecute(Qat qat_DB) {
                 super.onPostExecute(qat_DB);
 
-                // Mettre à jour la qas et l'enonce
+                // Mettre à jour la qat et l'enonce
                 qat = qat_DB;
                 TextView bloc1 = (TextView) findViewById(R.id.qat_bloc1);
                 bloc1.setText(qat.getBloc1());
@@ -95,7 +95,7 @@ public class QATActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetQat et execution de la demande asynchrone
         GetQat gt = new GetQat();
         gt.execute();
     }
