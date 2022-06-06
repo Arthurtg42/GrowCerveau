@@ -15,11 +15,6 @@ import mi1.todolist.db.User;
 
 public class ConnectionActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String ID_SESSION = "id_session";
-
-
     // DATA
     private DatabaseClient mDb;
 
@@ -65,9 +60,9 @@ public class ConnectionActivity extends AppCompatActivity {
                     // Création d'une intention
                     Intent intent = new Intent(ConnectionActivity.this, HomePageActivity.class);
                     // ajoute la matière à l'intent
-                    intent.putExtra(ID_SESSION, idUser);
+                    intent.putExtra(CodeAndKey.ID_SESSION, idUser);
                     // Lancement de la demande de changement d'activité
-                    startActivityForResult(intent, REQUEST_CODE_ADD);
+                    startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
                     finish();
                 }
                 else{

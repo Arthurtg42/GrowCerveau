@@ -13,5 +13,6 @@ public class CodeAndKey {
     public static final String MATIERE_KEY = "matiere_key";
     public static final String SOUS_MATIERE_KEY = "sous_matiere_key";
     public static final String NB_QUEST_KEY = "nb_quest_key";
+    public static final String EXERCICE_KEY = "exercice_key";
 
 }

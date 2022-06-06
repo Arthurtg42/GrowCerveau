@@ -59,6 +59,10 @@
     <string name="TemplateNavigation_btn_hint_sousMatiere">Sous matière</string>
     <string name="GoBackToHomePage">Matières</string>
 
+    <!-- ExerciceActivity -->
+
+    <string name="ExerciceActivity_load">Chargement de la question...</string>
+
     <!-- ResultatTemplate Activity -->
 
     <string name="ResultatTemplate_reponse">Reponse</string>

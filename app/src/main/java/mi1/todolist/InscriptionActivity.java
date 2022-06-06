@@ -15,9 +15,6 @@ import mi1.todolist.db.User;
 
 public class InscriptionActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-
     // DATA
     private DatabaseClient mDb;
 
@@ -115,7 +112,7 @@ public class InscriptionActivity extends AppCompatActivity {
             // Création d'une intention
             Intent intent = new Intent(this, ConnectionActivity.class);
             // Lancement de la demande de changement d'activité
-            startActivityForResult(intent, REQUEST_CODE_ADD);
+            startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
 
         }
 

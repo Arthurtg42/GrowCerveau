@@ -19,11 +19,6 @@ import mi1.todolist.db.Matiere;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    //
-    private static final int REQUEST_CODE_ADD = 0;
-    private static final String ID_SESSION = "id_session";
-    private static final String MATIERE_KEY = "matiere_key";
-
     // DATA
     private DatabaseClient mDb;
     private MatieresAdapter adapter;
@@ -48,14 +43,14 @@ public class HomePageActivity extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
 
                 // adding to database
-                return mDb.getAppDatabase().userDao().getPseudoFromId((Integer) getIntent().getSerializableExtra(ID_SESSION));
+                return mDb.getAppDatabase().userDao().getPseudoFromId((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION));
 
             }
 
             @Override
             protected void onPostExecute(String pseudo) {
                 super.onPostExecute(pseudo);
-                if((Integer) getIntent().getSerializableExtra(ID_SESSION) != 0){
+                if((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION) != 0){
                     TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
                     txtIntro.setText("Bonjour "+pseudo+" ! Choisissez une activité pour commencer l'entrainement !");
                 }
@@ -82,10 +77,10 @@ public class HomePageActivity extends AppCompatActivity {
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), NavigationActivity.class);
                 // ajoute la matière à l'intent
-                intent.putExtra(MATIERE_KEY, matiere);
-                intent.putExtra(ID_SESSION, (int) getIntent().getIntExtra(ID_SESSION, 0));
+                intent.putExtra(CodeAndKey.MATIERE_KEY, matiere);
+                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 // Lancement de la demande de changement d'activité
-                startActivityForResult(intent, REQUEST_CODE_ADD);
+                startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
                 // Message
                 Toast.makeText(HomePageActivity.this, "Click : " + matiere.getNom(), Toast.LENGTH_SHORT).show();
             }
@@ -146,7 +141,7 @@ public class HomePageActivity extends AppCompatActivity {
         // Création d'une intention
         Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
         finish();
     }
 
