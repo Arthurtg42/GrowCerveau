@@ -244,6 +244,27 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(34, 'Berlin se situe en ', 'Allemagne');");
 
             //              Histoire
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(36, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(36, 'Où est mort charlemagne ? ', '', '', '', '');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(37, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(37, 'Quand est couronné charlemagne ?', '', '', '', '');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(38, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(38, 'A quelle dinastie appartient Charlemagne ?', '', '', '', '');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(39, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(39, 'Hugues Capet est :', 'Le roi des Francs', 'Le roi des français', 'Le roi des François', 'Le roi des Franks');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(40, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(40, 'Quels sont les deux fondateurs de Rome selon la légende ?', 'Romulus et Remus', 'Romuald et Rébus', 'Jules et César', 'Titi et Grominet');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(41, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(41, 'Quel roi est mort décapité lors de la révolution ?', 'Louis XVI', 'Louis XV', 'Louis XIV', 'Louis XI');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(42, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(42, 'Quand a eu lieu la révolution ?', 'En 1789', 'En 1798', 'En 1760', 'En 1999');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(43, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(43, 'Quel est le symbole de la révolution ?', 'La Mariane', 'Le fusil', 'La barricade', 'Le tricorne');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(44, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(44, 'Comment est mort Jules César ?', 'Par coup de couteau', 'Pendu', 'Guillotiné', 'Empoisonné');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(45, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(45, 'Quel était le surnom de Louis XIV ?', 'Le roi soleil', 'Le roi des glaces', 'Le roi rayonnant', 'Le roi tournesol');");
+
 
 
             // Français
