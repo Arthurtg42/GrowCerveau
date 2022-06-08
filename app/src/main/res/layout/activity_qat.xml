@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".QATActivity">
+    tools:context=".QATActivity"
+    android:background="@drawable/plage"
+    >
 
     <TextView
         android:id="@+id/consigne"
@@ -14,25 +16,41 @@
         android:layout_height="wrap_content"
         android:text="@string/QATActivity_consigne_default"
         android:gravity="center"
+        android:background="@drawable/drawable_back_enonce"
+        android:paddingTop="35dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/drawable_back_enonce_jaune"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/qat_bloc1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/QATActivity_bloc1_default"/>
+            android:text="@string/QATActivity_bloc1_default"
+            android:layout_marginRight="5dp"/>
 
         <EditText
             android:id="@+id/qat_reponse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/QATActivity_hint_rep"
+            android:maxWidth="100dp"
+            android:background="@drawable/drawable_back_general"
             />
 
         <TextView
@@ -40,7 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/QATActivity_bloc2_default"/>
+            android:text="@string/QATActivity_bloc2_default"
+            android:layout_marginLeft="5dp"/>
 
     </LinearLayout>
 
@@ -50,6 +69,37 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/QATActivity_valider"
-        android:onClick="QATActivity_Valider"/>
+        android:onClick="QATActivity_Valider"
+        android:background="@drawable/drawable_backgroundrounded"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:padding="20dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="5"
+            />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:background="@drawable/mascotte_v2"/>
+
+    </LinearLayout>
 
 </LinearLayout>
