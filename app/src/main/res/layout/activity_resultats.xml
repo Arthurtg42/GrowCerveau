@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    android:background="@drawable/plage">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,7 +14,11 @@
         android:text="Resultats"
         android:gravity="center"
         android:layout_margin="20dp"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:background="@drawable/drawable_back_general"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/score"
@@ -22,7 +27,8 @@
         android:text=""
         android:gravity="center"
         android:layout_margin="20dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:background="@drawable/drawable_back_general"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/ResultatsActivity_acceuil"
-            android:onClick="ResultatsActivity_Acceuil"/>
+            android:onClick="ResultatsActivity_Acceuil"
+            android:background="@color/lightblue"
+            android:elevation="5dp"
+            android:layout_margin="5dp"/>
 
         <Button
             android:id="@+id/ResultatsActivity_Matière"
@@ -44,7 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/ResultatsActivity_matiere_default"
-            android:onClick="ResultatsActivity_Matière"/>
+            android:onClick="ResultatsActivity_Matière"
+            android:background="@color/lightblue"
+            android:elevation="5dp"
+            android:layout_margin="5dp"/>
 
         <Button
             android:id="@+id/ResultatsActivity_NouvelleSerie"
@@ -52,7 +64,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/ResultatsActivity_nouvelle_serie"
-            android:onClick="ResultatsActivity_NouvelleSerie"/>
+            android:onClick="ResultatsActivity_NouvelleSerie"
+            android:background="@color/lightblue"
+            android:elevation="5dp"
+            android:layout_margin="5dp"/>
 
     </LinearLayout>
 
@@ -64,8 +79,9 @@
         android:layout_marginRight="20dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:divider="@null"
-        android:dividerHeight="0dp"/>
+        android:divider="#12000000"
+        android:dividerHeight="4dp"
+        android:background="@drawable/drawable_back_reponses"/>
 
 
 
