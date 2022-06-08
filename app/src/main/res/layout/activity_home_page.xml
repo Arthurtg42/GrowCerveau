@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NavigationActivity"
+    tools:context=".HomePageActivity"
     android:background="@drawable/fond_app_v3">
 
     <LinearLayout
@@ -36,7 +36,7 @@
             android:layout_margin="0dp"
             android:background="@null"
             android:onClick="HomePageActivityCompte"
-            android:text="Compte"
+            android:text="Retour à l'acceuil"
             android:textSize="15dp"/>
     </LinearLayout>
 
@@ -44,7 +44,7 @@
         android:id="@+id/HomePageActivity_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bonjour ! Choisissez une activité pour commencer l'entrainement !"
+        android:text="Bonjour ! Choisis une activité pour commencer l'entrainement !"
         android:textSize="18dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
@@ -64,7 +64,6 @@
         android:orientation="vertical"
         android:divider="@null"
         android:dividerHeight="0dp"
-
         />
 
 </LinearLayout>

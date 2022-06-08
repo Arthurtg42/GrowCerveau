@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
 import mi1.todolist.db.Matiere;
-import mi1.todolist.db.Qas;
 import mi1.todolist.db.Qat;
 import mi1.todolist.db.Result;
 import mi1.todolist.db.SousMatiere;
@@ -59,13 +58,12 @@ public class QATActivity extends AppCompatActivity {
      */
     private void getQat() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des qat et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer la qat associée à l'exercice
         class GetQat extends AsyncTask<Void, Void, Qat> {
 
             @Override
             protected Qat doInBackground(Void... voids) {
-                Qat qat_DB = mDb.getAppDatabase().qatDao().getQat(exercice.getId());
-                return qat_DB;
+                return mDb.getAppDatabase().qatDao().getQat(exercice.getId());
             }
 
             @Override

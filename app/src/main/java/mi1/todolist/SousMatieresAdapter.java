@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
-import mi1.todolist.db.Matiere;
 import mi1.todolist.db.SousMatiere;
 
 
@@ -21,7 +19,7 @@ public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
     }
 
     /**
-     * Remplit une ligne de la listView avec les informations de la multiplication associée
+     * Remplit une ligne de la listView avec les informations de la sous-matière associée
      *
      * @param position
      * @param convertView
@@ -31,7 +29,7 @@ public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // Récupération de la multiplication
+        // Récupération de la sous-matière
         final SousMatiere sousMatiere = getItem(position);
 
         // Charge le template XML
@@ -42,11 +40,9 @@ public class SousMatieresAdapter extends ArrayAdapter<SousMatiere> {
         // Récupération des objets graphiques dans le template
         TextView buttonSousMatiere = (TextView) rowView.findViewById(R.id.TemplateSousMatiere_btn);
 
-        //
+        // Mise à jour des attributs des objets graphiques
         buttonSousMatiere.setText(sousMatiere.getNom());
-        buttonSousMatiere.setId(sousMatiere.getId());
-        //
+
         return rowView;
     }
-
 }

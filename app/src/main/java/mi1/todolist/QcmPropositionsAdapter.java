@@ -9,13 +9,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mi1.todolist.db.SousMatiere;
 
+public class QcmPropositionsAdapter extends ArrayAdapter<String> {
 
-public class PropositionsAdapter extends ArrayAdapter<String> {
-
-    public PropositionsAdapter(Context mCtx, List<String> propositionList) {
-        super(mCtx, R.layout.template_proposition_qcm, propositionList);
+    public QcmPropositionsAdapter(Context mCtx, List<String> propositionList) {
+        super(mCtx, R.layout.template_qcm_proposition, propositionList);
     }
 
     /**
@@ -35,7 +33,7 @@ public class PropositionsAdapter extends ArrayAdapter<String> {
         // Charge le template XML
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View rowView = inflater.inflate(R.layout.template_proposition_qcm, parent, false);
+        final View rowView = inflater.inflate(R.layout.template_qcm_proposition, parent, false);
 
         // Récupération des objets graphiques dans le template
         TextView textProposition = (TextView) rowView.findViewById(R.id.TemplatePropositionQcm);

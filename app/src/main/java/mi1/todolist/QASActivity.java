@@ -3,18 +3,13 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import mi1.todolist.db.AssociationQ_E;
 import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
 import mi1.todolist.db.Matiere;
@@ -55,6 +50,7 @@ public class QASActivity extends AppCompatActivity {
 
         // Mise à jour de la consigne
         TextView consigne = (TextView) findViewById(R.id.consigne);
+        // s'il n'y a pas de qas dans l'intent alors ce n'est pas un exercice de mathématiques
         if(qas == null){
             consigne.setText(exercice.getConsigne());
         }
@@ -62,8 +58,10 @@ public class QASActivity extends AppCompatActivity {
             consigne.setText("Resolver le calcul.");
             TextView enonce = (TextView) findViewById(R.id.qas_enonce);
             enonce.setText(qas.getEnonce());
+            // On force l'input a être un number
+            EditText saisieUti = (EditText) findViewById(R.id.qas_reponse);
+            saisieUti.setInputType(InputType.TYPE_CLASS_NUMBER);
         }
-
     }
 
     /**
@@ -72,26 +70,23 @@ public class QASActivity extends AppCompatActivity {
      */
     private void getQas() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des qas et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer la qas associée à l'exercice
         class GetQas extends AsyncTask<Void, Void, Qas> {
 
             @Override
             protected Qas doInBackground(Void... voids) {
-                Qas qas_DB = mDb.getAppDatabase().qasDao().getQas(exercice.getId());
-                return qas_DB;
+                return mDb.getAppDatabase().qasDao().getQas(exercice.getId());
             }
 
             @Override
             protected void onPostExecute(Qas qas_DB) {
                 super.onPostExecute(qas_DB);
-
                 // Mettre à jour la qas et l'enonce
                 qas = qas_DB;
                 TextView enonce = (TextView) findViewById(R.id.qas_enonce);
                 enonce.setText(qas.getEnonce());
             }
         }
-
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
         // Création d'un objet de type GetQas et execution de la demande asynchrone
@@ -103,15 +98,14 @@ public class QASActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        // Mise à jour la qas si elle n'était pas déjà dans l'intent
+        // Mise à jour de la qas si elle n'était pas déjà dans l'intent
         if (qas == null){
             getQas();
         }
-
     }
 
     public void QASActivity_Valider(View view) {
+        // Récupération de la saisie utilisateur
         EditText reponseUti = (EditText) findViewById(R.id.qas_reponse);
         // Création d'une intention
         Intent intent = new Intent(this, ExerciceActivity.class);

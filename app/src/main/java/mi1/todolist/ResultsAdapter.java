@@ -2,7 +2,6 @@ package mi1.todolist;
 
 import android.content.Context;
 import android.os.Build;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ public class ResultsAdapter extends ArrayAdapter<Result> {
     }
 
     /**
-     * Remplit une ligne de la listView avec les informations de la multiplication associée
+     * Remplit une ligne de la listView avec les informations du result associé
      *
      * @param position
      * @param convertView
@@ -35,7 +34,7 @@ public class ResultsAdapter extends ArrayAdapter<Result> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // Récupération de la multiplication
+        // Récupération du result
         final Result result = getItem(position);
 
         // Charge le template XML
@@ -48,6 +47,7 @@ public class ResultsAdapter extends ArrayAdapter<Result> {
         TextView reponse = (TextView) rowView.findViewById(R.id.template_resultats_reponse);
         TextView correction = (TextView) rowView.findViewById(R.id.template_resultats_correction);
 
+        // Mise à jour des attributs des objets graphiques
         enonce.setText(result.getEnonce());
         reponse.setText(result.getReponse_uti().isEmpty() ? " " : result.getReponse_uti());
 
@@ -55,7 +55,7 @@ public class ResultsAdapter extends ArrayAdapter<Result> {
             //On met le background sur la reponse
             reponse.setBackgroundResource(R.drawable.drawable_back_reponse_correct);
 
-            // On gère la place que prends la reponse et la reponse uti (Avec gestion des marges) //
+            // On gère la place que prend la reponse et la reponse_uti (Avec gestion des marges)
             //Reponse Uti
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                     0,
@@ -88,7 +88,6 @@ public class ResultsAdapter extends ArrayAdapter<Result> {
             correction.setText(result.getReponse());
             correction.setBackgroundResource(R.drawable.drawable_back_reponse_correct);
         }
-
         return rowView;
     }
 

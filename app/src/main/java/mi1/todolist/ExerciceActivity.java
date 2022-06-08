@@ -3,21 +3,13 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 import mi1.todolist.db.Calcul;
 import mi1.todolist.db.DatabaseClient;
@@ -72,12 +64,12 @@ public class ExerciceActivity extends AppCompatActivity {
         }
         // si la matière est mathématiques et la calculList n'est pas déjà récupérée
         else if(calculList.isEmpty() && matiere.getNom().compareTo("Mathématiques")==0){
+            ArrayList<String> operations = new ArrayList<>();
+            operations.add("+");
+            operations.add("-");
+            operations.add("*");
+            operations.add("/");
             for(int i = 0; i < nbQuestRestante; i++){
-                ArrayList<String> operations = new ArrayList<>();
-                operations.add("+");
-                operations.add("-");
-                operations.add("*");
-                operations.add("/");
                 if(sousMatiere.getNom().compareTo("Addition")==0){
                     calculList.add(new Calcul("+"));
                 }
@@ -104,16 +96,12 @@ public class ExerciceActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CodeAndKey.REQUEST_CODE_ADD && resultCode == RESULT_OK) {
             nbQuestRestante--;
-
             // Récupération et stockage du result à la question
             results.add((Result) data.getSerializableExtra(CodeAndKey.RESULTS_UTI));
-
             // Cas exercice non mathématiques
             if(matiere.getNom().compareTo("Mathématiques")!=0) {
-
                 // Retrait de l'exercice qui vient d'être passé
                 exerciceList.remove(0);
-
                 if(nbQuestRestante > 0 && exerciceList.size() > 0){
                     // lancement du prochain exercice (en index 0)
                     LancerExercice(exerciceList.get(0));
@@ -126,7 +114,6 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                     intent.putExtra(CodeAndKey.RESULTS_UTI, results);
                     startActivity(intent);
-
                     // fin de l'ExerciceActivity
                     super.finish();
                 }
@@ -134,7 +121,6 @@ public class ExerciceActivity extends AppCompatActivity {
             else {
                 // Retrait du calcul qui vient d'être passé
                 calculList.remove(0);
-
                 if(nbQuestRestante > 0 && calculList.size() > 0){
                     // lancement du prochain calcul (en index 0)
                     LancerCalcul(calculList.get(0));
@@ -146,8 +132,15 @@ public class ExerciceActivity extends AppCompatActivity {
                     intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
                     intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                     intent.putExtra(CodeAndKey.RESULTS_UTI, results);
+                    // Cas où la matière est culture Générale
+                    if(matiere.getNom().compareTo("Culture Générale") == 0){
+                        // Récupération du nombre de questions dans le nom de la sousMatière
+                        // format "[nb] questions"
+                        Integer nbQuest = Integer.parseInt(sousMatiere.getNom().split(" ")[0]);
+                        // ajout du nombre de question à l'intent
+                        intent.putExtra(CodeAndKey.NB_QUEST_KEY, nbQuest);
+                    }
                     startActivity(intent);
-
                     // fin de l'ExerciceActivity
                     super.finish();
                 }
@@ -163,7 +156,6 @@ public class ExerciceActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
     }
-
     /**
      *
      *
@@ -183,18 +175,12 @@ public class ExerciceActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Exercice> exerciceList_DB) {
                 super.onPostExecute(exerciceList_DB);
-
                 // Mettre à jour l'exerciceList avec la liste des exercices de la base
                 exerciceList = (ArrayList) exerciceList_DB;
-                Log.d("NB EXO", exerciceList.size()+"");
-                for(Exercice e : exerciceList){
-                    Log.d("EXERCICE ID", ""+e.getId()+" Consigne : "+e.getConsigne());
-                }
                 // Lancement du premier exercice
                 LancerExercice(exerciceList.get(0));
             }
         }
-
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
         // Création d'un objet de type GetExercices et execution de la demande asynchrone
@@ -202,19 +188,18 @@ public class ExerciceActivity extends AppCompatActivity {
         gt.execute();
     }
 
-
     /**
      *
      *
      */
     private void getAllExercices() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des exercices et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer tous les exercices et de mettre à jour le listView de l'activité
         class GetAllExercices extends AsyncTask<Void, Void, List<Exercice>> {
 
             @Override
             protected List<Exercice> doInBackground(Void... voids) {
-                // récupération de la liste de tous les exercices associés à la sousMatiere
+                // récupération de la liste de tous les exercices en base
                 List<Exercice> exerciceList_DB = mDb.getAppDatabase().exerciceDao().getAll();
                 return exerciceList_DB;
             }
@@ -222,20 +207,14 @@ public class ExerciceActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Exercice> exerciceList_DB) {
                 super.onPostExecute(exerciceList_DB);
-
                 // Mettre à jour l'exerciceList avec la liste des exercices de la base
                 exerciceList = (ArrayList) exerciceList_DB;
-                Log.d("NB EXO", exerciceList.size()+"");
-                for(Exercice e : exerciceList){
-                    Log.d("EXERCICE ID", ""+e.getId()+" Consigne : "+e.getConsigne());
-                }
                 // mélange des exercices
                 Collections.shuffle(exerciceList);
                 // Lancement du premier exercice
                 LancerExercice(exerciceList.get(0));
             }
         }
-
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
         // Création d'un objet de type GetExercices et execution de la demande asynchrone
@@ -252,7 +231,6 @@ public class ExerciceActivity extends AppCompatActivity {
         intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
         intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
         intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
-
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
@@ -297,5 +275,4 @@ public class ExerciceActivity extends AppCompatActivity {
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
-
 }

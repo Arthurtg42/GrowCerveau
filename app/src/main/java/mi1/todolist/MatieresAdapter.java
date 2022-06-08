@@ -1,15 +1,11 @@
 package mi1.todolist;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -23,7 +19,7 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
     }
 
     /**
-     * Remplit une ligne de la listView avec les informations de la multiplication associée
+     * Remplit une ligne de la listView avec les informations de la matière associée
      *
      * @param position
      * @param convertView
@@ -32,10 +28,8 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
      */
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
-        // Récupération de la multiplication
+        // Récupération de la matière
         final Matiere matiere = getItem(position);
-
         // Charge le template XML
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -44,10 +38,9 @@ public class MatieresAdapter extends ArrayAdapter<Matiere> {
         // Récupération des objets graphiques dans le template
         TextView buttonMatiere = (TextView) rowView.findViewById(R.id.TemplateMatiere_btn);
 
-        //
+        // Mise à jour des attributs des objets graphiques
         buttonMatiere.setText(matiere.getNom());
-        //
+
         return rowView;
     }
-
 }

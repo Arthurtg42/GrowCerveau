@@ -6,21 +6,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import mi1.todolist.db.DatabaseClient;
 import mi1.todolist.db.Exercice;
 import mi1.todolist.db.Matiere;
-import mi1.todolist.db.Qas;
 import mi1.todolist.db.Qcm;
 import mi1.todolist.db.Result;
 import mi1.todolist.db.SousMatiere;
@@ -35,7 +31,7 @@ public class QCMActivity extends AppCompatActivity {
     private Qcm qcm;
     private Result result;
     private ListView listProposition;
-    private PropositionsAdapter adapter;
+    private QcmPropositionsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +64,7 @@ public class QCMActivity extends AppCompatActivity {
         listProposition = findViewById(R.id.listPropositionQcm);
 
         // Lier l'adapter au listView
-        adapter = new PropositionsAdapter(this, new ArrayList<String>());
+        adapter = new QcmPropositionsAdapter(this, new ArrayList<String>());
         listProposition.setAdapter(adapter);
         // Ajouter un événement click à la listView
         listProposition.setOnItemClickListener(new AdapterView.OnItemClickListener() {

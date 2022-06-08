@@ -3,12 +3,9 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,7 +32,7 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
 
         // Récupération de la matière
-        matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
+        matiere = (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY);
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -51,30 +48,25 @@ public class NavigationActivity extends AppCompatActivity {
         listSousMatiere.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 // Récupération de la sous-matière cliquée à l'aide de l'adapter
                 SousMatiere sousMatiere = adapter.getItem(position);
 
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
-                // ajoute la matière et sous matière à l'intent
+                // ajoute l'ID_SESSION, la matière et la sous matière à l'intent
                 intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
                 intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-
+                // Cas où la matière est culture Générale
                 if(matiere.getNom().compareTo("Culture Générale") == 0){
-                    Log.d("CULTURE G", ""+matiere.getNom()+"  "+sousMatiere.getNom().split(" ")[0]);
-                    // on récupère le nombre de question dans le nom de la sousMatière (format "[nb] questions"
+                    // Récupération du nombre de questions dans le nom de la sousMatière
+                    // format "[nb] questions"
                     Integer nbQuest = Integer.parseInt(sousMatiere.getNom().split(" ")[0]);
                     // ajout du nombre de question à l'intent
                     intent.putExtra(CodeAndKey.NB_QUEST_KEY, nbQuest);
                 }
-
                 // Lancement de la demande de changement d'activité
-                startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
-
-                // Message
-                Toast.makeText(NavigationActivity.this, "Click : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }
@@ -99,7 +91,6 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<SousMatiere> sousMatieres) {
                 super.onPostExecute(sousMatieres);
-
                 // Mettre à jour l'adapter avec la liste de sous-matières
                 adapter.clear();
                 adapter.addAll(sousMatieres);
@@ -108,7 +99,6 @@ public class NavigationActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         }
-
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
         // Création d'un objet de type GetSousMatieres et execution de la demande asynchrone
@@ -116,14 +106,11 @@ public class NavigationActivity extends AppCompatActivity {
         gt.execute();
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-
         // Mise à jour des sous-matières
         getSousMatieres();
-
     }
 
     public void GoBackToHomePage(View view){
@@ -139,6 +126,7 @@ public class NavigationActivity extends AppCompatActivity {
             intent.putExtra(CodeAndKey.ID_SESSION, 0);
         }
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
+        startActivity(intent);
+        super.finish();
     }
 }

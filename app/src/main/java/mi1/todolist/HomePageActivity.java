@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,8 +25,6 @@ public class HomePageActivity extends AppCompatActivity {
     // VIEW
     private ListView listMatiere;
 
-    public int idUser = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +33,13 @@ public class HomePageActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
-        // On rajoute le nom d'utilisateur
+        // Ajout du nom de l'utilisateur au message d'acceuil
         class AddNomUtil extends AsyncTask<Void, Void, String> {
 
             @Override
             protected String doInBackground(Void... voids) {
-
-                // adding to database
+                // renvoi la reponse de la DatabaseClient
                 return mDb.getAppDatabase().userDao().getPseudoFromId((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION));
-
             }
 
             @Override
@@ -52,7 +47,7 @@ public class HomePageActivity extends AppCompatActivity {
                 super.onPostExecute(pseudo);
                 if((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION) != 0){
                     TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
-                    txtIntro.setText("Bonjour "+pseudo+" ! Choisissez une activité pour commencer l'entrainement !");
+                    txtIntro.setText("Bonjour "+pseudo+" ! Choisis une activité pour commencer l'entrainement !");
                 }
             }
         }
@@ -71,23 +66,19 @@ public class HomePageActivity extends AppCompatActivity {
         listMatiere.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 // Récupération de la matière cliquée à l'aide de l'adapter
                 Matiere matiere = adapter.getItem(position);
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), NavigationActivity.class);
                 // ajoute la matière à l'intent
                 intent.putExtra(CodeAndKey.MATIERE_KEY, matiere);
+                // ajoute l'ID_SESSION à l'intent
                 intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 // Lancement de la demande de changement d'activité
-                startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
-                // Message
-                Toast.makeText(HomePageActivity.this, "Click : " + matiere.getNom(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
-
     }
-
 
     /**
      *
@@ -108,7 +99,6 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Matiere> matieres) {
                 super.onPostExecute(matieres);
-
                 // Mettre à jour l'adapter avec la liste de matieres
                 adapter.clear();
                 adapter.addAll(matieres);
@@ -129,10 +119,8 @@ public class HomePageActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         // Mise à jour des matières
         getMatieres();
-
     }
 
     public void HomePageActivityCompte(View view){
@@ -140,9 +128,10 @@ public class HomePageActivity extends AppCompatActivity {
         // On charge la main page
         // Création d'une intention
         Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
+        // flag
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
-        finish();
+        startActivity(intent);
+        super.finish();
     }
-
 }

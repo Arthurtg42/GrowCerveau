@@ -9,11 +9,17 @@
     tools:context=".ExerciceActivity">
 
     <TextView
-        android:id="@+id/consigne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ExerciceActivity_load"
+        android:text="Chargement de la question..."
+        android:textSize="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         android:gravity="center"
-        />
+        android:background="@drawable/drawable_back_general"
+        android:textColor="@color/black"
+        android:typeface="serif"
+        android:textStyle="bold"/>
 
 </LinearLayout>
