@@ -8,13 +8,6 @@
     android:orientation="vertical"
     tools:context=".QCMActivity">
 
-    <TextView
-        android:id="@+id/consigne"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:gravity="center"
-        />
 
     <TextView
         android:id="@+id/qcm_enonce"
@@ -22,13 +15,26 @@
         android:layout_height="wrap_content"
         android:text=""
         android:gravity="center"
+        android:background="@drawable/drawable_back_enonce"
+        android:layout_margin="30dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         />
 
+    <TextView
+        android:id="@+id/consigne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default Consigne"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="0dp"
+        />
 
     <ListView
         android:id="@+id/listPropositionQcm"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_height="wrap_content"

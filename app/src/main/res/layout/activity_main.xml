@@ -6,15 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/fond_app_v3">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bienvenue sur GrowCerveau"
             android:textSize="20dp"
-            android:layout_marginTop="100dp"
-            android:gravity="center"/>
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:gravity="center"
+            android:background="@drawable/drawable_back_general"
+            android:textColor="@color/black"
+            android:typeface="serif"
+            android:textStyle="bold"/>
+
 
         <Button
             android:id="@+id/MainActivity_Connexion"
@@ -26,6 +34,9 @@
             android:layout_marginRight="50dp"
             android:text="@string/MainActivity_btn_connex"
             android:onClick="MainActivityConnexion"
+            android:background="@drawable/drawable_backgroundrounded"
+            android:typeface="serif"
+            android:textStyle="bold"
             />
 
         <Button
@@ -34,9 +45,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:text="@string/MainActivity_btn_inscript"
-            android:onClick="MainActivityInscription"/>
+            android:onClick="MainActivityInscription"
+            android:background="@drawable/drawable_backgroundrounded"
+            android:typeface="serif"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/LP_Anonyme"
@@ -48,6 +63,9 @@
             android:layout_marginRight="50dp"
             android:text="@string/MainActivity_btn_anonyme"
             android:onClick="MainActivityAnonyme"
+            android:background="@drawable/drawable_backgroundrounded"
+            android:typeface="serif"
+            android:textStyle="bold"
             />
 
 

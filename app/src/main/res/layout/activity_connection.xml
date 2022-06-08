@@ -5,25 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ConnectionActivity">
+    tools:context=".ConnectionActivity"
+    android:background="@drawable/fond_app_v3">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connection"
+        android:layout_gravity="center"
+        android:background="@drawable/drawable_back_general"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/ConnectionActivity_pseudo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ConnectionActivity_hint_pseudo"/>
+        android:hint="@string/ConnectionActivity_hint_pseudo"
+        android:background="@drawable/drawable_back_general"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <EditText
         android:id="@+id/ConnectionActivity_mdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ConnectionActivity_hint_mdp"/>
+        android:hint="@string/ConnectionActivity_hint_mdp"
+        android:background="@drawable/drawable_back_general"
+        android:layout_margin="10dp"/>
 
     <Button
         android:id="@+id/ConnectionActivity_connection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ConnectionActivity_btn_connex"
-        android:onClick="ConnectionActivityConnexion"/>
+        android:onClick="ConnectionActivityConnexion"
+        android:background="@drawable/drawable_backgroundrounded"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>
