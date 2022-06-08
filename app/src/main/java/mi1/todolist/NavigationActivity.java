@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,6 +40,10 @@ public class NavigationActivity extends AppCompatActivity {
 
         // Récupérer les vues
         listSousMatiere = findViewById(R.id.listSousMatiere);
+
+        //Remplir le titre de la vue de la sous matiere
+        TextView nav_intro = findViewById(R.id.NavigationActivity_intro);
+        nav_intro.setText(matiere.getNom());
 
         // Lier l'adapter au listView
         adapter = new SousMatieresAdapter(this, new ArrayList<SousMatiere>());
@@ -91,6 +96,7 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<SousMatiere> sousMatieres) {
                 super.onPostExecute(sousMatieres);
+
                 // Mettre à jour l'adapter avec la liste de sous-matières
                 adapter.clear();
                 adapter.addAll(sousMatieres);

@@ -16,6 +16,7 @@
         android:background="@drawable/drawable_back_general"
         android:typeface="serif"
         android:textStyle="bold"
+        android:textSize="25dp"
         android:layout_marginTop="50dp"
         android:textColor="@color/black"/>
 
@@ -26,8 +27,8 @@
         android:hint="@string/ConnectionActivity_hint_pseudo"
         android:background="@drawable/drawable_back_general"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
         android:id="@+id/ConnectionActivity_mdp"
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/ConnectionActivity_hint_mdp"
         android:background="@drawable/drawable_back_general"
-        android:layout_margin="10dp"/>
+        android:layout_margin="20dp"/>
 
     <Button
         android:id="@+id/ConnectionActivity_connection"

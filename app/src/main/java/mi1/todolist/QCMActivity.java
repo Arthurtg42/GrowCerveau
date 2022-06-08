@@ -31,7 +31,9 @@ public class QCMActivity extends AppCompatActivity {
     private Qcm qcm;
     private Result result;
     private ListView listProposition;
+    private ListView listProposition2;
     private QcmPropositionsAdapter adapter;
+    private QcmPropositionsAdapter adapter2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +64,40 @@ public class QCMActivity extends AppCompatActivity {
 
         // Recupérer les vues
         listProposition = findViewById(R.id.listPropositionQcm);
+        listProposition2 = findViewById(R.id.listPropositionQcm2);
 
         // Lier l'adapter au listView
         adapter = new QcmPropositionsAdapter(this, new ArrayList<String>());
         listProposition.setAdapter(adapter);
+        adapter2 = new QcmPropositionsAdapter(this, new ArrayList<String>());
+        listProposition2.setAdapter(adapter2);
+
         // Ajouter un événement click à la listView
         listProposition.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Récupération de la matière cliquée à l'aide de l'adapter
+                String prop = adapter.getItem(position);
+
+                // Création d'une intention
+                Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
+                // flag
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                // initialisation du result et ajout dans l'intent
+                result.setReponse(qcm.getBonneReponse());
+                result.setReponse_uti(prop);
+                result.setEnonce(qcm.getEnonce());
+                intent.putExtra(CodeAndKey.RESULTS_UTI, result);
+                // ajoute l'id à l'intent
+                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
+                // envoi de la réponse avec l'intent
+                setResult(RESULT_OK, intent);
+                // fin de la QAS
+                QCMActivity.super.finish();
+            }
+        });
+        listProposition2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -122,26 +152,34 @@ public class QCMActivity extends AppCompatActivity {
                 enonce.setText(qcm.getEnonce());
 
                 ArrayList<String> proposition = new ArrayList<>();
+                ArrayList<String> proposition2 = new ArrayList<>();
 
                 if(!qcm.getBonneReponse().isEmpty()){
-                    proposition.add(qcm.getBonneReponse());
+                    proposition2.add(qcm.getBonneReponse());
                 }
                 if(!qcm.getMauvaiseReponse1().isEmpty()){
-                    proposition.add(qcm.getMauvaiseReponse1());
+                    proposition2.add(qcm.getMauvaiseReponse1());
                 }
                 if(!qcm.getMauvaiseReponse2().isEmpty()){
-                    proposition.add(qcm.getMauvaiseReponse2());
+                    proposition2.add(qcm.getMauvaiseReponse2());
                 }
                 if(!qcm.getMauvaiseReponse3().isEmpty()){
-                    proposition.add(qcm.getMauvaiseReponse3());
+                    proposition2.add(qcm.getMauvaiseReponse3());
                 }
 
                 // mélange l'ordre des porpositions
-                Collections.shuffle(proposition);
+                Collections.shuffle(proposition2);
+
+                //On réparti les reponses dans les deux list view
+                for(int i=0; i<=(proposition2.size()/2); i++) {
+                    proposition.add(proposition2.get(i));
+                    proposition2.remove(i);
+                }
 
                 // Mettre à jour l'adapter avec la liste de taches
                 adapter.clear();
                 adapter.addAll(proposition);
+                adapter2.addAll(proposition2);
                 // Now, notify the adapter of the change in source
                 adapter.notifyDataSetChanged();
             }

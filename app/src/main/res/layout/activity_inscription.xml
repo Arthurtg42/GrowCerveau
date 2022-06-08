@@ -6,31 +6,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InscriptionActivity">
+    tools:context=".InscriptionActivity"
+    android:background="@drawable/fond_app_v3">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inscription"
+        android:layout_gravity="center"
+        android:background="@drawable/drawable_back_general"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/InscriptionActivity_Nom"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/InscriptionActivity_hint_nom"
+        android:background="@drawable/drawable_back_general"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Prenom"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/InscriptionActivity_hint_prenom"
+        android:background="@drawable/drawable_back_general"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Pseudo"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/InscriptionActivity_hint_pseudo"
+        android:background="@drawable/drawable_back_general"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         />
     <EditText
         android:id="@+id/InscriptionActivity_Mot_de_passe"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/InscriptionActivity_hint_mdp"
+        android:background="@drawable/drawable_back_general"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         />
 
     <Button
@@ -39,7 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/InscriptionActivity_btn_inscript"
-        android:onClick="InscriptionActivityInscription"/>
+        android:onClick="InscriptionActivityInscription"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/drawable_backgroundrounded"/>
 
 
 </LinearLayout>

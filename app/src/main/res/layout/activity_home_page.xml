@@ -20,6 +20,7 @@
         android:background="@color/lightblue"
         android:elevation="3dp"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         >
 
         <ImageButton

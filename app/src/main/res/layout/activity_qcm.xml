@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".QCMActivity">
+    tools:context=".QCMActivity"
+    android:background="@drawable/plage">
 
 
     <TextView
@@ -16,31 +17,74 @@
         android:text=""
         android:gravity="center"
         android:background="@drawable/drawable_back_enonce"
-        android:layout_margin="30dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
+        android:paddingTop="35dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         />
 
-    <TextView
-        android:id="@+id/consigne"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Default Consigne"
-        android:gravity="center"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="0dp"
-        />
-
-    <ListView
-        android:id="@+id/listPropositionQcm"
-        android:layout_width="match_parent"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:divider="@null"
-        android:dividerHeight="0dp"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/listPropositionQcm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_weight="1"/>
+
+        <ListView
+            android:id="@+id/listPropositionQcm2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <TextView
+            android:id="@+id/consigne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default Consigne"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:padding="20dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/drawable_back_bulle"
+            android:layout_weight="5"
+            />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:background="@drawable/mascotte_v2"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

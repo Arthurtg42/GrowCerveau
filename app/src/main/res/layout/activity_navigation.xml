@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NavigationActivity">
+    tools:context=".NavigationActivity"
+    android:background="@drawable/fond_app_v3">
 
     <Button
         android:id="@+id/GoBackToHomePage"
@@ -19,10 +20,24 @@
         android:layout_gravity="bottom"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/NavigationActivity_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matière"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:background="@drawable/drawable_back_general"
+        android:textColor="@color/black"
+        android:typeface="serif"
+        android:textStyle="bold"/>
+
     <ListView
         android:id="@+id/listSousMatiere"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_height="wrap_content"
