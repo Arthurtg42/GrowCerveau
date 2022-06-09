@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">GrowCerveau</string>
 
+    <string name="GoBack">Retour</string>
     <!-- MainActivity -->
 
     <string name="MainActivity_btn_connex">Se connecter</string>
@@ -58,6 +59,11 @@
     <string name="TemplateNavigation_btn_hint_matiere">Matière</string>
     <string name="TemplateNavigation_btn_hint_sousMatiere">Sous matière</string>
     <string name="GoBackToHomePage">Matières</string>
+
+    <!-- CompteActivity Template -->
+
+    <string name="TemplateCompte_pseudo">Pseudo</string>
+    <string name="TemplateCompte_prenom_et_nom">Prenom Nom</string>
 
     <!-- ExerciceActivity -->
 

@@ -8,6 +8,17 @@
     tools:context=".ConnectionActivity"
     android:background="@drawable/fond_app_v3">
 
+    <Button
+        android:id="@+id/GoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/GoBack"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:onClick="GoBack"
+        android:layout_gravity="bottom"
+        android:gravity="center"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

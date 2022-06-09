@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void MainActivityConnexion(View view){
         // Création d'une intention
-        Intent intent = new Intent(this, ConnectionActivity.class);
+        Intent intent = new Intent(this, CompteActivity.class);
         // Lancement de la demande de changement d'activité
         startActivity(intent);
     }

@@ -94,7 +94,7 @@ public class DatabaseClient {
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(2,"+idMat+",'Soustraction');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(3,"+idMat+",'Multiplication');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(4,"+idMat+",'Division');");
-                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(5,"+idMat+",'Les quatres opérations');");
+                        DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(5,"+idMat+",'Les quatre opérations');");
                     }
 
                 }
@@ -196,7 +196,56 @@ public class DatabaseClient {
 
             // Exercices et questions
 
-            // Mathématiques ne sont pas stockés en base, ils sont générés aléatoirement et présentés sous forme de qas
+            // Mathématiques uniquement pour que la culture générale puisse venir piocher des exercices de mathématiques
+            // sinon les exercices de calcul sont générés aléatoirement
+            //              Addition
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37 = ', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '134 + 8 = ', '142');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '12 + 91 = ', '103');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '3 + 58 = ', '61');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '29 + 87 = ', '116');");
+
+            //              Soustraction
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '37 - 18 = ', '19');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '134 - 8 = ', '126');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '91 - 12 = ', '79');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '58 - 3 = ', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '87 - 29 = ', '56');");
+
+            //              Multiplication
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '8 * 7 = ', '56');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '7 * 5 = ', '35');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '6 * 6 = ', '36');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+
+            //              Division
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+
 
             // Histoire et Géographie
             //              Capitales
@@ -229,7 +278,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(27, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(27, 'Rome se situe dans quel pays ?', 'Italie');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(28, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(28, 'Les danois sont les habitant de quel pays ?', 'Danemark');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(28, 'Les danois sont les habitants de quel pays ?', 'Danemark');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(29, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(29, 'Les hollandais habitent dans quel pays ?', 'Pays-Bas');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(30, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
@@ -247,13 +296,13 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(35, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(35, 'Quel était le surnom de Louis XIV ?', 'Le roi soleil', 'Le roi des glaces', 'Le roi rayonnant', 'Le roi tournesol');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(36, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(36, 'Où est mort charlemagne ? ', 'Aix la chapelle', 'Saint jean en Royans', 'Paris', 'Lille');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(36, 'Où est mort Charlemagne ? ', 'Aix la chapelle', 'Saint jean en Royans', 'Paris', 'Lille');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(37, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(37, 'Quand est couronné charlemagne ?', 'En 800', 'En 1001', 'En 1182', 'En 354');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(37, 'Quand est couronné Charlemagne ?', 'En 800', 'En 1001', 'En 1182', 'En 354');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(38, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(38, 'A quelle dinastie appartient Charlemagne ?', 'Les Carolingiens', 'Les Capaciens', 'Les Bizonthins', 'Les Royannais');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(38, 'A quelle dynastie appartient Charlemagne ?', 'Les Carolingiens', 'Les Capaciens', 'Les Bizonthins', 'Les Royannais');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(39, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(39, 'Hugues Capet est :', 'Le roi des Francs', 'Le roi des français', 'Le roi des François', 'Le roi des Franks');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(39, 'Hugues Capet est :', 'Le roi des francs', 'Le roi des français', 'Le roi des françois', 'Le roi des franks');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(40, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(40, 'Quels sont les deux fondateurs de Rome selon la légende ?', 'Romulus et Remus', 'Romuald et Rébus', 'Jules et César', 'Titi et Grominet');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(41, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
@@ -297,11 +346,11 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(56, 10, 'Choisir entre or et hors.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(56, 'Je suis ', ' de moi.', 'hors');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(57, 10, 'Choisir entre or et hors.', 'QAT');");
-            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(57, 'Jeanne d''Arc voulait chasser les Anglais ', ' de la France.', 'hors');");
+            db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(57, 'Jeanne d''Arc voulait chasser les anglais ', ' de la France.', 'hors');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(58, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(58, 'Trouve le mot manquant : \"Tout à coup, un ... retentit au fond de la forêt.\"', 'appellent', 'appelle', 'appel', '');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(59, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(59, 'Trouve le mot manquant : \"Celui qui bouge sans arrêt les ... est inquiet.\"', 'oreilles', 'ils', 'posture', '');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(59, 'Trouve le mot manquant : \"Celui qui bouge sans arrêt les ... est inquiet.\"', 'oreilles', 'ils', 'posture', 'jambe');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(60, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(60, 'Trouve le mot manquant : \"Des ... seront utiles avant de partir.\"', 'conseils', 'conseil', 'conseillent', 'consoler');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(61, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
@@ -314,25 +363,25 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(64, 'Laquelle de ces phrases n''est pas à la forme négative ?', 'L''orage éclate brusquement', 'Sur ce parking, il n''y a guère d''endroit où s''abriter.', 'Les clients n''ont plus envie de quitter le magasin.', '');");
 
             //              Conjuguaison
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(5, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(5, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(5, 'Nous ', 'au marché.', 'allons');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(6, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(6, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(6, 'Je ', ' à la piscine.', 'vais');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(7, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(7, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(7, 'Tu ', ' chercher des champignons.', 'vas');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(8, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(8, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(8, 'Il ', ' à la plage.', 'va');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(9, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(9, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(9, 'Elles ', ' voir le match de football.', 'vont');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(10, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(10, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(10, 'Je ', ' à mon club de judo.', 'vais');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(11, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(11, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(11, 'Vous ', ' bien vous amuser.', 'allez');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(12, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(12, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(12, 'Tu ', ' vendre des fleurs ?', 'vas');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(13, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(13, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(13, 'Ils ', ' partir demain matin.', 'vont');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(14, 11, 'Conjuger le verbe aller.', 'QAT');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(14, 11, 'Conjuguer le verbe aller.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(14, 'On ', ' réussir à passer.', 'va');");
         }
     };

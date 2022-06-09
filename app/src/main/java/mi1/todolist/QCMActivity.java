@@ -42,6 +42,7 @@ public class QCMActivity extends AppCompatActivity {
 
         // Recupérer les vues
         listProposition = findViewById(R.id.listPropositionQcm);
+        listProposition2 = findViewById(R.id.listPropositionQcm2);
 
         // Instanciation des attributs
         matiere = new Matiere();
@@ -62,9 +63,6 @@ public class QCMActivity extends AppCompatActivity {
         TextView consigne = (TextView) findViewById(R.id.consigne);
         consigne.setText(exercice.getConsigne());
 
-        // Recupérer les vues
-        listProposition = findViewById(R.id.listPropositionQcm);
-        listProposition2 = findViewById(R.id.listPropositionQcm2);
 
         // Lier l'adapter au listView
         adapter = new QcmPropositionsAdapter(this, new ArrayList<String>());

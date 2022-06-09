@@ -19,5 +19,6 @@ public class CodeAndKey {
     public static final String NB_QUEST_KEY = "nb_quest_key";
     public static final String EXERCICE_KEY = "exercice_key";
     public static final String QAS_KEY = "qas_key";
+    public static final String PSEUDO_KEY = "pseudo_key";
 
 }

@@ -1,6 +1,7 @@
 package mi1.todolist;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -27,11 +28,24 @@ public class ConnectionActivity extends AppCompatActivity {
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
+        // récupération des views
+        pseudo = findViewById(R.id.ConnectionActivity_pseudo);
+        mdp = findViewById(R.id.ConnectionActivity_mdp);
+
+        // Récupération du pseudo de l'intent
+        String pseudoIntent = (String) getIntent().getStringExtra(CodeAndKey.PSEUDO_KEY);
+        if(pseudoIntent != null){
+            // Pré-remplissage du champs pseudo
+            pseudo.setText(pseudoIntent);
+            // rendre l'input non éditable
+            pseudo.setEnabled(false);
+            // couleur à noir
+            pseudo.setTextColor(Color.BLACK);
+        }
     }
 
     public void ConnectionActivityConnexion(View view){
-        pseudo = findViewById(R.id.ConnectionActivity_pseudo);
-        mdp = findViewById(R.id.ConnectionActivity_mdp);
 
         class CheckConnection extends AsyncTask<Void, Void, Integer> {
 
@@ -54,7 +68,8 @@ public class ConnectionActivity extends AppCompatActivity {
                     intent.putExtra(CodeAndKey.ID_SESSION, idUser);
                     // Lancement de la demande de changement d'activité
                     startActivity(intent);
-                    finish();
+                    // La connection a réussi, on notifie le user
+                    Toast.makeText(getApplicationContext(), "Connecté", Toast.LENGTH_LONG).show();
                 }
                 else{
                     // La connection a échoué, on affiche l'erreur
@@ -76,5 +91,9 @@ public class ConnectionActivity extends AppCompatActivity {
             CheckConnection ChechC = new CheckConnection();
             ChechC.execute();
         }
+    }
+
+    public void GoBack(View view){
+        super.finish();
     }
 }
