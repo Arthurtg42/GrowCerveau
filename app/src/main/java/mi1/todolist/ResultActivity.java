@@ -3,6 +3,7 @@ package mi1.todolist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class ResultActivity extends AppCompatActivity {
 
         // Recupérer les vues
         listResult = findViewById(R.id.listResultats);
+        Button buttonMatiere = (Button) findViewById(R.id.ResultatsActivity_Matière);
+        buttonMatiere.setText(((MyApplication) this.getApplication()).getMatiere().getNom());
 
         // Lier l'adapter au listView
         adapter = new ResultsAdapter(this, new ArrayList<Result>());
