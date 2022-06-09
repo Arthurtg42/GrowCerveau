@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -61,7 +62,7 @@ public class QCMActivity extends AppCompatActivity {
         // Récupération des infos de l'intent
         exercice = (Exercice) getIntent().getSerializableExtra(CodeAndKey.EXERCICE_KEY);
 
-        // Mise à jour de la consigne
+        // Mise à jour de la consigne et du button matière
         TextView consigne = (TextView) findViewById(R.id.consigne);
         consigne.setText(exercice.getConsigne());
 

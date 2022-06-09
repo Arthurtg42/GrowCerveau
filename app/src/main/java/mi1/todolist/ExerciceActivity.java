@@ -173,6 +173,8 @@ public class ExerciceActivity extends AppCompatActivity {
                 super.onPostExecute(exerciceList_DB);
                 // Mettre à jour l'exerciceList avec la liste des exercices de la base
                 exerciceList = (ArrayList) exerciceList_DB;
+                // mélange de l'ordre des exercices
+                Collections.shuffle(exerciceList);
                 // Lancement du premier exercice
                 LancerExercice(exerciceList.get(0));
             }
@@ -205,7 +207,7 @@ public class ExerciceActivity extends AppCompatActivity {
                 super.onPostExecute(exerciceList_DB);
                 // Mettre à jour l'exerciceList avec la liste des exercices de la base
                 exerciceList = (ArrayList) exerciceList_DB;
-                // mélange des exercices
+                // mélange de l'ordre des exercices
                 Collections.shuffle(exerciceList);
                 // Lancement du premier exercice
                 LancerExercice(exerciceList.get(0));

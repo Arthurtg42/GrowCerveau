@@ -96,7 +96,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     /////////////////////////
                     // On change de page pour la page de connexion
                     // Création d'une intention
-                    Intent intent = new Intent(InscriptionActivity.this, ConnectionActivity.class);
+                    Intent intent = new Intent(InscriptionActivity.this, CompteActivity.class);
                     // Lancement de la demande de changement d'activité
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "Enregistré", Toast.LENGTH_LONG).show();
