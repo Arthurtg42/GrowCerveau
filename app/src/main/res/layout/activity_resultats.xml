@@ -8,6 +8,52 @@
     tools:context=".ResultActivity"
     android:background="@drawable/plage">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:paddingBottom="2dp"
+        android:elevation="5dp">
+
+        <Button
+            android:id="@+id/ResultatsActivity_Acceuil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_acceuil"
+            android:onClick="ResultatsActivity_Acceuil"
+            android:background="@color/lightblue"
+            android:elevation="5dp"/>
+
+        <Button
+            android:id="@+id/ResultatsActivity_Matière"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_matiere_default"
+            android:onClick="ResultatsActivity_Matière"
+            android:background="@color/lightblue"
+            android:elevation="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <Button
+            android:id="@+id/ResultatsActivity_NouvelleSerie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ResultatsActivity_nouvelle_serie"
+            android:onClick="ResultatsActivity_NouvelleSerie"
+            android:background="@color/lightblue"
+            android:elevation="5dp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,49 +75,6 @@
         android:layout_margin="20dp"
         android:textSize="20dp"
         android:background="@drawable/drawable_back_general"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/ResultatsActivity_Acceuil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/ResultatsActivity_acceuil"
-            android:onClick="ResultatsActivity_Acceuil"
-            android:background="@color/lightblue"
-            android:elevation="5dp"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/ResultatsActivity_Matière"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/ResultatsActivity_matiere_default"
-            android:onClick="ResultatsActivity_Matière"
-            android:background="@color/lightblue"
-            android:elevation="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/ResultatsActivity_NouvelleSerie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/ResultatsActivity_nouvelle_serie"
-            android:onClick="ResultatsActivity_NouvelleSerie"
-            android:background="@color/lightblue"
-            android:elevation="5dp"
-            android:layout_margin="5dp"/>
-
-    </LinearLayout>
 
     <ListView
         android:id="@+id/listResultats"
