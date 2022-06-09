@@ -100,7 +100,7 @@ public class QCMActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 // Récupération de la matière cliquée à l'aide de l'adapter
-                String prop = adapter.getItem(position);
+                String prop = adapter2.getItem(position);
 
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
