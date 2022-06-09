@@ -33,10 +33,11 @@ public class HomePageActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
-        // Ajout du prénom du user global au message d'acceuil
+        // Ajout du prénom du user global au message d'acceuil, avec capitalisation du prénom
         if(((MyApplication) this.getApplication()).getUser() != null){
             TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
-            txtIntro.setText("Bonjour "+((MyApplication) this.getApplication()).getUser().getPrenom()+" ! Choisis une activité pour commencer l'entrainement !");
+            String prenom = ((MyApplication) this.getApplication()).getUser().getPrenom();
+            txtIntro.setText("Bonjour "+prenom.substring(0,1).toUpperCase() + prenom.substring(1).toLowerCase()+" ! Choisis une activité pour commencer l'entrainement !");
         }
 
         // Récupérer les vues

@@ -43,8 +43,13 @@ public class ComptesAdapter extends ArrayAdapter<User> {
         TextView prenomNom = (TextView) rowView.findViewById(R.id.TemplateCompte_prenom_et_nom);
 
         // Mise à jour des attributs des objets graphiques
-        pseudo.setText(user.getPseudo());
-        prenomNom.setText(user.getPrenom()+" "+user.getNom());
+        // Capitalize le pseudo, le prénom et le nom
+        String prenom;
+        String name = user.getPseudo();
+        pseudo.setText(name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase());
+        prenom = user.getPrenom();
+        name = user.getNom();
+        prenomNom.setText(prenom.substring(0,1).toUpperCase() + prenom.substring(1).toLowerCase()+" "+name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase());
 
         return rowView;
     }

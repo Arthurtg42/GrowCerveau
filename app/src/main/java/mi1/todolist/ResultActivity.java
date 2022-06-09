@@ -64,6 +64,7 @@ public class ResultActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // Lancement de la demande de changement d'activité
         startActivity(intent);
+        // fin de ResultActivity
         super.finish();
     }
 
@@ -74,6 +75,7 @@ public class ResultActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // Lancement de la demande de changement d'activité
         startActivity(intent);
+        // fin de ResultActivity
         super.finish();
     }
 
@@ -84,6 +86,8 @@ public class ResultActivity extends AppCompatActivity {
         intent.putExtra(CodeAndKey.NB_QUEST_KEY, results.size());
         // Lancement de la demande de changement d'activité
         startActivity(intent);
+        // fin de ResultActivity
+        super.finish();
     }
 
 }
