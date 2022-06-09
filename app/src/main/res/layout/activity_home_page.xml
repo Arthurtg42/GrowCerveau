@@ -10,35 +10,20 @@
     android:background="@drawable/fond_app_v3">
 
     <LinearLayout
+        android:id="@+id/GoHome"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="right"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="0dp"
         android:onClick="HomePageActivityCompte"
-        android:orientation="horizontal"
         android:background="@color/lightblue"
-        android:elevation="3dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
-
-        <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_margin="0dp"
-            android:background="@drawable/account"
-            android:onClick="HomePageActivityCompte" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:background="@null"
-            android:onClick="HomePageActivityCompte"
-            android:text="Retour à l'acceuil"
-            android:textSize="15dp"/>
+        android:elevation="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/accueil"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 
     <TextView

@@ -10,4 +10,5 @@
     <color name="blue_enonce">#B4DFFB</color>
     <color name="lightyellow">#FFF7C3</color>
     <color name="lightgrey">#DADADA</color>
+    <color name="transparent">#00DADADA</color>
 </resources>
