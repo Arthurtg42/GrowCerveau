@@ -46,6 +46,7 @@
         <entry key="app/src/main/res/layout/template_matiere.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/template_navigation.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/template_qas.xml" value="0.209375" />
+        <entry key="app/src/main/res/layout/template_qcm_proposition.xml" value="0.20260416666666667" />
         <entry key="app/src/main/res/layout/template_resultats.xml" value="0.209375" />
         <entry key="app/src/main/res/layout/template_sous_matiere.xml" value="0.20260416666666667" />
         <entry key="app/src/main/res/layout/template_task.xml" value="0.19479166666666667" />

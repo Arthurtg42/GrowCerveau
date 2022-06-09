@@ -117,6 +117,7 @@ public class QCMActivity extends AppCompatActivity {
                 QCMActivity.super.finish();
             }
         });
+        getQcm();
     }
 
     /**
@@ -187,7 +188,6 @@ public class QCMActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         // Mise à jour du qcm
-        getQcm();
     }
 
 }
