@@ -10,23 +10,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePageActivity" />
-        <activity android:name=".ConnectionActivity" />
-        <activity android:name=".CompteActivity" />
-        <activity android:name=".InscriptionActivity" />
-        <activity android:name=".NavigationActivity" />
-        <activity android:name=".QASActivity" />
-        <activity android:name=".QATActivity" />
-        <activity android:name=".QCMActivity" />
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".ExerciceActivity" />
+        <activity
+            android:name=".HomePageActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ConnectionActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".CompteActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".InscriptionActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".NavigationActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".QASActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".QATActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".QCMActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ExerciceActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
