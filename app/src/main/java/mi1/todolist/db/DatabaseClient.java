@@ -201,50 +201,50 @@ public class DatabaseClient {
             //              Addition
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37 = ', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '134 + 8 = ', '142');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '12 + 91 = ', '103');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '3 + 58 = ', '61');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '29 + 87 = ', '116');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(66, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(66, '134 + 8 = ', '142');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(67, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(67, '12 + 91 = ', '103');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(68, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(68, '3 + 58 = ', '61');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(69, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(69, '29 + 87 = ', '116');");
 
             //              Soustraction
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '37 - 18 = ', '19');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '134 - 8 = ', '126');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '91 - 12 = ', '79');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '58 - 3 = ', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '87 - 29 = ', '56');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(70, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(70, '37 - 18 = ', '19');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(71, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(71, '134 - 8 = ', '126');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(72, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(72, '91 - 12 = ', '79');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(73, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(73, '58 - 3 = ', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(74, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(74, '87 - 29 = ', '56');");
 
             //              Multiplication
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '8 * 7 = ', '56');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '7 * 5 = ', '35');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '6 * 6 = ', '36');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(75, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(75, '8 * 7 = ', '56');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(76, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(76, '7 * 5 = ', '35');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(77, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(77, '6 * 6 = ', '36');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(78, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(78, '9 * 8 = ', '72');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(79, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(79, '4 * 7 = ', '28');");
 
             //              Division
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
-            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(65, 1, 'Résolver le calcul.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(65, '18 + 37', '55');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(80, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(80, '45 / 5 = ', '9');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(81, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(81, '18  / 3 = ', '6');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(82, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(82, '24 / 4 = ', '6');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(83, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(83, '48 / 2 = ', '24');");
+            db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(84, 1, 'Résolver le calcul.', 'QAS');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(84, '60 / 10 = ', '6');");
 
 
             // Histoire et Géographie

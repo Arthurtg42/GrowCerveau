@@ -16,6 +16,15 @@ public interface UserDAO {
     @Query("SELECT * FROM user")
     List<User> getAll();
 
+    @Query("SELECT * FROM User WHERE id= :id_user")
+    User getUser(Integer id_user);
+
+    @Query("SELECT ID FROM user WHERE mdp = :motDePasseLog AND pseudo = :pseudoLog LIMIT 1")
+    int getIdUser(String pseudoLog, String motDePasseLog);
+
+    @Query("SELECT PSEUDO FROM user WHERE ID = :id")
+    String getPseudoFromId(Integer id);
+
     @Insert
     void insert(User user);
 
@@ -27,11 +36,5 @@ public interface UserDAO {
 
     @Update
     void update(User user);
-
-    @Query("SELECT ID FROM user WHERE mdp = :motDePasseLog AND pseudo = :pseudoLog")
-    int getLog(String pseudoLog, String motDePasseLog);
-
-    @Query("SELECT PSEUDO FROM user WHERE ID = :id")
-    String getPseudoFromId(Integer id);
 
 }

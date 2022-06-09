@@ -62,7 +62,6 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomePageActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(CodeAndKey.ID_SESSION, getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
         startActivity(intent);
         super.finish();
@@ -73,9 +72,6 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NavigationActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-        intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(CodeAndKey.SOUS_MATIERE_KEY));
-        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
         startActivity(intent);
         super.finish();
@@ -84,11 +80,8 @@ public class ResultActivity extends AppCompatActivity {
     public void ResultatsActivity_NouvelleSerie(View view){
         // Création d'une intention
         Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
-        // ajoute la matière à l'intent
-        intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-        intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, (SousMatiere) getIntent().getSerializableExtra(CodeAndKey.SOUS_MATIERE_KEY));
-        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
-        intent.putExtra(CodeAndKey.NB_QUEST_KEY,(Integer) getIntent().getIntExtra(CodeAndKey.NB_QUEST_KEY, 10));
+        // ajoute le nombre de questions à l'intent
+        intent.putExtra(CodeAndKey.NB_QUEST_KEY, results.size());
         // Lancement de la demande de changement d'activité
         startActivity(intent);
     }

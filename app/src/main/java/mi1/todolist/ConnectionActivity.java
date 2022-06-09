@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import mi1.todolist.db.DatabaseClient;
+import mi1.todolist.db.User;
 
 public class ConnectionActivity extends AppCompatActivity {
 
@@ -47,29 +48,31 @@ public class ConnectionActivity extends AppCompatActivity {
 
     public void ConnectionActivityConnexion(View view){
 
-        class CheckConnection extends AsyncTask<Void, Void, Integer> {
+        class CheckConnection extends AsyncTask<Void, Void, User> {
 
             @Override
-            protected Integer doInBackground(Void... voids) {
+            protected User doInBackground(Void... voids) {
+                Integer idUser = mDb.getAppDatabase().userDao().getIdUser(pseudo.getText().toString(), mdp.getText().toString());
                 // renvoi la reponse de la DatabaseClient
-                return mDb.getAppDatabase().userDao().getLog(pseudo.getText().toString(), mdp.getText().toString());
+                return (idUser != null) ? mDb.getAppDatabase().userDao().getUser(idUser) : null;
             }
 
             @Override
-            protected void onPostExecute(Integer idUser) {
-                super.onPostExecute(idUser);
-                if(idUser != 0){
+            protected void onPostExecute(User user_DB) {
+                super.onPostExecute(user_DB);
+                if(user_DB != null){
                     //La connection est réussie
-
                     // On charge la home page
                     // Création d'une intention
                     Intent intent = new Intent(ConnectionActivity.this, HomePageActivity.class);
-                    // Ajout de l'id de l'utilisateur à l'intent
-                    intent.putExtra(CodeAndKey.ID_SESSION, idUser);
+                    // Fixé le user global avec le user récupéré
+                    ((MyApplication) ConnectionActivity.this.getApplication()).setUser(user_DB);
                     // Lancement de la demande de changement d'activité
                     startActivity(intent);
                     // La connection a réussi, on notifie le user
                     Toast.makeText(getApplicationContext(), "Connecté", Toast.LENGTH_LONG).show();
+                    // fin de la ConnectionActivity
+                    finish();
                 }
                 else{
                     // La connection a échoué, on affiche l'erreur

@@ -20,9 +20,9 @@ import mi1.todolist.db.SousMatiere;
 public class NavigationActivity extends AppCompatActivity {
 
     // DATA
-    private Matiere matiere;
     private DatabaseClient mDb;
     private SousMatieresAdapter adapter;
+    private Matiere matiere;
 
     // VIEW
     private ListView listSousMatiere;
@@ -32,18 +32,18 @@ public class NavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-        // Récupération de la matière
-        matiere = (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY);
-
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
+        // récupération de la matière et la sous-matière pour alléger le code
+        matiere = ((MyApplication) this.getApplication()).getMatiere();
 
         // Récupérer les vues
         listSousMatiere = findViewById(R.id.listSousMatiere);
 
-        //Remplir le titre de la vue de la sous matiere
+        //Remplir le titre de la vue de la matiere
         TextView nav_intro = findViewById(R.id.NavigationActivity_intro);
-        nav_intro.setText(matiere.getNom());
+        nav_intro.setText(((MyApplication) this.getApplication()).getMatiere().getNom());
 
         // Lier l'adapter au listView
         adapter = new SousMatieresAdapter(this, new ArrayList<SousMatiere>());
@@ -58,10 +58,8 @@ public class NavigationActivity extends AppCompatActivity {
 
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ExerciceActivity.class);
-                // ajoute l'ID_SESSION, la matière et la sous matière à l'intent
-                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
-                intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-                intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
+                // Fixer la sous-matière globale avec matiere
+                ((MyApplication) NavigationActivity.this.getApplication()).setSousMatiere(sousMatiere);
                 // Cas où la matière est culture Générale
                 if(matiere.getNom().compareTo("Culture Générale") == 0){
                     // Récupération du nombre de questions dans le nom de la sousMatière
@@ -124,15 +122,9 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomePageActivity.class);
         // flag
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        // ajoute l'id à l'intent
-        if(getIntent().getSerializableExtra(CodeAndKey.ID_SESSION) != null) {
-            intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION));
-        }
-        else{
-            intent.putExtra(CodeAndKey.ID_SESSION, 0);
-        }
         // Lancement de la demande de changement d'activité
         startActivity(intent);
+        // fin de l'activité NavigationActivity
         super.finish();
     }
 }
