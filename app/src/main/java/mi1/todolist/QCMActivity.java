@@ -54,10 +54,12 @@ public class QCMActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
+        // récupération de la matière et la sous-matière pour alléger le code
+        matiere = ((MyApplication) this.getApplication()).getMatiere();
+        sousMatiere = ((MyApplication) this.getApplication()).getSousMatiere();
+
         // Récupération des infos de l'intent
-        matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
-        sousMatiere = (SousMatiere) getIntent().getSerializableExtra("sous_matiere_key");
-        exercice = (Exercice) getIntent().getSerializableExtra("exercice_key");
+        exercice = (Exercice) getIntent().getSerializableExtra(CodeAndKey.EXERCICE_KEY);
 
         // Mise à jour de la consigne
         TextView consigne = (TextView) findViewById(R.id.consigne);
@@ -87,8 +89,6 @@ public class QCMActivity extends AppCompatActivity {
                 result.setReponse_uti(prop);
                 result.setEnonce(qcm.getEnonce());
                 intent.putExtra(CodeAndKey.RESULTS_UTI, result);
-                // ajoute l'id à l'intent
-                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 // envoi de la réponse avec l'intent
                 setResult(RESULT_OK, intent);
                 // fin de la QAS
@@ -111,8 +111,6 @@ public class QCMActivity extends AppCompatActivity {
                 result.setReponse_uti(prop);
                 result.setEnonce(qcm.getEnonce());
                 intent.putExtra(CodeAndKey.RESULTS_UTI, result);
-                // ajoute l'id à l'intent
-                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                 // envoi de la réponse avec l'intent
                 setResult(RESULT_OK, intent);
                 // fin de la QAS
@@ -127,16 +125,12 @@ public class QCMActivity extends AppCompatActivity {
      */
     private void getQcm() {
         ///////////////////////
-        // Classe asynchrone permettant de récupérer des taches et de mettre à jour le listView de l'activité
+        // Classe asynchrone permettant de récupérer le qcm associé à l'exercice et de mettre à jour le listView de l'activité
         class GetQcm extends AsyncTask<Void, Void, Qcm> {
 
             @Override
             protected Qcm doInBackground(Void... voids) {
-                // NE RECUPERE PAS DE QCM
-                Qcm qcm_DB = mDb.getAppDatabase().qcmDao().getQcm(exercice.getId());
-                Log.d("EX ID RECUP", ""+exercice.getId());
-                Log.d("QCM RECUP", ""+qcm_DB);
-                return qcm_DB;
+                return mDb.getAppDatabase().qcmDao().getQcm(exercice.getId());
             }
 
             @Override
@@ -145,7 +139,6 @@ public class QCMActivity extends AppCompatActivity {
 
                 // Mettre à jour le qcm et l'enonce
                 qcm = qcm_DB;
-                Log.d("NB EXO", qcm.getEnonce()+"");
                 TextView enonce = (TextView) findViewById(R.id.qcm_enonce);
                 enonce.setText(qcm.getEnonce());
 
@@ -165,7 +158,7 @@ public class QCMActivity extends AppCompatActivity {
                     proposition2.add(qcm.getMauvaiseReponse3());
                 }
 
-                // mélange l'ordre des porpositions
+                // mélange l'ordre des propositions
                 Collections.shuffle(proposition2);
 
                 //On réparti les reponses dans les deux list view
@@ -185,19 +178,16 @@ public class QCMActivity extends AppCompatActivity {
 
         //////////////////////////
         // IMPORTANT bien penser à executer la demande asynchrone
-        // Création d'un objet de type GetTasks et execution de la demande asynchrone
+        // Création d'un objet de type GetQcm et execution de la demande asynchrone
         GetQcm gt = new GetQcm();
         gt.execute();
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-
         // Mise à jour du qcm
         getQcm();
-
     }
 
 }

@@ -51,8 +51,7 @@ public class CompteActivity extends AppCompatActivity {
 
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), ConnectionActivity.class);
-                // ajoute l'ID_SESSION, la matière et la sous matière à l'intent
-                intent.putExtra(CodeAndKey.ID_SESSION, user.getId());
+                // Ajout du pseudo à l'intent pour pré-remplissage du champs
                 intent.putExtra(CodeAndKey.PSEUDO_KEY, user.getPseudo());
                 // Lancement de la demande de changement d'activité
                 startActivity(intent);

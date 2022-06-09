@@ -42,10 +42,12 @@ public class QATActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
+        // récupération de la matière et la sous-matière pour alléger le code
+        matiere = ((MyApplication) this.getApplication()).getMatiere();
+        sousMatiere = ((MyApplication) this.getApplication()).getSousMatiere();
+
         // Récupération des infos de l'intent
-        matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
-        sousMatiere = (SousMatiere) getIntent().getSerializableExtra("sous_matiere_key");
-        exercice = (Exercice) getIntent().getSerializableExtra("exercice_key");
+        exercice = (Exercice) getIntent().getSerializableExtra(CodeAndKey.EXERCICE_KEY);
 
         // Mise à jour de la consigne
         TextView consigne = (TextView) findViewById(R.id.consigne);
@@ -76,7 +78,6 @@ public class QATActivity extends AppCompatActivity {
                 bloc1.setText(qat.getBloc1());
                 TextView bloc2 = (TextView) findViewById(R.id.qat_bloc2);
                 bloc2.setText(qat.getBloc2());
-                Log.d("ENONCE QAT", ""+qat.getEnonce());
             }
         }
 
@@ -91,10 +92,8 @@ public class QATActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         // Mise à jour la qat
         getQat();
-
     }
 
     public void QATActivity_Valider(View view){
@@ -108,8 +107,6 @@ public class QATActivity extends AppCompatActivity {
         result.setReponse_uti(reponseUti.getText().toString());
         result.setEnonce(qat.getEnonce());
         intent.putExtra(CodeAndKey.RESULTS_UTI, result);
-        // ajoute l'id à l'intent
-        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // envoi de la réponse avec l'intent
         setResult(RESULT_OK, intent);
         // fin de la QAS

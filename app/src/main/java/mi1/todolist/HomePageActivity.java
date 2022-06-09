@@ -33,27 +33,11 @@ public class HomePageActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
-        // Ajout du nom de l'utilisateur au message d'acceuil
-        class AddNomUtil extends AsyncTask<Void, Void, String> {
-
-            @Override
-            protected String doInBackground(Void... voids) {
-                // renvoi la reponse de la DatabaseClient
-                return mDb.getAppDatabase().userDao().getPseudoFromId((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION));
-            }
-
-            @Override
-            protected void onPostExecute(String pseudo) {
-                super.onPostExecute(pseudo);
-                if((Integer) getIntent().getSerializableExtra(CodeAndKey.ID_SESSION) != 0){
-                    TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
-                    txtIntro.setText("Bonjour "+pseudo+" ! Choisis une activité pour commencer l'entrainement !");
-                }
-            }
+        // Ajout du prénom du user global au message d'acceuil
+        if(((MyApplication) this.getApplication()).getUser() != null){
+            TextView txtIntro = findViewById(R.id.HomePageActivity_intro);
+            txtIntro.setText("Bonjour "+((MyApplication) this.getApplication()).getUser().getPrenom()+" ! Choisis une activité pour commencer l'entrainement !");
         }
-        //On execute en async
-        AddNomUtil AddUt= new AddNomUtil();
-        AddUt.execute();
 
         // Récupérer les vues
         listMatiere = findViewById(R.id.listMatiere);
@@ -70,10 +54,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Matiere matiere = adapter.getItem(position);
                 // Création d'une intention
                 Intent intent = new Intent(view.getContext(), NavigationActivity.class);
-                // ajoute la matière à l'intent
-                intent.putExtra(CodeAndKey.MATIERE_KEY, matiere);
-                // ajoute l'ID_SESSION à l'intent
-                intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
+                // Fixer la matière globale avec matiere
+                ((MyApplication) HomePageActivity.this.getApplication()).setMatiere(matiere);
                 // Lancement de la demande de changement d'activité
                 startActivity(intent);
             }

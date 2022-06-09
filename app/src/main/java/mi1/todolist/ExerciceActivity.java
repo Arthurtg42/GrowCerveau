@@ -39,9 +39,11 @@ public class ExerciceActivity extends AppCompatActivity {
         results = new ArrayList<>();
         calculList = new ArrayList<>();
 
+        // récupération de la matière et la sous-matière pour alléger le code
+        matiere = ((MyApplication) this.getApplication()).getMatiere();
+        sousMatiere = ((MyApplication) this.getApplication()).getSousMatiere();
+
         // Récupération des infos de l'intent
-        matiere = (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY);
-        sousMatiere = (SousMatiere) getIntent().getSerializableExtra(CodeAndKey.SOUS_MATIERE_KEY);
         nbQuestRestante = (Integer) getIntent().getIntExtra(CodeAndKey.NB_QUEST_KEY, 10);
 
         // Récupération du DatabaseClient
@@ -109,9 +111,6 @@ public class ExerciceActivity extends AppCompatActivity {
                 else {
                     // Intent vers les résultats avec ajout du tableau results dans l'intent
                     Intent intent = new Intent(this, ResultActivity.class);
-                    intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-                    intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-                    intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                     intent.putExtra(CodeAndKey.RESULTS_UTI, results);
                     startActivity(intent);
                     // fin de l'ExerciceActivity
@@ -128,9 +127,6 @@ public class ExerciceActivity extends AppCompatActivity {
                 else {
                     // Intent vers les résultats avec ajout du tableau results dans l'intent
                     Intent intent = new Intent(this, ResultActivity.class);
-                    intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-                    intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-                    intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
                     intent.putExtra(CodeAndKey.RESULTS_UTI, results);
                     // Cas où la matière est culture Générale
                     if(matiere.getNom().compareTo("Culture Générale") == 0){
@@ -228,9 +224,6 @@ public class ExerciceActivity extends AppCompatActivity {
         Intent intent = new Intent(this, QASActivity.class);
         // ajoute la qas à l'intent
         intent.putExtra(CodeAndKey.QAS_KEY, calc.toQas());
-        intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-        intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
     }
@@ -244,27 +237,18 @@ public class ExerciceActivity extends AppCompatActivity {
             intent.setClass(this, QASActivity.class);
             // ajoute l'exercice à l'intent
             intent.putExtra(CodeAndKey.EXERCICE_KEY, ex);
-            intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-            intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-            intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         }
         else if(ex.getType().compareTo("QAT") == 0){
             // Création d'une intention
             intent.setClass(this, QATActivity.class);
             // ajoute l'exercice à l'intent
             intent.putExtra(CodeAndKey.EXERCICE_KEY, ex);
-            intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-            intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-            intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         }
         else if(ex.getType().compareTo("QCM") == 0){
             // Création d'une intention
             intent.setClass(this, QCMActivity.class);
             // ajoute l'exercice à l'intent
             intent.putExtra(CodeAndKey.EXERCICE_KEY, ex);
-            intent.putExtra(CodeAndKey.MATIERE_KEY, (Matiere) getIntent().getSerializableExtra(CodeAndKey.MATIERE_KEY));
-            intent.putExtra(CodeAndKey.SOUS_MATIERE_KEY, sousMatiere);
-            intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         }
         else{
             // Création d'une intention

@@ -93,23 +93,21 @@ public class InscriptionActivity extends AppCompatActivity {
                 protected void onPostExecute(User user) {
                     super.onPostExecute(user);
                     // Quand le user est enregistré,
+                    /////////////////////////
+                    // On change de page pour la page de connexion
+                    // Création d'une intention
+                    Intent intent = new Intent(InscriptionActivity.this, ConnectionActivity.class);
+                    // Lancement de la demande de changement d'activité
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Enregistré", Toast.LENGTH_LONG).show();
                     // on arrête l'activité InscriptionActivity (on l'enleve de la pile d'activités)
                     finish();
-                    Toast.makeText(getApplicationContext(), "Enregistré", Toast.LENGTH_LONG).show();
                 }
             }
-
             //////////////////////////
             // IMPORTANT bien penser à executer la demande asynchrone
             SaveUser su = new SaveUser();
             su.execute();
-
-            /////////////////////////
-            // On change de page pour la page de connexion
-            // Création d'une intention
-            Intent intent = new Intent(this, ConnectionActivity.class);
-            // Lancement de la demande de changement d'activité
-            startActivity(intent);
         }
     }
 }

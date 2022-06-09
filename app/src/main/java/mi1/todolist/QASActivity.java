@@ -42,11 +42,13 @@ public class QASActivity extends AppCompatActivity {
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
 
+        // récupération de la matière et la sous-matière pour alléger le code
+        matiere = ((MyApplication) this.getApplication()).getMatiere();
+        sousMatiere = ((MyApplication) this.getApplication()).getSousMatiere();
+
         // Récupération des infos de l'intent
-        matiere = (Matiere) getIntent().getSerializableExtra("matiere_key");
-        sousMatiere = (SousMatiere) getIntent().getSerializableExtra("sous_matiere_key");
-        exercice = (Exercice) getIntent().getSerializableExtra("exercice_key");
-        qas = (Qas) getIntent().getSerializableExtra("qas_key");
+        exercice = (Exercice) getIntent().getSerializableExtra(CodeAndKey.EXERCICE_KEY);
+        qas = (Qas) getIntent().getSerializableExtra(CodeAndKey.QAS_KEY);
 
         // Mise à jour de la consigne
         TextView consigne = (TextView) findViewById(R.id.consigne);
@@ -116,8 +118,6 @@ public class QASActivity extends AppCompatActivity {
         result.setReponse_uti(reponseUti.getText().toString());
         result.setEnonce(qas.getEnonce());
         intent.putExtra(CodeAndKey.RESULTS_UTI, result);
-        // ajoute l'id à l'intent
-        intent.putExtra(CodeAndKey.ID_SESSION, (int) getIntent().getIntExtra(CodeAndKey.ID_SESSION, 0));
         // envoi de la réponse avec l'intent
         setResult(RESULT_OK, intent);
         // fin de la QAS

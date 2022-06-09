@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public void MainActivityAnonyme(View view){
         // Création d'une intention
         Intent intent = new Intent(this, HomePageActivity.class);
-        // Ajout de l'ID_SESSION (fixé à 0 dans l'intent car anonyme)
-        intent.putExtra(CodeAndKey.ID_SESSION, 0);
+        // Fixé le user global à null car user anonyme
+        ((MyApplication) this.getApplication()).setUser(null);
         // Lancement de la demande de changement d'activité
         startActivity(intent);
     }
