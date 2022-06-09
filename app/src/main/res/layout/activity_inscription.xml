@@ -9,6 +9,23 @@
     tools:context=".InscriptionActivity"
     android:background="@drawable/fond_app_v3">
 
+    <LinearLayout
+        android:id="@+id/GoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="GoBack"
+        android:background="@color/lightblue"
+        android:elevation="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/arrow_back"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +35,7 @@
         android:typeface="serif"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:textColor="@color/black"/>
 

@@ -110,4 +110,8 @@ public class InscriptionActivity extends AppCompatActivity {
             su.execute();
         }
     }
+
+    public void GoBack(View view){
+        super.finish();
+    }
 }
