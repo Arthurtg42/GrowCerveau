@@ -284,7 +284,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(30, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(30, 'Quel pays a pour capitale Luxembourg ?', 'Luxembourg');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(31, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
-            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(31, 'Lisbonne est la capitale du ', 'Portugale');");
+            db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(31, 'Lisbonne est la capitale du ', 'Portugal');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(32, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(32, 'Mexico est la capitale du ', 'Mexique');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(33, 7, 'Répondre en un seul mot à la question suivante.', 'QAS');");
@@ -348,7 +348,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(57, 10, 'Choisir entre or et hors.', 'QAT');");
             db.execSQL("INSERT INTO QAT (idE, bloc1, bloc2, reponse) VALUES(57, 'Jeanne d''Arc voulait chasser les anglais ', ' de la France.', 'hors');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(58, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(58, 'Trouve le mot manquant : \"Tout à coup, un ... retentit au fond de la forêt.\"', 'appellent', 'appelle', 'appel', '');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(58, 'Trouve le mot manquant : \"Tout à coup, un ... retentit au fond de la forêt.\"', 'appel', 'appelle', 'appellent', '');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(59, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(59, 'Trouve le mot manquant : \"Celui qui bouge sans arrêt les ... est inquiet.\"', 'oreilles', 'ils', 'posture', 'jambe');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(60, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
