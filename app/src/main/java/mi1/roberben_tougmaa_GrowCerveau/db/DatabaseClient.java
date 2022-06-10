@@ -21,14 +21,8 @@ public class DatabaseClient {
 
     // Constructeur
     private DatabaseClient(final Context context) {
-
-        // Créer l'objet représentant la base de données de votre application
-        // à l'aide du "Room database builder"
-        // MyToDos est le nom de la base de données
-        //appDatabase = Room.databaseBuilder(context, AppDatabase.class, "GrowCerveau").build();
-
         ////////// REMPLIR LA BD à la première création à l'aide de l'objet roomDatabaseCallback
-        // Ajout de la méthode addCallback permettant de populate (remplir) la base de données à sa création
+        // Ajout de la méthode addCallback permettant de remplir la base de données à sa création
         appDatabase = Room.databaseBuilder(context, AppDatabase.class, "GrowCerveau").addCallback(roomDatabaseCallback).build();
     }
 
@@ -63,20 +57,15 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO matiere (nom) VALUES('Culture Générale');");
 
             //Sous Matières
+            // Récupère l'id de la matière "Mathématiques" et insère les sous-matières associées
             class AddMat extends AsyncTask<Void, Void, Integer> {
-
                 @Override
                 protected Integer doInBackground(Void... voids) {
-
-                    // adding to database
                     return appDatabase.matiereDao().getIdMat("Mathématiques");
-
                 }
-
                 @Override
                 protected void onPostExecute(Integer idMat) {
                     super.onPostExecute(idMat);
-
                     if (idMat != null){
                         // Sous Matières Mathématiques
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(1,"+idMat+",'Addition');");
@@ -85,92 +74,70 @@ public class DatabaseClient {
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(4,"+idMat+",'Division');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(5,"+idMat+",'Les quatre opérations');");
                     }
-
                 }
             }
             //On execute en async
             AddMat AddMathSM = new AddMat();
             AddMathSM.execute();
 
+            // Récupère l'id de la matière "Histoire et Géographie" et insère les sous-matières associées
             class AddGeo extends AsyncTask<Void, Void, Integer> {
-
                 @Override
                 protected Integer doInBackground(Void... voids) {
-
-                    // adding to database
                     return appDatabase.matiereDao().getIdMat("Histoire et Géographie");
-
                 }
-
                 @Override
                 protected void onPostExecute(Integer idMat) {
                     super.onPostExecute(idMat);
-
                     if (idMat != null){
                         // Sous Matières Histoire et Géographie
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(6,"+idMat+",'Capitales');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(7,"+idMat+",'Pays');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(8,"+idMat+",'Histoire');");
                     }
-
                 }
             }
             //On execute en async
             AddGeo AddGeoSM = new AddGeo();
             AddGeoSM.execute();
 
+            // Récupère l'id de la matière "Français" et insère les sous-matières associées
             class AddFr extends AsyncTask<Void, Void, Integer> {
-
                 @Override
                 protected Integer doInBackground(Void... voids) {
-
-                    // adding to database
                     return appDatabase.matiereDao().getIdMat("Français");
-
                 }
-
                 @Override
                 protected void onPostExecute(Integer idMat) {
                     super.onPostExecute(idMat);
-
                     if (idMat != null){
-                        // Sous Matières Histoire et Géographie
                         // Sous Matières Français
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(9,"+idMat+",'Orthographe');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(10,"+idMat+",'Grammaire');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(11,"+idMat+",'Conjuguaison');");
                     }
-
                 }
             }
             //On execute en async
             AddFr AddFrSM = new AddFr();
             AddFrSM.execute();
 
-
+            // Récupère l'id de la matière "Culture Générale" et insère les sous-matières associées
             class AddCultG extends AsyncTask<Void, Void, Integer> {
-
                 @Override
                 protected Integer doInBackground(Void... voids) {
-
-                    // adding to database
                     return appDatabase.matiereDao().getIdMat("Culture Générale");
-
                 }
-
                 @Override
                 protected void onPostExecute(Integer idMat) {
                     super.onPostExecute(idMat);
-
                     if (idMat != null){
-                        // Sous Matières Histoire et Géographie
-                        // Sous Matières Français
+                        // Sous Matières Culture Générale
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(12,"+idMat+",'5 questions');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(13,"+idMat+",'10 questions');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(14,"+idMat+",'25 questions');");
                         DatabaseClient.dataBase.execSQL("INSERT INTO sousmatiere (id, idM, nom) VALUES(15,"+idMat+",'50 questions');");
                     }
-
                 }
             }
             //On execute en async
@@ -178,10 +145,9 @@ public class DatabaseClient {
             AddCultGSM.execute();
 
 
-            //Comptes
+            // Comptes
             db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tiny', 'robert', 'benjamin', 'tiny');");
-            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('totoQuiTue', 'totoQuiTue', 'totoQuiTue', '123456');");
-            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('tataQuiTue', 'tataQuiTue', 'tataQuiTue', '123456');");
+            db.execSQL("INSERT INTO user (pseudo, nom, prenom, mdp) VALUES('moluske', 'tougma', 'arthur', 'moluske');");
 
             // Exercices et questions
 
@@ -234,7 +200,6 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(83, '48 / 2 = ', '24');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(84, 1, 'Résolver le calcul.', 'QAS');");
             db.execSQL("INSERT INTO QAS (idE, enonce, reponse) VALUES(84, '60 / 10 = ', '6');");
-
 
             // Histoire et Géographie
             //              Capitales
@@ -302,8 +267,6 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(43, 'Quel est le symbole de la révolution ?', 'La Mariane', 'Le fusil', 'La barricade', 'Le tricorne');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(44, 8, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(44, 'Comment est mort Jules César ?', 'Par coup de couteau', 'Pendu', 'Guillotiné', 'Empoisonné');");
-
-
 
             // Français
             //              Orthographe
