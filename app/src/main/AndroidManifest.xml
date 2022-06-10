@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mi1.todolist">
+    package="mi1.roberben_tougmaa_GrowCerveau">
 
     <application
-        android:name=".MyApplication"
+        android:name="mi1.roberben_tougmaa_GrowCerveau.MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_brain_big"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.MainActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -21,43 +21,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePageActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.HomePageActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".ConnectionActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.ConnectionActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".CompteActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.CompteActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".InscriptionActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.InscriptionActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".NavigationActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.NavigationActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".QASActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.QASActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".QATActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.QATActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".QCMActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.QCMActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".ResultActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.ResultActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".ExerciceActivity"
+            android:name="mi1.roberben_tougmaa_GrowCerveau.ExerciceActivity"
             android:screenOrientation="portrait"
             />
     </application>
