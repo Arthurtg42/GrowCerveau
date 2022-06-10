@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/TemplateNavigation_btn_hint_matiere"
+        android:text="@string/TemplateQCMProposition_title"
         android:gravity="center"
         android:textSize="17dp"
         android:layout_margin="5dp"

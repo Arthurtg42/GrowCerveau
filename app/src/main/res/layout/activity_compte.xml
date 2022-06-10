@@ -20,18 +20,20 @@
         android:elevation="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/arrow_back"
             android:layout_margin="10dp"/>
+
     </LinearLayout>
 
     <TextView
-        android:id="@+id/NavigationActivity_intro"
+        android:id="@+id/CompteActivity_intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choissisez votre compte"
+        android:text="@string/CompteActivity_title"
         android:textSize="18dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"

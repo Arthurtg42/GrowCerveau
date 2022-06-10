@@ -96,7 +96,7 @@ public class ExerciceActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CodeAndKey.REQUEST_CODE_ADD && resultCode == RESULT_OK) {
+        if (requestCode == CodeAndKey.REQUEST_CODE_END_EXERCICE && resultCode == RESULT_OK) {
             nbQuestRestante--;
             // Récupération et stockage du result à la question
             results.add((Result) data.getSerializableExtra(CodeAndKey.RESULTS_UTI));
@@ -227,7 +227,7 @@ public class ExerciceActivity extends AppCompatActivity {
         // ajoute la qas à l'intent
         intent.putExtra(CodeAndKey.QAS_KEY, calc.toQas());
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_END_EXERCICE);
     }
 
     // Lance un exercice en fonction de son type (crée l'intent)
@@ -259,6 +259,6 @@ public class ExerciceActivity extends AppCompatActivity {
             Toast.makeText(this, "Problème, retour à l'acceuil : " + sousMatiere.getNom(), Toast.LENGTH_SHORT).show();
         }
         // Lancement de la demande de changement d'activité
-        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_ADD);
+        startActivityForResult(intent, CodeAndKey.REQUEST_CODE_END_EXERCICE);
     }
 }

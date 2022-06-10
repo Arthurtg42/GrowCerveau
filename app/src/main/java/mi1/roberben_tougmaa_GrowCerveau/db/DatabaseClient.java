@@ -326,7 +326,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(53, 9, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(53, 'Trouve la bonne orthographe.', 'la dentition', 'la dantition', 'la dentiçion', 'le danttission');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(54, 9, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(54, 'Le mot \"métitation\" est-il correctement orthographié?', 'oui', 'non', '', '');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(54, 'Le mot \"métitation\" est-il correctement orthographié?', 'non', 'oui', '', '');");
 
 
             //              Grammaire
@@ -345,7 +345,7 @@ public class DatabaseClient {
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(61, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(61, '\"ta soeur\", dans la phrase : \"Ce matin, ta soeur t''a écrit\" est', 'sujet', 'complément d''objet direct', 'attribut du sujet', 'verbe');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(62, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
-            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(62, 'Quelle est la forme négative de :\"Nous nous sommes déjà rencontrés?\"', 'Nous ne nous sommes jamais rencontrés ?', 'On s''est jamais rencontré ?', 'Nous ne nous sommes par rencontrés ?', 'aucune');");
+            db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(62, 'Quelle est la forme négative de :\"Nous nous sommes déjà rencontrés?\"', 'Nous ne nous sommes jamais rencontrés ?', 'On s''est jamais rencontré ?', 'Nous ne nous sommes pas rencontrés ?', 'aucune');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(63, 10, 'Cliquer sur la bonne réponse.', 'QCM');");
             db.execSQL("INSERT INTO QCM (idE, enonce, bonneReponse, mauvaiseReponse1, mauvaiseReponse2, mauvaiseReponse3) VALUES(63, 'Quelle est la forme négative de :\"Une hésitation est encore possible?\"', 'Une hésitation n’est plus possible.', 'Une hésitation ne sera pas possible.', 'Une hésitation n’est pas possible.', '');");
             db.execSQL("INSERT INTO exercice (id, idSM, consigne, type) VALUES(64, 10, 'Cliquer sur la bonne réponse.', 'QCM');");

@@ -10,7 +10,7 @@
         android:id="@+id/TemplateMatiere_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/TemplateNavigation_btn_hint_matiere"
+        android:text="@string/TemplateMatiere_title"
         android:gravity="center"
         android:textSize="17dp"
         android:layout_marginTop="5dp"

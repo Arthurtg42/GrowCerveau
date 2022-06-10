@@ -161,7 +161,7 @@ public class QCMActivity extends AppCompatActivity {
                 // mélange l'ordre des propositions
                 Collections.shuffle(proposition2);
 
-                //On réparti les reponses dans les deux list view
+                //On réparti les reponses dans les deux listView
                 for(int i=0; i<=(proposition2.size()/2); i++) {
                     proposition.add(proposition2.get(i));
                     proposition2.remove(i);
