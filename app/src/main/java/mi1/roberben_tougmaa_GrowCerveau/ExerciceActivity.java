@@ -34,17 +34,26 @@ public class ExerciceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercice);
 
-        // Instanciation des attributs
-        exerciceList = new ArrayList<>();
-        results = new ArrayList<>();
-        calculList = new ArrayList<>();
+        // vérification si restoration d'une instance précédemment détruite
+        if(savedInstanceState != null){
+            nbQuestRestante = savedInstanceState.getInt(CodeAndKey.STATE_NBQUESTIONS);
+            results = (ArrayList<Result>) savedInstanceState.getSerializable(CodeAndKey.STATE_RESULTS);
+            exerciceList = (ArrayList<Exercice>) savedInstanceState.getSerializable(CodeAndKey.STATE_EXERCICES);
+            calculList = (ArrayList<Calcul>) savedInstanceState.getSerializable(CodeAndKey.STATE_CAlCULS);
+        }
+        else{
+            // Instanciation des attributs
+            exerciceList = new ArrayList<>();
+            results = new ArrayList<>();
+            calculList = new ArrayList<>();
+            // Récupération des infos de l'intent
+            nbQuestRestante = (Integer) getIntent().getIntExtra(CodeAndKey.NB_QUEST_KEY, 10);
+        }
 
         // récupération de la matière et la sous-matière pour alléger le code
         matiere = ((MyApplication) this.getApplication()).getMatiere();
         sousMatiere = ((MyApplication) this.getApplication()).getSousMatiere();
 
-        // Récupération des infos de l'intent
-        nbQuestRestante = (Integer) getIntent().getIntExtra(CodeAndKey.NB_QUEST_KEY, 10);
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -260,5 +269,14 @@ public class ExerciceActivity extends AppCompatActivity {
         }
         // Lancement de la demande de changement d'activité
         startActivityForResult(intent, CodeAndKey.REQUEST_CODE_END_EXERCICE);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(CodeAndKey.STATE_NBQUESTIONS, nbQuestRestante);
+        savedInstanceState.putSerializable(CodeAndKey.STATE_RESULTS, results);
+        savedInstanceState.putSerializable(CodeAndKey.STATE_EXERCICES, exerciceList);
+        savedInstanceState.putSerializable(CodeAndKey.STATE_CAlCULS, calculList);
+        super.onSaveInstanceState(savedInstanceState);
     }
 }
